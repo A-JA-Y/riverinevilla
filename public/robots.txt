@@ -1,0 +1,10 @@
+# *
+User-agent: *
+Allow: /
+Disallow: /thank-you
+
+# Host
+Host: https://embassyriverinevilla.in
+
+# Sitemaps
+Sitemap: https://embassyriverinevilla.in/sitemap.xml
