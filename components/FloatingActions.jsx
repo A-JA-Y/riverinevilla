@@ -84,8 +84,12 @@ export default function FloatingActions() {
         </button>
       </nav>
 
-      {/* keeps the mobile bar from covering the end of the page */}
-      <div aria-hidden="true" className="sm:hidden h-[64px]" />
+      {/* keeps the mobile bar from covering the end of the page — rendered
+          after the footer (and in its colour) so it never shows as a gap */}
+      <div
+        aria-hidden="true"
+        className="sm:hidden h-[calc(64px+env(safe-area-inset-bottom))] bg-[#0b1f1a]"
+      />
     </>
   );
 }

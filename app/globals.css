@@ -102,6 +102,39 @@ html {
 }
 
 /* ──────────────────────────────────────────────
+   Horizontal overflow guard
+   Slide-in reveals start 40px off to the side. On phones that overflow
+   used to widen the layout viewport, which dragged the fixed header (and
+   its menu button) past the right edge of the screen. `clip` on html and
+   body cuts that overflow off without turning body into a scroll
+   container, so the window keeps scrolling and sticky elements still work.
+   Older browsers without `clip` keep the previous `hidden` on body.
+────────────────────────────────────────────── */
+html {
+  overflow-x: clip;
+}
+
+body {
+  overflow-x: hidden;
+  overflow-x: clip;
+}
+
+/* Hero grid: from lg the right padding keeps the hero form clear of the
+   fixed call / WhatsApp rail (right: 20px, 56px wide). The padding shrinks
+   as the gutter beside the 80rem container grows. */
+@media (min-width: 1024px) {
+  .hero-grid {
+    padding-right: max(2rem, calc(100px - max(0px, (100vw - 80rem) / 2)));
+  }
+}
+
+@media (min-width: 1280px) {
+  .hero-grid {
+    padding-right: max(2.5rem, calc(100px - max(0px, (100vw - 80rem) / 2)));
+  }
+}
+
+/* ──────────────────────────────────────────────
    Scroll-triggered reveals
    Elements start hidden and are unhidden by the
    Reveal component adding [data-shown].

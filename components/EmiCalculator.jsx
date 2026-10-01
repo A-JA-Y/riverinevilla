@@ -85,7 +85,10 @@ export default function EmiCalculator() {
           </p>
         </Reveal>
 
-        <div className="grid lg:grid-cols-2 gap-6 items-start">
+        {/* grid-cols-1 (minmax(0,1fr)) rather than an implicit auto column: the
+            number input's intrinsic width otherwise stretched both cards past
+            the edge of small phones */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-start">
           {/* Inputs */}
           <Reveal
             variant="left"

@@ -101,7 +101,8 @@ export default function RootLayout({
         <link rel="preconnect" href="https://images.pexels.com" />
       </head>
 
-      <body className="min-h-full flex flex-col overflow-x-hidden bg-white">
+      {/* horizontal overflow is clipped in globals.css (html + body) */}
+      <body className="min-h-full flex flex-col bg-white">
         <noscript>
           <iframe
             src="https://www.googletagmanager.com/ns.html?id=GTM-PGFWQ73S"

@@ -247,9 +247,11 @@ export default async function BlogDetail({ params }: { params: Params }) {
         </div>
 
         {/* BODY */}
-        <div className="max-w-7xl mx-auto px-6 md:px-12 py-14 grid lg:grid-cols-[2.2fr_1fr] gap-12">
+        {/* minmax(0, …) tracks: tables and long words in the article scroll or
+            wrap inside their column instead of widening the page on phones */}
+        <div className="max-w-7xl mx-auto px-6 md:px-12 py-14 grid grid-cols-1 lg:grid-cols-[minmax(0,2.2fr)_minmax(0,1fr)] gap-12">
           {/* ✅ FIXED: No components prop */}
-          <div className="prose prose-lg max-w-none">
+          <div className="prose prose-lg max-w-none min-w-0 wrap-break-word">
             <BlogContent />
           </div>
 
