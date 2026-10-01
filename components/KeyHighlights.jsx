@@ -29,11 +29,13 @@ export default function KeyHighlights() {
               delay={i * 55}
               className="group bg-white p-5 sm:p-6 flex flex-col gap-1 transition-colors duration-300 hover:bg-[#fffdf8]"
             >
-              <dt className="flex items-baseline gap-1.5">
+              {/* flex-wrap: on narrow cells a long unit ("Sq Ft") drops below
+                  the number as one piece instead of breaking mid-unit */}
+              <dt className="flex flex-wrap items-baseline gap-x-1.5">
                 <span className="text-2xl sm:text-3xl font-bold text-[#12302a] tabular-nums">
                   <CountUp value={h.value} />
                 </span>
-                <span className="text-[11px] sm:text-xs font-semibold uppercase tracking-[0.14em] text-[#A8822E]">
+                <span className="whitespace-nowrap text-[11px] sm:text-xs font-semibold uppercase tracking-[0.14em] text-[#A8822E]">
                   {h.unit}
                 </span>
               </dt>

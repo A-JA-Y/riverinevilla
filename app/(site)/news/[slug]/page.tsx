@@ -235,10 +235,10 @@ export default async function NewsDetail({ params }: { params: Params }) {
         </div>
 
         {/* CONTENT SECTION */}
-        <div className="max-w-7xl mx-auto px-6 md:px-12 py-14 grid grid-cols-1 lg:grid-cols-[2.2fr_1fr] gap-12 items-start">
+        <div className="max-w-7xl mx-auto px-6 md:px-12 py-14 grid grid-cols-1 lg:grid-cols-[minmax(0,2.2fr)_minmax(0,1fr)] gap-12 items-start">
 
           {/* Main Content Area */}
-          <div className="max-w-none">
+          <div className="max-w-none min-w-0 wrap-break-word">
             {NewsContent ? (
               <NewsContent />
             ) : (
@@ -249,7 +249,9 @@ export default async function NewsDetail({ params }: { params: Params }) {
           </div>
 
           {/* Sidebar */}
-          <aside className="lg:sticky lg:top-8">
+          {/* top-24 keeps the sticky sidebar clear of the 74px fixed header; it
+              only sticks on screens tall enough to show all of it */}
+          <aside className="lg:[@media(min-height:800px)]:sticky lg:top-24">
             <BlogContactForm />
 
             <RelatedPosts currentSlug={slug} />

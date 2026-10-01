@@ -10,7 +10,15 @@ import { configurations } from "@/data/project";
 
 const EMPTY = { name: "", phone: "", email: "", config: "", intent: "" };
 
-export default function ContactForm() {
+/**
+ * Lead form.
+ * - `variant="wide"` (default): pitch beside a three-column field grid. Used on
+ *   the contact page.
+ * - `variant="stacked"`: the card in the home-page hero. One column of fields
+ *   in the hero's right-hand column on desktop, two columns on tablets.
+ */
+export default function ContactForm({ variant = "wide" }) {
+  const stacked = variant === "stacked";
   const router = useRouter();
   const [formData, setFormData] = useState(EMPTY);
   const [status, setStatus] = useState(null);
@@ -56,16 +64,28 @@ export default function ContactForm() {
   };
 
   const inputClass = (hasError) =>
-    `w-full px-4 py-3 text-sm border rounded-md outline-none placeholder-gray-400 text-[#12302a] bg-white transition-colors duration-200 focus:border-[#C8A24A] focus:ring-2 focus:ring-[#C8A24A]/25 ${
+    `w-full px-4 ${stacked ? "py-3 lg:py-2.5" : "py-3"} text-sm border rounded-md outline-none placeholder-gray-400 text-[#12302a] bg-white transition-colors duration-200 focus:border-[#C8A24A] focus:ring-2 focus:ring-[#C8A24A]/25 ${
       hasError ? "border-red-500" : "border-gray-300"
     }`;
 
   return (
-    <div className="bg-white rounded-xl shadow-[0_18px_46px_-24px_rgba(18,48,42,0.45)] border border-[#efe7d6] px-5 py-6 md:p-10 w-full">
+    <div
+      className={
+        stacked
+          ? "bg-white rounded-xl shadow-[0_28px_60px_-30px_rgba(6,20,15,0.65)] border border-[#efe7d6] border-t-[3px] border-t-[#C8A24A] px-5 py-6 sm:px-7 sm:py-7 w-full"
+          : "bg-white rounded-xl shadow-[0_18px_46px_-24px_rgba(18,48,42,0.45)] border border-[#efe7d6] px-5 py-6 md:p-10 w-full"
+      }
+    >
       <form onSubmit={handleSubmit} noValidate>
-        <div className="flex flex-col lg:flex-row lg:items-start gap-6 lg:gap-8">
-          {/* Left: pitch */}
-          <div className="lg:w-[30%] flex-shrink-0">
+        <div
+          className={
+            stacked
+              ? "flex flex-col gap-5"
+              : "flex flex-col lg:flex-row lg:items-start gap-6 lg:gap-8"
+          }
+        >
+          {/* Pitch */}
+          <div className={stacked ? "" : "lg:w-[30%] flex-shrink-0"}>
             <h3 className="text-lg md:text-xl font-bold text-[#12302a] leading-tight">
               Embassy Riverine — Villas at Embassy Origins
             </h3>
@@ -78,8 +98,14 @@ export default function ContactForm() {
             </p>
           </div>
 
-          {/* Right: fields */}
-          <div className="flex-1 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+          {/* Fields */}
+          <div
+            className={
+              stacked
+                ? "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-3"
+                : "flex-1 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3"
+            }
+          >
             <div>
               <label htmlFor="cf-name" className="sr-only">Your name</label>
               <input
@@ -182,7 +208,7 @@ export default function ContactForm() {
           </p>
         )}
 
-        <p className="text-[11px] text-gray-400 mt-4 leading-relaxed">
+        <p className={`text-[11px] text-gray-400 leading-relaxed ${stacked ? "mt-3" : "mt-4"}`}>
           By submitting, you authorise Real Revenue and its representatives to contact you
           by phone, SMS, WhatsApp and email regarding this enquiry. This consent overrides
           your DND/NCPR registration.

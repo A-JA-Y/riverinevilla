@@ -6,6 +6,10 @@ import { useEffect, useRef, useState } from "react";
  * Counts from 0 to `value` the first time it scrolls into view.
  * `value` may carry separators and decimals ("4,000", "5.37", "3.4");
  * anything non-numeric ("IGBC") is rendered as-is.
+ *
+ * The final value is also painted as an invisible ::before layer in the same
+ * grid cell, so the box keeps its final width while the digits count up and
+ * the unit beside it never shifts.
  */
 export default function CountUp({ value, duration = 1500, className = "" }) {
   const ref = useRef(null);
@@ -22,11 +26,12 @@ export default function CountUp({ value, duration = 1500, className = "" }) {
     const el = ref.current;
     if (!el) return;
 
+    // No observer, or the visitor prefers reduced motion: the final value is
+    // already rendered, so there is nothing to animate.
     if (
       typeof IntersectionObserver === "undefined" ||
       window.matchMedia?.("(prefers-reduced-motion: reduce)").matches
     ) {
-      setDisplay(numeric);
       return;
     }
 
@@ -65,19 +70,25 @@ export default function CountUp({ value, duration = 1500, className = "" }) {
     );
   }
 
+  const format = (n) =>
+    grouped
+      ? n.toLocaleString("en-IN", {
+          minimumFractionDigits: decimals,
+          maximumFractionDigits: decimals,
+        })
+      : n.toFixed(decimals);
+
   // Before the observer fires, render the final value so crawlers and
   // no-JS visitors still see the real number.
-  const n = display ?? numeric;
-  const text = grouped
-    ? n.toLocaleString("en-IN", {
-        minimumFractionDigits: decimals,
-        maximumFractionDigits: decimals,
-      })
-    : n.toFixed(decimals);
-
   return (
-    <span ref={ref} className={className} suppressHydrationWarning>
-      {text}
+    <span
+      ref={ref}
+      data-final={format(numeric)}
+      className={`inline-grid before:invisible before:col-start-1 before:row-start-1 before:content-[attr(data-final)] ${className}`}
+    >
+      <span className="col-start-1 row-start-1" suppressHydrationWarning>
+        {format(display ?? numeric)}
+      </span>
     </span>
   );
 }

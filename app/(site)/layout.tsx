@@ -15,8 +15,9 @@ export default function SiteLayout({
       <HomePageHeader />
       <main className="min-h-screen bg-white w-full">{children}</main>
       <ModalWrapper />
-      <FloatingActions />
       <Footer />
+      {/* after the footer: its mobile spacer sits under the fixed bottom bar */}
+      <FloatingActions />
     </>
   );
 }

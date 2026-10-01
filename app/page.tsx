@@ -1,6 +1,5 @@
 import dynamic from "next/dynamic";
 import Hero from "@/components/Hero";
-import ReraStrip from "@/components/QRsectionsm";
 import ContactForm from "@/components/ContactForm";
 import ModalWrapper from "@/components/ModalWrapper";
 import HomePageHeader from "@/components/HomePageHeader";
@@ -82,19 +81,11 @@ export default function Home() {
 
       <ScrollProgress />
       <HomePageHeader />
-      <Hero />
-      <ReraStrip />
+      {/* Lead capture lives inside the hero: right-hand column on desktop,
+          below the copy on phones and tablets */}
+      <Hero form={<ContactForm variant="stacked" />} />
 
       <main className="w-full">
-        {/* Lead capture overlaps the hero on desktop, as in the original layout */}
-        {/* z-20 keeps this above the hero's own z-10 content layer, which the
-            card overlaps on desktop */}
-        <section className="relative z-20 px-5 md:px-[30px] md:py-[45px] -mt-8 md:-mt-[98px]">
-          <div className="max-w-5xl m-auto">
-            <ContactForm />
-          </div>
-        </section>
-
         <ModalWrapper />
 
         <AboutProject heading={false} />
@@ -117,8 +108,9 @@ export default function Home() {
       </main>
 
       <StickyDownloadButton />
-      <FloatingActions />
       <Footer />
+      {/* after the footer: its mobile spacer sits under the fixed bottom bar */}
+      <FloatingActions />
     </div>
   );
 }

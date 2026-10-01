@@ -77,7 +77,7 @@ export default function InvestmentModal({ isOpen, onClose, setIsSubmitted }) {
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-[#06140f]/75 backdrop-blur-sm px-4 py-8 overflow-y-auto"
+      className="fixed inset-0 z-[1200] flex items-center justify-center bg-[#06140f]/75 backdrop-blur-sm px-4 py-8 overflow-y-auto"
       role="dialog"
       aria-modal="true"
       aria-labelledby="brochure-modal-title"
