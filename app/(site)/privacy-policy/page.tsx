@@ -3,12 +3,30 @@ import Link from "next/link";
 import PageBanner from "@/components/PageBanner";
 import { project, rera } from "@/data/project";
 
+const META_TITLE = "Privacy Policy & Disclaimer | Embassy Riverine";
+const META_DESCRIPTION =
+  "Privacy policy and disclaimer for the Embassy Riverine channel-partner microsite operated by Real Revenue.";
+
 export const metadata: Metadata = {
-  title: "Privacy Policy & Disclaimer | Embassy Riverine",
-  description:
-    "Privacy policy and disclaimer for the Embassy Riverine channel-partner microsite operated by Real Revenue.",
+  title: META_TITLE,
+  description: META_DESCRIPTION,
   alternates: { canonical: "/privacy-policy" },
   robots: { index: true, follow: true },
+  openGraph: {
+    title: META_TITLE,
+    description: META_DESCRIPTION,
+    url: "/privacy-policy",
+    siteName: "Embassy Riverine",
+    images: [{ url: "/og-cover.webp", width: 1200, height: 630 }],
+    locale: "en_IN",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: META_TITLE,
+    description: META_DESCRIPTION,
+    images: ["/og-cover.webp"],
+  },
 };
 
 export default function PrivacyPolicyPage() {

@@ -49,6 +49,12 @@ export const metadata: Metadata = {
     "Embassy Riverine location",
     "Embassy Riverine site visit",
   ],
+  twitter: {
+    card: "summary_large_image",
+    title: META_TITLE,
+    description: META_DESCRIPTION,
+    images: ["/og-cover.webp"],
+  },
   openGraph: {
     title: META_TITLE,
     description: META_DESCRIPTION,

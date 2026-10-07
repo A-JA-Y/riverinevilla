@@ -3,8 +3,8 @@
 import Reveal from "./Reveal";
 import { distances, project } from "@/data/project";
 
-const MAP_QUERY = "Embassy+Origins,+Chapparkallu+Road,+Tarahunise,+Bettahalsur,+Bengaluru";
-const MAP_EMBED = `https://maps.google.com/maps?q=${MAP_QUERY}&t=&z=13&ie=UTF8&iwloc=&output=embed`;
+// Same pin as the location page and the "View on Google Maps" link.
+const MAP_EMBED = `https://maps.google.com/maps?q=${project.lat},${project.lng}&t=&z=13&ie=UTF8&iwloc=&output=embed`;
 const MAP_LINK = `https://www.google.com/maps/search/?api=1&query=${project.lat},${project.lng}`;
 
 const highlights = [

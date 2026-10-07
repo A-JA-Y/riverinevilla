@@ -41,6 +41,9 @@ export default function ContactForm({ variant = "wide" }) {
       e.phone = "Enter a valid phone number.";
     if (!/\S+@\S+\.\S+/.test(formData.email.trim()))
       e.email = "Enter a valid email address.";
+    // ISO dates compare correctly as strings; `min` alone is not enforced (noValidate)
+    if (formData.visitDay && formData.visitDay < localToday())
+      e.visitDay = "Pick today or a later date.";
     setErrors(e);
     return Object.keys(e).length === 0;
   };
@@ -90,6 +93,19 @@ export default function ContactForm({ variant = "wide" }) {
       *
     </span>
   );
+
+  const errorAlert =
+    status === "error" ? (
+      <p
+        role="alert"
+        className={`flex items-center gap-2 text-red-600 text-sm ${
+          stacked ? "mt-4" : "sm:col-span-2 lg:col-span-3"
+        }`}
+      >
+        <FaTimesCircle aria-hidden="true" />
+        Something went wrong. Please try again, or call us directly.
+      </p>
+    ) : null;
 
   const consent = (
     <p
@@ -252,10 +268,14 @@ export default function ContactForm({ variant = "wide" }) {
                   onFocus={(e) => {
                     if (!e.currentTarget.min) e.currentTarget.min = localToday();
                   }}
-                  className={`${inputClass(false)} text-left ${
+                  aria-invalid={!!errors.visitDay}
+                  className={`${inputClass(errors.visitDay)} text-left ${
                     formData.visitDay ? "" : "text-gray-400"
                   }`}
                 />
+                {errors.visitDay && (
+                  <p className="text-red-500 text-xs mt-1">{errors.visitDay}</p>
+                )}
               </div>
             )}
 
@@ -270,15 +290,13 @@ export default function ContactForm({ variant = "wide" }) {
             >
               {loading ? "Submitting…" : "Book a Site Visit"}
             </button>
+
+            {/* wide form: straight under the button, above the consent line on phones */}
+            {!stacked && errorAlert}
           </div>
         </div>
 
-        {status === "error" && (
-          <p role="alert" className="flex items-center gap-2 text-red-600 mt-4 text-sm">
-            <FaTimesCircle aria-hidden="true" />
-            Something went wrong. Please try again, or call us directly.
-          </p>
-        )}
+        {stacked && errorAlert}
 
         {stacked && consent}
       </form>

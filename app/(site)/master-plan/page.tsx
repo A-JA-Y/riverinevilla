@@ -34,6 +34,12 @@ export const metadata: Metadata = {
     "waterfront villas for sale in Bangalore",
     "gated community near Devanahalli airport",
   ],
+  twitter: {
+    card: "summary_large_image",
+    title: META_TITLE,
+    description: META_DESCRIPTION,
+    images: ["/og-cover.webp"],
+  },
   openGraph: {
     title: META_TITLE,
     description: META_DESCRIPTION,

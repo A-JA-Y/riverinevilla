@@ -1,6 +1,9 @@
 /**
- * Embassy Riverine — single source of truth for project facts.
- * Every page and component reads from here so a figure is only ever changed once.
+ * Embassy Riverine — shared project facts (tables, schema, contact details).
+ * Each page's SEO copy is written verbatim from its content doc, so prose
+ * figures such as prices also appear in the page files: when a figure changes,
+ * update it here and `grep -r` the old value across app/, components/,
+ * content/, data/ and public/llms.txt.
  * Content version 1.1 · 7 October 2026 (aligned with the SEO copy for the home page).
  */
 

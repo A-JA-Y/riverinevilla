@@ -41,7 +41,7 @@ export const navGroups = [
  */
 export const navHighlight = {
   label: "5 BHK — Only 32",
-  short: "5 BHK · 32 Left",
+  short: "5 BHK · Only 32",
   href: "/villas-configurations#5bhk",
 };
 
