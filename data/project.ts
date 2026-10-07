@@ -1,7 +1,7 @@
 /**
  * Embassy Riverine — single source of truth for project facts.
  * Every page and component reads from here so a figure is only ever changed once.
- * Content version 1.0 · 21 September 2026.
+ * Content version 1.1 · 7 October 2026 (aligned with the SEO copy for the home page).
  */
 
 export const SITE_URL = "https://embassyriverinevilla.in";
@@ -42,12 +42,12 @@ export const priceStrip = [
   { config: "5 BHK", area: "6,800 sq ft", price: "Price on request" },
 ];
 
+/** Hero trust line, as written in the home-page copy. */
 export const trustStrip = [
-  "RERA Approved",
-  "85-Acre Township",
-  "40,000 Sq Ft Clubhouse",
-  "19 Acres Open Space",
-  "IGBC Gold Targeted",
+  `RERA ${rera.villas}`,
+  "40,000 sq ft clubhouse",
+  "19 acres open space",
+  "IGBC Gold targeted",
 ];
 
 /** Section 4 — key highlights icon grid. */
@@ -66,6 +66,19 @@ export const highlights = [
   { value: "2.5", unit: "Km", label: "to Stonehill International School" },
 ];
 
+/** Home page — "At a glance" figures under About Embassy Riverine. */
+export const atAGlance = [
+  { value: "85", unit: "Acres", label: "Embassy Origins township" },
+  { value: "217", unit: "Villas", label: "4, 4.5 and 5 BHK" },
+  { value: "50", unit: "Acres", label: "villa precinct, under 4.5 villas per acre" },
+  { value: "19", unit: "Acres", label: "reserved open space" },
+  { value: "4,000", unit: "Trees", label: "100 to 120 species" },
+  { value: "40,000", unit: "Sq Ft", label: "clubhouse" },
+  { value: "3.4", unit: "Metres", label: "floor-to-floor height" },
+  { value: "15", unit: "Km", label: "Kempegowda International Airport" },
+  { value: "IGBC", unit: "Gold", label: "certification targeted" },
+];
+
 /** Section 5 — price & configuration table. */
 export const configurations = [
   {
@@ -76,10 +89,10 @@ export const configurations = [
     builtUp: "4,200 sq ft",
     units: 48,
     parking: 3,
-    price: "Rs 14.10 - 14.97 Cr",
+    price: "Rs 14.10 – 14.97 Cr",
     priceFrom: "Rs 14.10 Cr",
     blurb:
-      "The entry format, and the only one under 5,000 sq ft. Four bedrooms, three car parks and a 2,400 sq ft plot — the most efficient way into the enclave without giving up the township.",
+      "The entry format, and the one families moving up from a large apartment ask for first. 48 units, 3 car parks. If you want a 4 BHK villa for sale near Bangalore airport with a proper plot rather than a row-house footprint, this is the one to see.",
     features: ["4 Bedrooms", "3 Car Parks", "Private Deck", "Study"],
   },
   {
@@ -90,10 +103,10 @@ export const configurations = [
     builtUp: "5,200 sq ft",
     units: 137,
     parking: 4,
-    price: "Rs 17.43 - 19.87 Cr",
+    price: "Rs 17.43 – 19.87 Cr",
     priceFrom: "Rs 17.43 Cr",
     blurb:
-      "The largest release at 137 homes, and the configuration most buyers settle on. The half suite works as a study, a guest room or a second home office without eating into the bedroom count.",
+      "137 units, so most of the precinct is this format. The half room works as a study, a home office or a puja room, and the 3,500 sq ft plot leaves room for a private deck or pool.",
     features: ["4.5 Bedrooms", "4 Car Parks", "Family Lounge", "Garden Deck"],
   },
   {
@@ -107,7 +120,7 @@ export const configurations = [
     price: "On request",
     priceFrom: "On request",
     blurb:
-      "Only 32 of the 217 villas. A 5,400 sq ft plot, six car parks and a double-height foyer — the format that runs out first, and the one worth asking about early.",
+      "32 units with 6 car parks on 5,400 sq ft plots, the largest in the precinct. Anyone searching for a 5 BHK villa for sale in North Bangalore at this scale should ask early; it is the smallest release.",
     features: ["5 Bedrooms", "6 Car Parks", "Pool Deck", "Double-Height Foyer"],
   },
 ];
@@ -115,141 +128,127 @@ export const configurations = [
 export const workingRate =
   "approximately Rs 33,100 to Rs 37,700 per sq ft on built-up area";
 
+/** What the base price does not include (home and price copy). */
 export const additionalCharges = [
-  "GST at 5% on under-construction consideration",
-  "Stamp duty at approximately 5% to 6% of agreement value",
-  "Registration charges at 1%",
-  "Khata, infrastructure, corpus and maintenance deposits as per the agreement",
-  "Floor rise, corner and view premiums where applicable",
+  "GST at 5% on the under-construction value",
+  "Karnataka stamp duty of about 5–6%",
+  "Registration at 1%",
+  "Khata and municipal transfer charges",
+  "Infrastructure and development charges",
+  "Water, electricity and sewerage deposits",
+  "The corpus fund and maintenance advance",
+  "Clubhouse membership, where applicable",
+  "Corner, end-unit and view premiums on specific plots",
+  "Additional car parks, charged separately",
 ];
 
-/** Section 7 — amenities, grouped. */
+/** Section 7 — amenities, in the four groups of the home-page copy. */
 export const amenityGroups = [
   {
-    title: "The Clubhouse — 40,000 Sq Ft",
+    id: "clubhouse",
+    title: "Embassy Riverine Clubhouse (40,000 Sq Ft)",
     intro:
-      "The clubhouse anchors the centre of the villa precinct, beside the central lake and within walking distance of every cluster.",
+      "The clubhouse sits at the centre of the villa precinct, on the lake, within walking distance of every cluster.",
     items: [
       "Heated indoor swimming pool",
-      "Fully equipped gymnasium",
-      "Yoga and meditation pavilion",
+      "Gymnasium and yoga pavilion",
       "Spa with steam and sauna",
       "Squash court",
-      "Business lounge and co-working space",
-      "Library and quiet reading rooms",
-      "Lounge bar",
-      "Café",
+      "Business lounge and library",
+      "Lounge bar and cafe",
       "Indoor games room",
-      "Banquet hall with attached guest rooms",
+      "Banquet hall with guest rooms",
     ],
   },
   {
-    title: "Sports & Outdoor",
+    id: "sport",
+    title: "Sport",
     intro:
-      "Courts and greens are distributed through the precinct rather than stacked in one corner, so no cluster is far from a place to play.",
+      "The courts are outdoors and distributed through the precinct, so no cluster is far from one.",
     items: [
-      "Outdoor resort-style swimming pool",
-      "Central lake with landscaped edge",
+      "Outdoor resort pool",
       "Floodlit tennis court",
-      "Padel court",
-      "Pickleball court",
-      "Basketball court",
-      "Badminton court",
+      "Padel and pickleball courts",
+      "Basketball and badminton courts",
       "Cricket practice nets",
-      "Multipurpose court",
       "Putting green",
       "Skating rink",
     ],
   },
   {
-    title: "Family & Social",
+    id: "family",
+    title: "Family and Outdoors",
     intro:
-      "The social programme is built for a community that will live here for decades, not for a launch-day photograph.",
+      "Nineteen acres of the 85 are reserved open space, spread through the layout instead of walled into one park.",
     items: [
-      "Kids' club",
-      "Adventure play park",
-      "Family pavilions",
-      "Function lawn",
-      "Barbecue pavilion",
-      "Garden cabanas",
+      "Central lake",
+      "Kids' club and adventure play park",
+      "Family pavilions and function lawn",
+      "Barbecue pavilion and cabanas",
       "Open-air amphitheatre",
-    ],
-  },
-  {
-    title: "Landscape & Wellness",
-    intro:
-      "Nineteen acres of reserved open space, threaded through the street network rather than consolidated into a single park.",
-    items: [
-      "19 acres of reserved open space",
       "Riparian jogging and cycling trails",
-      "Elevated sky walk",
-      "Tree walk through the retained canopy",
+      "Elevated sky walk and tree walk",
       "Pet park",
-      "Senior citizens' activity zone",
-      "Themed landscaped gardens",
+      "Senior citizens' zone",
     ],
   },
   {
-    title: "Infrastructure & Sustainability",
+    id: "estate",
+    title: "Estate",
     intro:
-      "The unglamorous half of the specification, and the half that decides what the enclave feels like in year ten.",
+      "The part of the amenities list nobody photographs and everyone depends on in year ten.",
     items: [
-      "24x7 gated security with CCTV surveillance",
-      "Fully underground cabling — no overhead lines",
-      "Power backup for common areas and essential circuits",
-      "Sewage treatment plant with treated water reuse",
-      "Rainwater harvesting with 5.37 crore litre storage capacity",
+      "24x7 gated security with CCTV",
+      "Fully underground cabling",
+      "Power backup for essential circuits",
+      "Sewage treatment with water reuse",
+      "Rainwater harvesting of 5.37 crore litres",
       "EV charging provision",
-      "Solar hot water systems",
-      "IGBC Green Homes Gold certification targeted",
+      "Solar hot water",
       "Zero-discharge water planning",
     ],
   },
 ];
 
-/** Section 8 — specifications. */
+/** Section 8 — specifications (indicative; the agreement annexure binds). */
 export const specifications = [
   {
     title: "Structure",
-    body: "RCC framed structure with shear walls, designed to IS code requirements for the applicable seismic zone. Floor-to-floor height of 3.4 metres, delivering finished ceiling heights of approximately 2.9 metres in the main living volumes.",
+    body: "RCC frame with shear walls to IS code; 3.4 m floor-to-floor height",
   },
   {
     title: "Flooring",
-    body: "Premium marble across living, dining and formal areas. Engineered wood flooring in bedrooms, laid over an acoustic underlay. Anti-skid tiles in balconies, utility and wet areas.",
+    body: "Premium marble in living, dining and formal areas; engineered wood in bedrooms over an acoustic underlay; anti-skid tiles in balconies and wet areas",
   },
   {
-    title: "Doors",
-    body: "Main and internal doors at 2.4 metres in height, tubular timber core with 0.8 mm oak veneer finish and quality hardware.",
-  },
-  {
-    title: "Windows & Glazing",
-    body: "Double-glazed panoramic sliding door systems in heat-strengthened laminated glass to the principal living spaces. UPVC window systems elsewhere, with provision for insect screens.",
+    title: "Doors and windows",
+    body: "2.4 m doors with oak veneer; double-glazed panoramic sliding systems in heat-strengthened laminated glass; UPVC windows elsewhere",
   },
   {
     title: "Kitchen",
-    body: "Homogeneous tile flooring, granite or engineered stone counter with under-mount sink, tiled dado above the counter, and provision for chimney, hob, water purifier and dishwasher points.",
+    body: "Stone counter with under-mount sink, tiled dado, points for chimney, hob, purifier and dishwasher",
   },
   {
     title: "Electrical",
-    body: "Concealed copper wiring in conduit with modular switches from a reputed make. Power backup for common services and essential circuits within each villa. EV-ready point in the villa parking. Provision for home automation and structured cabling.",
+    body: "Concealed copper wiring, modular switches, backup for essential circuits, EV-ready parking, home automation provision",
   },
   {
-    title: "Sanitary & Plumbing",
-    body: "CP fittings and sanitaryware from Grohe, Kohler or TOTO or equivalent. Rain shower in the master bathroom. CPVC supply lines and PVC drainage. Solar-assisted hot water supply.",
+    title: "Bathrooms",
+    body: "Grohe, Kohler or TOTO fittings or equivalent; rain shower in the master bath",
   },
 ];
 
-/** Section 9 — distance table. */
+/** Section 9 — distance table (by road from the project gate, approximate). */
 export const distances = [
-  { destination: "Stonehill International School", distance: "2.5 km", time: "5-7 min" },
-  { destination: "Padukone-Dravid Centre for Sports Excellence", distance: "3 km", time: "6-8 min" },
-  { destination: "Prestige Tech Cloud office park", distance: "6.5 km", time: "12-15 min" },
-  { destination: "Doddajala (proposed Metro Blue Line station)", distance: "7.5 km", time: "14-17 min" },
-  { destination: "Manipal Hospital, Yelahanka", distance: "11.5 km", time: "22-27 min" },
-  { destination: "Yelahanka Junction Railway Station", distance: "12 km", time: "24-28 min" },
-  { destination: "Kempegowda International Airport", distance: "15 km", time: "20-25 min" },
-  { destination: "Phoenix Mall of Asia, Byatarayanapura", distance: "17 km", time: "30-35 min" },
-  { destination: "Hebbal flyover / ORR gateway", distance: "21 km", time: "35-42 min" },
+  { destination: "Stonehill International School", distance: "2.5 km", time: "5–7 min" },
+  { destination: "Padukone-Dravid Centre for Sports Excellence", distance: "3 km", time: "6–8 min" },
+  { destination: "Prestige Tech Cloud office park", distance: "6.5 km", time: "12–15 min" },
+  { destination: "Doddajala (proposed Metro Blue Line)", distance: "7.5 km", time: "14–17 min" },
+  { destination: "Manipal Hospital, Yelahanka", distance: "11.5 km", time: "22–27 min" },
+  { destination: "Yelahanka Junction Railway Station", distance: "12 km", time: "24–28 min" },
+  { destination: "Kempegowda International Airport", distance: "15 km", time: "20–25 min" },
+  { destination: "Phoenix Mall of Asia", distance: "17 km", time: "30–35 min" },
+  { destination: "Hebbal flyover / ORR", distance: "21 km", time: "35–42 min" },
 ];
 
 export const neighbourhood = {
@@ -296,7 +295,7 @@ export const investmentCase = [
   },
   {
     title: "Supply discipline at the top end",
-    body: "Low-density villa land in the corridor is finite and increasingly institutionally held. At a working rate of Rs 33,000 to Rs 38,000 per sq ft, Embassy Riverine is the most expensive villa product in North Bangalore — a bet on the corridor closing the gap with Whitefield and Sarjapur.",
+    body: "Low-density villa land in the corridor is finite and increasingly institutionally held. At roughly Rs 33,100 to Rs 37,700 per sq ft on built-up area, Embassy Riverine sits at the top end of luxury villas in North Bangalore — a bet on the corridor closing the gap with Whitefield and Sarjapur.",
   },
 ];
 
@@ -309,67 +308,47 @@ export const competitors = [
   "Fortius Under the Sun, IVC Road",
 ];
 
-/** Section 13 — FAQ, reused for both UI and FAQPage schema. */
+/** Home-page FAQ, reused for both the UI and the FAQPage schema. */
 export const faqs = [
   {
-    question: "Where exactly is Embassy Riverine located?",
+    question: "What is the Embassy Riverine price?",
     answer:
-      "Embassy Riverine is on Chapparkallu Road at Tarahunise, in the Bettahalsur belt of Jala Hobli, North Bangalore, just off NH-44. It forms the villa precinct of the 85-acre Embassy Origins township, approximately 15 km from Kempegowda International Airport.",
+      "Embassy Riverine price starts at Rs 14.10 Cr for a 4 BHK villa (4,200 sq ft) and Rs 17.43 Cr for a 4.5 BHK villa (5,200 sq ft). The 5 BHK villa (6,800 sq ft) is priced on request. All figures exclude GST, stamp duty and registration.",
   },
   {
-    question: "What configurations are available at Embassy Riverine?",
+    question: "Where is Embassy Riverine located?",
     answer:
-      "Three villa formats — 4 BHK on a 2,400 sq ft plot with 4,200 sq ft built-up, 4.5 BHK on a 3,500 sq ft plot with 5,200 sq ft built-up, and 5 BHK on a 5,400 sq ft plot with 6,800 sq ft built-up. There are 48, 137 and 32 units respectively, totalling 217 villas.",
+      "On Chapparkallu Road at Tarahunise, in the Bettahalsur belt north of Yelahanka, just off NH-44. It is the villa precinct of the 85-acre Embassy Origins township, about 15 km from Kempegowda International Airport.",
   },
   {
-    question: "What is the price of Embassy Riverine villas?",
+    question: "What villa configurations and sizes are available?",
     answer:
-      "Indicative launch pricing starts at Rs 14.10 crore for the 4 BHK and Rs 17.43 crore for the 4.5 BHK. The 5 BHK is available on request. That works out to approximately Rs 33,100 to Rs 37,700 per sq ft on built-up area, exclusive of GST, stamp duty and registration.",
+      "Three formats: 4 BHK (2,400 sq ft plot, 4,200 sq ft built-up, 48 units), 4.5 BHK (3,500 sq ft plot, 5,200 sq ft built-up, 137 units) and 5 BHK (5,400 sq ft plot, 6,800 sq ft built-up, 32 units). 217 villas in total.",
   },
   {
-    question: "Is Embassy Riverine RERA approved?",
+    question: "What is the Embassy Riverine RERA number and possession date?",
     answer:
-      "Yes. Embassy Riverine is registered with Karnataka RERA under PRM/KA/RERA/1251/309/PR/090926/008924, registered on 9 September 2026.",
+      "PRM/KA/RERA/1251/309/PR/090926/008924, registered on 9 September 2026. The RERA-filed completion date is 30 September 2032, with phased handover indicated from 2030.",
   },
   {
-    question: "When is possession for Embassy Riverine?",
+    question: "What is the booking amount and payment plan?",
     answer:
-      "The RERA-filed completion date is 30 September 2032. The developer has indicated phased handover beginning from 2030. The RERA date is the contractually enforceable one.",
+      "Around 10% of the villa price at booking, with the balance on a construction-linked schedule. Ask us for the current Embassy Riverine payment plan and cost sheet in writing.",
   },
   {
     question: "How far is Embassy Riverine from Kempegowda International Airport?",
     answer:
-      "Approximately 15 km, or a 20 to 25 minute drive via NH-44, without entering city traffic.",
+      "About 15 km by road, a 20 to 25 minute drive on NH-44 without entering the city.",
   },
   {
-    question: "How big is the clubhouse at Embassy Riverine?",
+    question: "What amenities does Embassy Riverine have?",
     answer:
-      "The clubhouse extends to approximately 40,000 sq ft and includes a heated indoor pool, gymnasium, spa with steam and sauna, squash court, business lounge, library, lounge bar, café and a banquet hall with guest rooms.",
+      "A 40,000 sq ft clubhouse with a heated indoor pool, gym, spa, squash court, business lounge and banquet hall, plus an outdoor pool, central lake, floodlit tennis, padel and pickleball courts, cricket nets, a putting green, a skating rink, riparian trails, a sky walk and a pet park.",
   },
   {
-    question: "How many villas are there and what is the density?",
+    question: "How do I book an Embassy Riverine site visit?",
     answer:
-      "217 villas across approximately 50 acres of the villa precinct, which is roughly 4.4 villas per acre — a low density by Bangalore standards.",
-  },
-  {
-    question: "Are there schools near Embassy Riverine?",
-    answer:
-      "Stonehill International School is 2.5 km away, a five to seven minute drive. Canadian International School, Vidyashilp Academy and Delhi Public School North also serve the corridor.",
-  },
-  {
-    question: "Who is the developer of Embassy Riverine?",
-    answer:
-      "Embassy Developments Limited, the listed residential arm of Embassy Group. Embassy Group was founded in 1993 and has delivered roughly 85 to 100 million sq ft across commercial, residential, hospitality and industrial assets.",
-  },
-  {
-    question: "Is home loan available for Embassy Riverine?",
-    answer:
-      "Yes. The project is expected to be approved by leading banks and housing finance companies. Our team can arrange loan pre-approval and compare offers across lenders at no cost to you.",
-  },
-  {
-    question: "Can NRIs buy at Embassy Riverine?",
-    answer:
-      "Yes. Non-Resident Indians and Persons of Indian Origin may purchase residential property in India under the general permission granted by the Reserve Bank of India, with payment routed through normal banking channels or NRE/NRO accounts. We handle documentation and power of attorney arrangements for overseas buyers.",
+      "Call or WhatsApp +91 63566 63535, or use the form on this page. Visits run seven days a week with pickup from Hebbal or Yelahanka, and you get the price sheet the same day.",
   },
 ];
 

@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import { useEffect, useRef } from "react";
 
 import heroDesktop from "../assets/riverine-hero.webp";
@@ -110,33 +109,39 @@ export default function Hero({ form }) {
               {/* eyebrow */}
               <p
                 className="hero-rise flex items-center gap-3 text-gold-soft text-[10px] sm:text-[11px]
-                           font-semibold uppercase tracking-[0.22em]"
+                           font-semibold uppercase tracking-[0.2em]"
                 style={{ "--d": "80ms" }}
               >
                 <span className="h-px w-8 flex-shrink-0 bg-[#c8a24a]" />
-                New Launch · Embassy Origins, North Bangalore
+                New Launch · Embassy Origins, Tarahunise, North Bangalore
               </p>
 
-              <h2
+              {/* The page's only h1 */}
+              <h1
                 style={{ "--d": "180ms" }}
-                className="hero-rise mt-4 text-white font-semibold leading-[1.08]
-                           text-[clamp(2rem,6.4vw,4rem)] lg:text-[clamp(2.25rem,3.4vw,3.5rem)]"
+                className="hero-rise mt-4 text-white font-semibold leading-[1.1]
+                           text-[clamp(1.85rem,5.6vw,3.4rem)] lg:text-[clamp(2.1rem,3vw,3.1rem)]"
               >
-                Where a River Decided
-                <span className="block text-gold-soft">the Master Plan</span>
-              </h2>
+                Embassy Riverine Villas{" "}
+                <span className="text-gold-soft">
+                  – 4, 4.5 &amp; 5 BHK Luxury Villas in North Bangalore
+                </span>
+              </h1>
 
               <p
                 style={{ "--d": "300ms" }}
                 className="hero-rise mt-5 text-white/85 text-sm sm:text-base leading-relaxed max-w-xl"
               >
-                Embassy Riverine — 217 villas of 4, 4.5 and 5 bedrooms, arranged around a
-                protected riparian corridor inside the 85-acre Embassy Origins township.
+                217 independent villas on about 50 acres inside the 85-acre Embassy Origins
+                township, 15 km from Kempegowda International Airport. Embassy Riverine price
+                starts at <strong className="text-white font-semibold">Rs 14.10 Cr</strong> for
+                a 4 BHK villa.
               </p>
 
               {/* price strip */}
               <ul
                 style={{ "--d": "410ms" }}
+                aria-label="Embassy Riverine villa formats and prices"
                 className="hero-rise mt-7 grid gap-x-6 gap-y-3 sm:grid-cols-3 border-y border-white/15 py-4"
               >
                 {priceStrip.map((p) => (
@@ -144,7 +149,7 @@ export default function Hero({ form }) {
                     <span className="text-gold-soft text-[11px] font-semibold uppercase tracking-[0.16em]">
                       {p.config}
                     </span>
-                    <span className="text-white/55 text-[11px] sm:mt-0.5">{p.area}</span>
+                    <span className="text-white/60 text-[11px] sm:mt-0.5">{p.area}</span>
                     <span className="text-white text-[13px] sm:text-sm font-semibold sm:mt-1 ml-auto sm:ml-0">
                       {p.price}
                     </span>
@@ -165,33 +170,36 @@ export default function Hero({ form }) {
                              text-xs font-bold uppercase tracking-[0.18em]
                              px-7 py-4 transition-colors cursor-pointer"
                 >
-                  Request the Price Sheet
+                  Get the Price Sheet
                   <svg width="12" height="12" viewBox="0 0 11 11" fill="none" aria-hidden="true">
                     <path d="M1.5 5.5h8M6 2l3.5 3.5L6 9" stroke="currentColor" strokeWidth="1.4"
                           strokeLinecap="round" strokeLinejoin="round" />
                   </svg>
                 </button>
 
-                <Link
-                  href="/contact-us"
+                <button
+                  type="button"
+                  onClick={() => openModal()}
                   className="inline-flex items-center justify-center rounded border border-white/35
                              hover:border-[#c8a24a] hover:bg-[#c8a24a]/10 text-white
                              text-xs font-bold uppercase tracking-[0.18em]
-                             px-7 py-4 transition-colors backdrop-blur-sm"
+                             px-7 py-4 transition-colors backdrop-blur-sm cursor-pointer"
                 >
-                  Schedule a Site Visit
-                </Link>
+                  Book a Site Visit
+                </button>
               </div>
 
-              {/* trust strip */}
+              {/* RERA / trust line */}
               <ul
                 style={{ "--d": "620ms" }}
+                aria-label="RERA registration and key facts"
                 className="hero-rise mt-7 flex flex-wrap items-center gap-x-3 gap-y-2"
               >
                 {trustStrip.map((t) => (
                   <li
                     key={t}
-                    className="text-white/75 text-[10px] sm:text-[11px] uppercase tracking-[0.14em]
+                    className="max-w-full break-all sm:break-normal text-white/75 text-[10px] sm:text-[11px]
+                               uppercase tracking-[0.08em] sm:tracking-[0.14em]
                                border border-white/20 rounded-full px-3 py-1.5 backdrop-blur-sm"
                   >
                     {t}

@@ -14,9 +14,9 @@ export default function NewsSection() {
     <section className="w-full bg-[#FAF8F3] py-16 md:py-20 px-6" id="news">
       <div className="max-w-6xl mx-auto flex flex-col gap-10">
         <Reveal variant="up" className="text-center">
-          <h6 className="uppercase text-xs font-semibold tracking-[0.22em] text-[#A8822E] mb-3">
+          <p className="uppercase text-xs font-semibold tracking-[0.22em] text-[#A8822E] mb-3">
             Latest News
-          </h6>
+          </p>
           <h2 className="text-3xl md:text-4xl font-bold text-[#12302a] leading-tight">
             Market &amp; Infrastructure Updates
           </h2>

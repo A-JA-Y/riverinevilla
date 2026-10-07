@@ -1,7 +1,8 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState, useSyncExternalStore } from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 import plan4 from "@/assets/plan-4bhk.webp";
 import plan45 from "@/assets/plan-45bhk.webp";
@@ -13,37 +14,45 @@ import { useModal } from "./ModalContext";
 import { configurations, project } from "@/data/project";
 
 const planImages = { "4bhk": plan4, "45bhk": plan45, "5bhk": plan5 };
+const STORAGE_KEY = "plansUnlocked";
 
-export default function PlansSection() {
-  const { openModal, isLeadSubmitted } = useModal();
-  const [isUnlocked, setIsUnlocked] = useState(false);
-  const [activePlan, setActivePlan] = useState(null);
-  const [isMasterOpen, setIsMasterOpen] = useState(false);
+/* localStorage as an external store, so the "unlocked" flag survives reloads
+   without a setState-in-effect round trip. */
+const subscribeStorage = (callback) => {
+  window.addEventListener("storage", callback);
+  return () => window.removeEventListener("storage", callback);
+};
+const readStoredUnlock = () => {
+  try {
+    return localStorage.getItem(STORAGE_KEY) === "true";
+  } catch {
+    return false; // storage blocked
+  }
+};
+
+/** Plans are unlocked once a lead has been submitted, now or on an earlier visit. */
+function usePlansUnlocked() {
+  const { isLeadSubmitted } = useModal();
+  const stored = useSyncExternalStore(subscribeStorage, readStoredUnlock, () => false);
 
   useEffect(() => {
-    if (isLeadSubmitted) {
-      setIsUnlocked(true);
-      try {
-        localStorage.setItem("plansUnlocked", "true");
-      } catch {
-        /* storage blocked — unlock for this session only */
-      }
-    } else {
-      try {
-        if (localStorage.getItem("plansUnlocked") === "true") setIsUnlocked(true);
-      } catch {
-        /* ignore */
-      }
+    if (!isLeadSubmitted) return;
+    try {
+      localStorage.setItem(STORAGE_KEY, "true");
+    } catch {
+      /* storage blocked — unlocked for this session only */
     }
   }, [isLeadSubmitted]);
 
-  /* Close whichever lightbox is open on Escape. */
+  return isLeadSubmitted || stored;
+}
+
+/** Locks page scroll and closes on Escape while a lightbox is open. */
+function useLightbox(isOpen, close) {
   useEffect(() => {
-    if (!activePlan && !isMasterOpen) return;
+    if (!isOpen) return;
     const onKey = (e) => {
-      if (e.key !== "Escape") return;
-      setActivePlan(null);
-      setIsMasterOpen(false);
+      if (e.key === "Escape") close();
     };
     window.addEventListener("keydown", onKey);
     document.body.style.overflow = "hidden";
@@ -51,29 +60,44 @@ export default function PlansSection() {
       window.removeEventListener("keydown", onKey);
       document.body.style.overflow = "";
     };
-  }, [activePlan, isMasterOpen]);
+  }, [isOpen, close]);
+}
+
+/** Home page — "Floor Plan": the three villa plans, unlocked after an enquiry. */
+export default function PlansSection() {
+  const { openModal } = useModal();
+  const isUnlocked = usePlansUnlocked();
+  const [activePlan, setActivePlan] = useState(null);
+  const closePlan = useCallback(() => setActivePlan(null), []);
+  useLightbox(Boolean(activePlan), closePlan);
 
   return (
     <section className="w-full py-16 md:py-20 px-6 bg-white" id="plans">
-      <div className="max-w-6xl mx-auto flex flex-col gap-12">
-        <Reveal variant="up" className="text-center">
-          <h6 className="uppercase text-xs font-semibold tracking-[0.22em] text-[#A8822E] mb-3">
-            Floor Plans
-          </h6>
+      <div className="max-w-5xl mx-auto flex flex-col gap-10">
+        <Reveal variant="up" className="max-w-3xl">
+          <p className="uppercase text-xs font-semibold tracking-[0.22em] text-[#A8822E] mb-3">
+            Independent villas
+          </p>
           <h2 className="text-3xl md:text-4xl font-bold text-[#12302a] leading-tight">
-            Three Layouts, No Towers
+            Floor Plan
           </h2>
-          <p className="text-gray-600 text-sm mt-4 max-w-2xl mx-auto leading-relaxed">
-            Every home at Embassy Riverine is an independent villa. Plot, built-up area and
-            car parks are fixed per format — the only thing that varies is where in the
-            precinct it sits.
+          <span className="rule-grow mt-3" data-shown="" />
+          <p className="text-gray-700 text-[15px] md:text-base mt-5 leading-relaxed">
+            Each Embassy Riverine{" "}
+            <Link href="/floor-plans" className="text-[#A8822E] font-semibold link-wipe">
+              floor plan
+            </Link>{" "}
+            is for an independent villa on its own plot, with 3.4 m floor-to-floor height
+            and finished ceilings close to 2.9 m in the main living spaces. Double-glazed
+            sliding systems open the living areas onto the garden.
           </p>
         </Reveal>
 
-        {/* Configuration cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+        {/* Plan cards */}
+        <ul className="grid grid-cols-1 md:grid-cols-3 gap-5">
           {configurations.map((c, i) => (
             <Reveal
+              as="li"
               key={c.id}
               variant="up"
               delay={i * 110}
@@ -85,14 +109,14 @@ export default function PlansSection() {
                 className="block w-full text-left cursor-pointer"
                 aria-label={
                   isUnlocked
-                    ? `View the ${c.type} floor plan`
-                    : `Unlock the ${c.type} floor plan`
+                    ? `View the ${c.short} floor plan`
+                    : `Unlock the ${c.short} floor plan`
                 }
               >
                 <div className="relative h-44 overflow-hidden bg-[#F6F2E8]">
                   <Image
                     src={planImages[c.id]}
-                    alt={`${c.type} floor plan — ${c.plot} plot, ${c.builtUp} built-up`}
+                    alt={`Embassy Riverine ${c.short} floor plan — ${c.plot} plot, ${c.builtUp} built-up`}
                     fill
                     sizes="(max-width: 768px) 100vw, 360px"
                     className={`object-cover object-top transition duration-500 ${
@@ -114,61 +138,34 @@ export default function PlansSection() {
                 </div>
 
                 <div className="p-5">
-                  <h3 className="text-base font-bold text-[#12302a]">{c.type}</h3>
-                  <p className="text-[13px] text-[#A8822E] font-semibold mt-0.5">
-                    {c.builtUp} · {c.priceFrom}
+                  <h3 className="text-base font-bold text-[#12302a]">{c.short} floor plan</h3>
+                  <p className="text-[13px] text-gray-700 mt-1.5 leading-relaxed">
+                    {c.plot} plot · {c.builtUp} built-up · {c.parking} car parks
                   </p>
-                  <dl className="grid grid-cols-3 gap-2 mt-3 text-center">
-                    {[
-                      ["Plot", c.plot],
-                      ["Units", String(c.units)],
-                      ["Parks", String(c.parking)],
-                    ].map(([k, v]) => (
-                      <div key={k} className="bg-[#F6F2E8] rounded py-2 border border-[#e8dfc8]">
-                        <dt className="text-[9px] uppercase tracking-[0.1em] text-[#8a9690]">{k}</dt>
-                        <dd className="text-[12px] font-semibold text-[#12302a] mt-0.5">{v}</dd>
-                      </div>
-                    ))}
-                  </dl>
                 </div>
               </button>
             </Reveal>
           ))}
-        </div>
+        </ul>
 
-        {/* Master plan */}
-        <Reveal variant="up" className="flex flex-col items-center text-center mt-2">
-          <h3 className="text-xl md:text-2xl font-semibold mb-2 text-[#A8822E]">Master Plan</h3>
-          <p className="text-gray-600 text-sm mb-6 max-w-lg leading-relaxed">
-            The riparian corridor, the 80-foot spine, the 19 acres of reserved open space
-            and where each villa cluster sits within them.
+        <Reveal variant="up" className="flex flex-col sm:flex-row sm:items-center gap-5 sm:gap-8">
+          <p className="text-gray-700 text-[15px] leading-relaxed flex-1">
+            The full{" "}
+            <Link href="/floor-plans" className="text-[#A8822E] font-semibold link-wipe">
+              floor plan
+            </Link>{" "}
+            set and the Embassy Riverine brochure go out on WhatsApp or email the same day
+            you ask.
           </p>
-
           <button
             type="button"
-            onClick={() => (isUnlocked ? setIsMasterOpen(true) : openModal())}
-            className="relative w-full md:w-[78%] rounded-xl overflow-hidden shadow-lg cursor-pointer group border border-[#e5dcc5]"
+            onClick={() => openModal()}
+            className="btn-sheen flex-shrink-0 inline-flex items-center justify-center gap-2 bg-[#C8A24A] hover:bg-[#A8822E] text-white text-xs font-bold uppercase tracking-[0.16em] px-7 py-4 rounded transition-colors cursor-pointer"
           >
-            <Image
-              src={masterPlan}
-              alt="Embassy Origins master plan — 85 acres, 217 villas, 19 acres of open space"
-              className={`w-full h-[240px] md:h-[360px] object-cover transition duration-500 ${
-                isUnlocked ? "group-hover:scale-[1.03]" : "blur-[4px] scale-105"
-              }`}
-              sizes="(max-width: 768px) 100vw, 860px"
-            />
-            <span className="absolute inset-0 flex flex-col items-center justify-center bg-[#0b1f1a]/55 text-white">
-              <span className="text-lg font-semibold">Embassy Origins Master Plan</span>
-              <span className="text-sm mt-1 text-white/80">
-                {isUnlocked ? "Click to view and download" : "Unlock to access"}
-              </span>
-              <span className="mt-4 bg-[#C8A24A] text-white text-[11px] font-bold px-6 py-2.5 rounded uppercase tracking-[0.16em]">
-                {isUnlocked ? "View Plan" : "Unlock Now"}
-              </span>
-            </span>
-            <span className="absolute top-3 left-3 bg-[#C8A24A] text-white text-[10px] px-2.5 py-1 rounded uppercase tracking-[0.12em] font-bold">
-              Premium
-            </span>
+            Request Floor Plans
+            <svg width="12" height="12" viewBox="0 0 11 11" fill="none" aria-hidden="true">
+              <path d="M1.5 5.5h8M6 2l3.5 3.5L6 9" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
           </button>
         </Reveal>
       </div>
@@ -176,13 +173,13 @@ export default function PlansSection() {
       {/* Floor-plan lightbox */}
       {activePlan && (
         <Lightbox
-          onClose={() => setActivePlan(null)}
+          onClose={closePlan}
           title={`${activePlan.type} — ${activePlan.plot} plot`}
           subtitle={`${activePlan.builtUp} built-up · ${activePlan.parking} car parks · ${activePlan.priceFrom}`}
         >
           <Image
             src={planImages[activePlan.id]}
-            alt={`${activePlan.type} floor plan`}
+            alt={`Embassy Riverine ${activePlan.short} floor plan`}
             className="w-full h-auto object-contain"
             sizes="(max-width: 768px) 100vw, 860px"
           />
@@ -195,11 +192,52 @@ export default function PlansSection() {
           </div>
         </Lightbox>
       )}
+    </section>
+  );
+}
 
-      {/* Master-plan lightbox */}
-      {isMasterOpen && (
+/**
+ * The Embassy Origins master-plan image. Locked behind an enquiry until a lead
+ * has been submitted; then it opens full size with a brochure download.
+ * `label` is the call-to-action text shown on the image.
+ */
+export function MasterPlanViewer({ label = "View the Master Plan" }) {
+  const { openModal } = useModal();
+  const isUnlocked = usePlansUnlocked();
+  const [isOpen, setIsOpen] = useState(false);
+  const close = useCallback(() => setIsOpen(false), []);
+  useLightbox(isOpen, close);
+
+  return (
+    <>
+      <button
+        type="button"
+        onClick={() => (isUnlocked ? setIsOpen(true) : openModal())}
+        aria-label={isUnlocked ? label : `${label} (opens the enquiry form)`}
+        className="relative block w-full rounded-xl overflow-hidden shadow-lg cursor-pointer group border border-[#e5dcc5]"
+      >
+        <Image
+          src={masterPlan}
+          alt="Embassy Origins master plan — 85 acres, 217 villas, 19 acres of open space"
+          className={`w-full h-[240px] md:h-[340px] object-cover transition duration-500 ${
+            isUnlocked ? "group-hover:scale-[1.03]" : "blur-[4px] scale-105"
+          }`}
+          sizes="(max-width: 768px) 100vw, 520px"
+        />
+        <span className="absolute inset-0 flex flex-col items-center justify-center bg-[#0b1f1a]/55 text-white px-4 text-center">
+          <span className="text-lg font-semibold">Embassy Origins Master Plan</span>
+          <span className="text-sm mt-1 text-white/80">
+            {isUnlocked ? "Click to view and download" : "Unlock to access"}
+          </span>
+          <span className="mt-4 bg-[#C8A24A] text-white text-[11px] font-bold px-6 py-2.5 rounded uppercase tracking-[0.16em]">
+            {label}
+          </span>
+        </span>
+      </button>
+
+      {isOpen && (
         <Lightbox
-          onClose={() => setIsMasterOpen(false)}
+          onClose={close}
           title="Embassy Origins Master Plan"
           subtitle="85 acres · 217 villas · 19 acres reserved open space"
         >
@@ -218,7 +256,7 @@ export default function PlansSection() {
           </a>
         </Lightbox>
       )}
-    </section>
+    </>
   );
 }
 
@@ -245,7 +283,7 @@ function Lightbox({ children, onClose, title, subtitle }) {
         </button>
 
         <div className="text-left mb-3 pr-12">
-          <h3 className="text-lg font-bold text-[#12302a]">{title}</h3>
+          <p className="text-lg font-bold text-[#12302a]">{title}</p>
           {subtitle && <p className="text-sm text-gray-500 mt-0.5">{subtitle}</p>}
         </div>
 

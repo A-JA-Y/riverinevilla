@@ -17,54 +17,94 @@ const highlights = [
   "North of Yelahanka, in the Bettahalsur belt of Jala Hobli",
 ];
 
-export default function LocationAdvantages() {
+/**
+ * Location section: copy beside the map, then the distance table.
+ * Every prop is optional and defaults to the original copy. `intro` (node)
+ * replaces the centred intro, `children` replaces the left-hand column,
+ * `tableNote` the line under the table and `footer` adds a CTA after it.
+ *
+ * @param {{
+ *   eyebrow?: string | null,
+ *   title?: string,
+ *   intro?: import("react").ReactNode,
+ *   children?: import("react").ReactNode,
+ *   tableTitle?: string | null,
+ *   tableNote?: string | null,
+ *   footer?: import("react").ReactNode,
+ *   className?: string,
+ * }} props
+ */
+export default function LocationAdvantages({
+  eyebrow = "Location & Connectivity",
+  title = "Twenty Minutes to the Airport, Without Entering the City",
+  intro,
+  children,
+  tableTitle = "Distance snapshot",
+  tableNote = "Distances are approximate and measured from the township gate by road. Drive times vary with traffic conditions.",
+  footer = null,
+  className = "bg-white",
+}) {
   return (
-    <section className="w-full bg-white py-16 md:py-20 px-6" id="location">
+    <section className={`w-full py-16 md:py-20 px-6 ${className}`} id="location">
       <div className="max-w-5xl mx-auto">
         <Reveal variant="up">
-          <p className="text-center text-xs font-semibold uppercase mb-4 text-[#A8822E] tracking-[0.22em]">
-            Location &amp; Connectivity
-          </p>
+          {eyebrow ? (
+            <p className="text-center text-xs font-semibold uppercase mb-4 text-[#A8822E] tracking-[0.22em]">
+              {eyebrow}
+            </p>
+          ) : null}
           <h2 className="text-center font-bold text-[#12302a] mb-4 text-3xl md:text-4xl leading-tight">
-            Twenty Minutes to the Airport, Without Entering the City
+            {title}
           </h2>
-          <p className="text-center text-gray-600 text-sm max-w-2xl mx-auto mb-12 md:mb-14 leading-relaxed">
-            Embassy Riverine sits on Chapparkallu Road at Tarahunise, north of Yelahanka
-            and just off NH-44 — the stretch of Bangalore that changed character fastest in
-            the last decade.
-          </p>
+          {intro ? (
+            <div className="text-gray-700 text-[15px] md:text-base max-w-3xl mx-auto mb-12 md:mb-14 leading-relaxed">
+              {intro}
+            </div>
+          ) : (
+            <p className="text-center text-gray-600 text-sm max-w-2xl mx-auto mb-12 md:mb-14 leading-relaxed">
+              Embassy Riverine sits on Chapparkallu Road at Tarahunise, north of Yelahanka
+              and just off NH-44 — the stretch of Bangalore that changed character fastest in
+              the last decade.
+            </p>
+          )}
         </Reveal>
 
         <div className="flex flex-col lg:flex-row gap-10 lg:gap-12 items-start">
-          {/* Left: highlights */}
-          <Reveal variant="left" className="flex-1 w-full max-w-lg">
-            <h3 className="font-bold text-[#12302a] mb-3 text-base">Strategic Connectivity</h3>
-            <p className="text-gray-600 leading-relaxed mb-7 text-sm">
-              The airport anchored this corridor, the aerospace and hardware parks followed,
-              and the international schools followed the families. What it buys you is a
-              quiet, low-density site with a twenty-minute run to the international
-              terminal.
-            </p>
+          {/* Left: page copy, or the default highlights */}
+          {children ? (
+            <Reveal variant="left" className="flex-1 w-full text-gray-700 text-[15px] leading-relaxed">
+              {children}
+            </Reveal>
+          ) : (
+            <Reveal variant="left" className="flex-1 w-full max-w-lg">
+              <h3 className="font-bold text-[#12302a] mb-3 text-base">Strategic Connectivity</h3>
+              <p className="text-gray-600 leading-relaxed mb-7 text-sm">
+                The airport anchored this corridor, the aerospace and hardware parks followed,
+                and the international schools followed the families. What it buys you is a
+                quiet, low-density site with a twenty-minute run to the international
+                terminal.
+              </p>
 
-            <ul className="space-y-3.5">
-              {highlights.map((item, i) => (
-                <Reveal
-                  as="li"
-                  key={item}
-                  variant="up"
-                  delay={i * 70}
-                  className="flex items-start gap-3"
-                >
-                  <span className="text-[#C8A24A] mt-0.5 flex-shrink-0" aria-hidden="true">
-                    <svg width="15" height="12" viewBox="0 0 18 14" fill="none">
-                      <path d="M1.5 7L6.5 12L16.5 1.5" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
-                    </svg>
-                  </span>
-                  <span className="text-[#3d4f49] text-sm">{item}</span>
-                </Reveal>
-              ))}
-            </ul>
-          </Reveal>
+              <ul className="space-y-3.5">
+                {highlights.map((item, i) => (
+                  <Reveal
+                    as="li"
+                    key={item}
+                    variant="up"
+                    delay={i * 70}
+                    className="flex items-start gap-3"
+                  >
+                    <span className="text-[#C8A24A] mt-0.5 flex-shrink-0" aria-hidden="true">
+                      <svg width="15" height="12" viewBox="0 0 18 14" fill="none">
+                        <path d="M1.5 7L6.5 12L16.5 1.5" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+                      </svg>
+                    </span>
+                    <span className="text-[#3d4f49] text-sm">{item}</span>
+                  </Reveal>
+                ))}
+              </ul>
+            </Reveal>
+          )}
 
           {/* Right: map */}
           <Reveal variant="right" className="flex-1 w-full">
@@ -92,11 +132,13 @@ export default function LocationAdvantages() {
 
         {/* Distance table */}
         <Reveal variant="up" className="mt-14">
-          <h3 className="font-bold text-[#12302a] text-lg mb-4">Distance snapshot</h3>
+          {tableTitle ? (
+            <h3 className="font-bold text-[#12302a] text-lg mb-4">{tableTitle}</h3>
+          ) : null}
           <div className="overflow-x-auto rounded-lg border border-[#e5dcc5] shadow-sm">
             <table className="w-full text-sm text-left min-w-[480px]">
               <caption className="sr-only">
-                Distances and drive times from the Embassy Origins township gate
+                Distances and drive times by road from the Embassy Riverine project gate
               </caption>
               <thead className="bg-[#F6F2E8] text-[#A8822E] uppercase text-[11px] tracking-[0.12em]">
                 <tr>
@@ -113,7 +155,9 @@ export default function LocationAdvantages() {
                       i % 2 ? "bg-[#fffdf8]" : "bg-white"
                     }`}
                   >
-                    <td className="px-5 py-3.5 text-[#12302a]">{d.destination}</td>
+                    <th scope="row" className="px-5 py-3.5 text-[#12302a] font-normal text-left">
+                      {d.destination}
+                    </th>
                     <td className="px-5 py-3.5 text-gray-600 whitespace-nowrap">{d.distance}</td>
                     <td className="px-5 py-3.5 text-gray-600 whitespace-nowrap">{d.time}</td>
                   </tr>
@@ -121,10 +165,10 @@ export default function LocationAdvantages() {
               </tbody>
             </table>
           </div>
-          <p className="text-[11px] text-gray-500 italic mt-3 leading-relaxed">
-            Distances are approximate and measured from the township gate by road. Drive
-            times vary with traffic conditions.
-          </p>
+          {tableNote ? (
+            <p className="text-[12px] text-gray-500 italic mt-3 leading-relaxed">{tableNote}</p>
+          ) : null}
+          {footer ? <div className="mt-7">{footer}</div> : null}
         </Reveal>
       </div>
     </section>

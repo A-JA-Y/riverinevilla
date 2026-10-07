@@ -22,9 +22,9 @@ export default function VillaFeatures() {
     <section className="w-full py-14 md:py-16 px-4 sm:px-8 bg-[#F6F2E8]" id="investment-benefits">
       <div className="max-w-5xl mx-auto">
         <Reveal variant="up">
-          <h6 className="text-center uppercase mb-3 text-[#A8822E] tracking-[0.22em] text-[11px] font-semibold">
+          <p className="text-center uppercase mb-3 text-[#A8822E] tracking-[0.22em] text-[11px] font-semibold">
             For the chosen few
-          </h6>
+          </p>
           <h2 className="text-center font-bold text-[#12302a] mb-10 text-[clamp(1.4rem,3.5vw,2rem)] leading-tight">
             Villa Formats &amp; Specification Highlights
           </h2>
@@ -88,7 +88,8 @@ export default function VillaFeatures() {
                   <span className="rounded-full flex-shrink-0 w-[5px] h-[5px] bg-[#C8A24A] inline-block mt-1.5" />
                   <span className="text-[13px] text-[#5c6b65]">
                     <strong className="text-[#12302a] font-semibold">{s.title}:</strong>{" "}
-                    {s.body.split(".")[0]}.
+                    {/* first clause only — the full list is on the specifications section */}
+                    {s.body.split(";")[0]}
                   </span>
                 </li>
               ))}

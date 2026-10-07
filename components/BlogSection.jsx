@@ -14,9 +14,9 @@ export default function BlogSection() {
     <section className="w-full bg-white py-16 md:py-20 px-6" id="blog">
       <div className="max-w-6xl mx-auto flex flex-col gap-10">
         <Reveal variant="up" className="text-center">
-          <h6 className="uppercase text-xs font-semibold tracking-[0.22em] text-[#A8822E] mb-3">
+          <p className="uppercase text-xs font-semibold tracking-[0.22em] text-[#A8822E] mb-3">
             Our Blog
-          </h6>
+          </p>
           <h2 className="text-3xl md:text-4xl font-bold text-[#12302a] leading-tight">
             Insights &amp; Investment Guides
           </h2>

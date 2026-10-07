@@ -73,9 +73,9 @@ export default function EmiCalculator() {
     <section className="w-full bg-[#F6F2E8] py-16 md:py-20 px-6" id="emi">
       <div className="max-w-5xl mx-auto">
         <Reveal variant="up" className="text-center mb-10">
-          <h6 className="uppercase text-xs font-semibold tracking-[0.22em] text-[#A8822E] mb-3">
+          <p className="uppercase text-xs font-semibold tracking-[0.22em] text-[#A8822E] mb-3">
             Plan the Purchase
-          </h6>
+          </p>
           <h2 className="text-3xl md:text-4xl font-bold text-[#12302a] leading-tight">
             EMI Calculator
           </h2>

@@ -86,9 +86,10 @@ export default function ContactForm({ variant = "wide" }) {
         >
           {/* Pitch */}
           <div className={stacked ? "" : "lg:w-[30%] flex-shrink-0"}>
-            <h3 className="text-lg md:text-xl font-bold text-[#12302a] leading-tight">
+            {/* a form title, not a content heading — keeps the page outline clean */}
+            <p className="text-lg md:text-xl font-bold text-[#12302a] leading-tight">
               Embassy Riverine — Villas at Embassy Origins
-            </h3>
+            </p>
             <p className="text-[#A8822E] mt-1 text-sm font-semibold">
               Tarahunise, North Bangalore
             </p>
