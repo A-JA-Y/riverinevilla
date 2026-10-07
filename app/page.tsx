@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import dynamic from "next/dynamic";
 import Link from "next/link";
 import Hero from "@/components/Hero";
@@ -21,6 +22,14 @@ import {
   configurations,
   atAGlance,
 } from "@/data/project";
+
+/** Home-page meta, as in the SEO doc; openGraph and twitter come from the root layout. */
+export const metadata: Metadata = {
+  title: "Embassy Riverine Villas | Price, Floor Plan, North Bangalore",
+  description:
+    "Embassy Riverine villas at Embassy Origins, North Bangalore. 217 RERA-approved 4, 4.5 & 5 BHK villas from Rs 14.10 Cr. Get price, floor plan & site visit.",
+  alternates: { canonical: "/" },
+};
 
 // Lazy load below-the-fold client sections
 const AboutProject = dynamic(() => import("@/components/AboutProject"));
@@ -240,8 +249,8 @@ export default function Home() {
           }
         >
           <p>
-            <strong className="text-[#12302a]">Why this part of the city:</strong> the
-            airport came first, then the aerospace and hardware parks, then the
+            <strong className="text-[#12302a]">Why this part of the city:</strong>{" "}
+            the airport came first, then the aerospace and hardware parks, then the
             international schools, and the land around them is still largely open. That is
             why villas near Devanahalli airport now command a premium over the older villa
             belts of the east and south. Among the gated communities near Devanahalli

@@ -49,6 +49,12 @@ export const metadata: Metadata = {
       },
     ],
   },
+  twitter: {
+    card: "summary_large_image",
+    title: META_TITLE,
+    description: META_DESCRIPTION,
+    images: ["/og-cover.webp"],
+  },
 };
 
 const linkCls = "text-[#A8822E] font-semibold link-wipe";
@@ -66,9 +72,8 @@ const categories: IndexTopic[] = [
 ];
 
 /** "Latest" card copy from the doc, keyed by story slug. */
-const storyCopy: Record<string, { topic: string; blurb: string; cta: string }> = {
+const storyCopy: Record<string, { blurb: string; cta: string }> = {
   "embassy-origins-launch-north-bangalore-2026": {
-    topic: "Launch News",
     blurb:
       "Embassy Developments Limited opened Embassy Origins on 15 September 2026, six days after RERA registration: 85 acres north of Yelahanka planned around an open stream corridor, with the Embassy Riverine villa precinct of 217 homes on about 50 acres. The launch price list, the three villa & configuration options and the possession timeline.",
     cta: "Read the launch story",
@@ -84,7 +89,7 @@ const stories: IndexPost[] = [...NewsData]
       title: n.title,
       image: n.image,
       alt: n.altText || n.title,
-      topic: copy?.topic ?? n.category,
+      topic: n.category,
       date: n.date,
       blurb: copy?.blurb ?? n.excerpt,
       cta: copy?.cta ?? "Read the story",

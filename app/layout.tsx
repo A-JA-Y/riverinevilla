@@ -48,7 +48,8 @@ export const metadata: Metadata = {
     "Embassy villas in North Bangalore",
   ],
 
-  alternates: { canonical: "/" },
+  // No canonical here: every page sets its own (the home page in app/page.tsx),
+  // so a page that forgets one is not silently canonicalised to the home page.
 
   robots: {
     index: true,

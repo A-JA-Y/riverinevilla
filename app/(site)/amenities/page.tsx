@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import type { ReactNode } from "react";
 import type { StaticImageData } from "next/image";
 import Image from "next/image";
 import Link from "next/link";
@@ -201,7 +202,9 @@ const locationFigures = [
   { figure: "3 km", label: "Padukone-Dravid Centre for Sports Excellence" },
 ];
 
-const amenitiesFaqs = [
+/** `answer` is the plain text used in the FAQPage JSON-LD; `answerNode`, when set,
+ *  is the on-page version carrying the same words with the copy's links. */
+const amenitiesFaqs: { question: string; answer: string; answerNode?: ReactNode }[] = [
   {
     question: "What amenities does Embassy Riverine offer?",
     answer:
@@ -240,8 +243,24 @@ const amenitiesFaqs = [
     question: "Do the amenities cost extra?",
     answer:
       "Clubhouse membership where applicable, the corpus fund and maintenance advance are charged over the base price, and monthly maintenance applies after handover. Ask for the rates in writing.",
+    answerNode: (
+      <>
+        Clubhouse membership where applicable, the corpus fund and maintenance advance are
+        charged over the base{" "}
+        <Link href="/price" className={linkCls}>
+          price
+        </Link>
+        , and monthly maintenance applies after handover. Ask for the rates in writing.
+      </>
+    ),
   },
 ];
+
+/* On-page answers carry the doc's links; the JSON-LD below keeps the plain text. */
+const faqItems = amenitiesFaqs.map((f) => ({
+  question: f.question,
+  answer: f.answerNode ?? f.answer,
+}));
 
 const schema = {
   "@context": "https://schema.org",
@@ -738,7 +757,7 @@ export default function AmenitiesPage() {
       </section>
 
       <FaqAccordion
-        faqs={amenitiesFaqs}
+        faqs={faqItems}
         title="Frequently Asked Questions"
         eyebrow="FAQ"
         className="bg-[#FAF8F3] border-y border-[#e5dcc5]"

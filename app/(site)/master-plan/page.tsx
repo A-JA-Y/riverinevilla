@@ -11,7 +11,7 @@ import StickyDownloadButton from "@/components/StickyButton";
 import masterPlan from "@/assets/master-plan.webp";
 import corridorImg from "@/assets/riparian-corridor.webp";
 import treesImg from "@/assets/township-trees.webp";
-import clubhouseImg from "@/assets/township-clubhouse.webp";
+import lakeImg from "@/assets/township-lake.webp";
 import { configurations, rera, projectSchema, breadcrumb } from "@/data/project";
 
 const META_TITLE = "Embassy Riverine Master Plan | 85-Acre Embassy Origins Map";
@@ -368,7 +368,7 @@ export default function MasterPlanPage() {
             <div className="relative aspect-[4/3] rounded-xl overflow-hidden border border-[#e5dcc5] shadow-sm">
               <Image
                 src={corridorImg}
-                alt="The natural stream corridor at Embassy Origins, kept open with a riparian buffer on both banks"
+                alt="A natural stream under tree cover, representative of the corridor the master plan keeps open"
                 fill
                 sizes="(max-width: 768px) 100vw, 480px"
                 className="object-cover"
@@ -388,7 +388,7 @@ export default function MasterPlanPage() {
             <div className="relative aspect-[4/3] rounded-xl overflow-hidden border border-[#e5dcc5] shadow-sm">
               <Image
                 src={treesImg}
-                alt="Retained tree canopy and open space across the Embassy Origins township"
+                alt="A walking path through planted trees, representative of the open space and tree cover"
                 fill
                 sizes="(max-width: 768px) 100vw, 480px"
                 className="object-cover"
@@ -406,8 +406,8 @@ export default function MasterPlanPage() {
             </h2>
             <p>
               <strong className="text-[#12302a]">19 of the 85 acres</strong> are reserved open
-              space. Around <strong className="text-[#12302a]">4,000 trees</strong> of 100 to
-              120 species are being retained or planted across the site, with the existing
+              space. Around <strong className="text-[#12302a]">4,000 trees</strong>{" "}
+              of 100 to 120 species are being retained or planted across the site, with the existing
               canopy along the corridor kept rather than cleared. The open space is spread
               through the layout: the corridor and its trails, the lake edge, the function lawn
               and family pavilions, the amphitheatre, the kids&apos; adventure play park, the
@@ -451,8 +451,8 @@ export default function MasterPlanPage() {
           <Reveal variant="zoom" delay={100}>
             <div className="relative aspect-[4/3] rounded-xl overflow-hidden border border-[#e5dcc5] shadow-sm">
               <Image
-                src={clubhouseImg}
-                alt="The 40,000 sq ft Embassy Riverine clubhouse beside the central lake"
+                src={lakeImg}
+                alt="Open water, representative of the central lake beside the clubhouse on the stream corridor"
                 fill
                 sizes="(max-width: 768px) 100vw, 480px"
                 className="object-cover"
@@ -639,24 +639,31 @@ export default function MasterPlanPage() {
             </h2>
           </Reveal>
 
-          <dl className="grid grid-cols-2 lg:grid-cols-5 gap-px bg-[#e0d6bd] rounded-xl overflow-hidden border border-[#e0d6bd]">
-            {atAGlance.map((g, i) => (
-              <Reveal
-                key={g.figure}
-                variant="up"
-                delay={(i % 5) * 55}
-                className="bg-white p-4 sm:p-5 flex flex-col gap-1.5 min-w-0"
-              >
-                <dt className="text-lg sm:text-xl font-bold text-[#12302a] leading-tight">
-                  {g.figure}
-                </dt>
-                <span aria-hidden="true" className="block h-[2px] w-6 bg-[#C8A24A]/60" />
-                <dd className="text-[12px] sm:text-[13px] text-gray-600 leading-snug">
-                  {g.label}
-                </dd>
-              </Reveal>
-            ))}
-          </dl>
+          {/* Cell borders (not 1px grid gaps) so every divider survives fractional column widths;
+              the -1px offsets tuck the outer right/bottom borders under the clipped frame. */}
+          <div className="rounded-xl overflow-hidden border border-[#e0d6bd] bg-white">
+            <dl className="grid grid-cols-2 lg:grid-cols-5 -mr-px -mb-px">
+              {atAGlance.map((g, i) => (
+                <Reveal
+                  key={g.figure}
+                  variant="up"
+                  delay={(i % 5) * 55}
+                  className="p-4 sm:p-5 flex flex-col gap-1.5 min-w-0 border-r border-b border-[#e0d6bd]"
+                >
+                  <dt className="text-lg sm:text-xl font-bold text-[#12302a] leading-tight">
+                    {g.figure}
+                    <span
+                      aria-hidden="true"
+                      className="block h-[2px] w-6 mt-1.5 bg-[#C8A24A]/60"
+                    />
+                  </dt>
+                  <dd className="text-[12px] sm:text-[13px] text-gray-600 leading-snug">
+                    {g.label}
+                  </dd>
+                </Reveal>
+              ))}
+            </dl>
+          </div>
         </div>
       </section>
 

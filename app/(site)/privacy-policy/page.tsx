@@ -68,9 +68,9 @@ export default function PrivacyPolicyPage() {
               designated escrow account as required under Section 4(2)(l)(D) of the Real
               Estate (Regulation and Development) Act, 2016.
             </p>
-            <p className="mt-3">
-              Karnataka RERA Agent Registration: [insert Real Revenue agent number].
-            </p>
+            {rera.agent ? (
+              <p className="mt-3">Karnataka RERA Agent Registration: {rera.agent}.</p>
+            ) : null}
           </div>
 
           <div>

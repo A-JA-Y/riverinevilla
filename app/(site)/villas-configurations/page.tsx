@@ -14,7 +14,7 @@ import plan45 from "@/assets/plan-45bhk.webp";
 import plan5 from "@/assets/plan-5bhk.webp";
 import villaExterior from "@/assets/villa-exterior-2.webp";
 import bedroom from "@/assets/spec-bedroom.webp";
-import kitchen from "@/assets/spec-kitchen.webp";
+import dining from "@/assets/spec-dining.webp";
 import bathroom from "@/assets/spec-bathroom.webp";
 
 const META_TITLE = "Embassy Riverine Villa Sizes | 4, 4.5 & 5 BHK Configurations";
@@ -161,10 +161,11 @@ const specs = [
   },
 ];
 
+/** Representative interiors (see the footer disclaimer), not the actual villas. */
 const specImages = [
-  { src: bedroom, alt: "Bedroom with engineered wood flooring" },
-  { src: kitchen, alt: "Kitchen with stone counter" },
-  { src: bathroom, alt: "Master bathroom with rain shower" },
+  { src: dining, alt: "Representative dining area with marble flooring" },
+  { src: bedroom, alt: "Representative bedroom interior" },
+  { src: bathroom, alt: "Representative bathroom with rain shower" },
 ];
 
 const villaFaqs = [
@@ -344,7 +345,7 @@ export default function VillasConfigurationsPage() {
                 className="scroll-mt-28 grid md:grid-cols-2 bg-[#FAF8F3] rounded-xl border border-[#e5dcc5] overflow-hidden"
               >
                 <div
-                  className={`relative h-60 sm:h-72 md:h-full md:min-h-[360px] bg-[#F6F2E8] ${
+                  className={`relative aspect-[1400/1092] md:aspect-auto md:h-full md:min-h-[360px] bg-[#F6F2E8] ${
                     i % 2 ? "md:order-2" : ""
                   }`}
                 >
@@ -353,7 +354,7 @@ export default function VillasConfigurationsPage() {
                     alt={`${c.type} layout at Embassy Riverine — ${c.plot} plot, ${c.builtUp} built-up, ${c.parking} car parks`}
                     fill
                     sizes="(max-width: 768px) 100vw, 480px"
-                    className="object-cover object-top"
+                    className="object-contain"
                   />
                 </div>
 

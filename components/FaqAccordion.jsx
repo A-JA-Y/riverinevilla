@@ -4,6 +4,14 @@ import { useState } from "react";
 import Reveal from "./Reveal";
 import { faqs as allFaqs } from "@/data/project";
 
+/**
+ * @param {{
+ *   faqs?: { question: string; answer: import("react").ReactNode }[];
+ *   title?: string;
+ *   eyebrow?: string;
+ *   className?: string;
+ * }} props
+ */
 export default function FaqAccordion({
   faqs = allFaqs,
   title = "Frequently Asked Questions",

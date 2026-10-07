@@ -1,7 +1,6 @@
 import Link from "next/link";
 import Reveal from "./Reveal";
 import EnquiryButton from "./EnquiryButton";
-import { additionalCharges } from "@/data/project";
 
 const priceList = [
   { label: "Embassy Riverine 4 BHK villa price", value: "Rs 14.10 – 14.97 Cr" },
@@ -65,17 +64,19 @@ export default function HomePrice() {
             <h3 className="text-xl md:text-2xl font-bold text-[#12302a] mb-4">
               What the base price does not include
             </h3>
-            <ul className="space-y-2.5">
-              {additionalCharges.map((c) => (
-                <li key={c} className="flex items-start gap-2.5 text-gray-700 text-sm leading-relaxed">
-                  <span
-                    aria-hidden="true"
-                    className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#C8A24A] flex-shrink-0"
-                  />
-                  <span>{c}</span>
-                </li>
-              ))}
-            </ul>
+            {/* The doc's own wording, kept as running text */}
+            <div className="space-y-4 text-gray-700 text-[15px] leading-relaxed">
+              <p>
+                GST at 5% on the under-construction value, Karnataka stamp duty of about 5–6%,
+                registration at 1%, khata and municipal transfer charges, infrastructure and
+                development charges, water, electricity and sewerage deposits, the corpus fund
+                and maintenance advance, and clubhouse membership where applicable.
+              </p>
+              <p>
+                Corner, end-unit and view premiums apply to specific plots, and additional car
+                parks are charged separately.
+              </p>
+            </div>
           </Reveal>
 
           <Reveal variant="up" delay={100}>

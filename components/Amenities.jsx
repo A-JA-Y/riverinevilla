@@ -17,7 +17,7 @@ import {
   FaChargingStation,
 } from "react-icons/fa";
 
-import clubhouse from "@/assets/clubhouse.webp";
+import gymnasium from "@/assets/gymnasium.webp";
 import tennis from "@/assets/tennis-court.webp";
 import kids from "@/assets/kids-play.webp";
 import trail from "@/assets/jogging-trail.webp";
@@ -31,8 +31,8 @@ const TAB_META = {
   clubhouse: {
     label: "Clubhouse",
     note: "40,000 sq ft",
-    image: clubhouse,
-    alt: "The 40,000 sq ft Embassy Riverine clubhouse at Embassy Origins",
+    image: gymnasium,
+    alt: "Gymnasium in the 40,000 sq ft Embassy Riverine clubhouse",
   },
   sport: {
     label: "Sport",
@@ -44,7 +44,7 @@ const TAB_META = {
     label: "Family & Outdoors",
     note: "Lake & trails",
     image: kids,
-    alt: "Adventure play park at Embassy Riverine",
+    alt: "Kids' club at Embassy Riverine",
   },
   estate: {
     label: "Estate",

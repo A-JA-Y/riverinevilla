@@ -10,7 +10,8 @@ import { InputField } from "@/components/form/InputFields";
 import { FaPhoneAlt, FaWhatsapp, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
 import Reveal from "./Reveal";
 import { project } from "@/data/project";
-import logo from "@/assets/logo.webp";
+// The section sits on dark green, so it takes the light wordmark
+import logo from "@/assets/logo-light.webp";
 import backdrop from "@/assets/enquiry-backdrop.webp";
 
 const WHATSAPP_MESSAGE =

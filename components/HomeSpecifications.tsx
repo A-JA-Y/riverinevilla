@@ -3,12 +3,12 @@ import Reveal from "./Reveal";
 import { specifications } from "@/data/project";
 
 import bedroom from "@/assets/spec-bedroom.webp";
-import kitchen from "@/assets/spec-kitchen.webp";
+import hall from "@/assets/spec-kitchen.webp";
 import bathroom from "@/assets/spec-bathroom.webp";
 
 const specImages = [
   { src: bedroom, alt: "Engineered wood flooring in an Embassy Riverine villa bedroom" },
-  { src: kitchen, alt: "Kitchen with stone counter in an Embassy Riverine villa" },
+  { src: hall, alt: "Marble flooring in the entrance hall of an Embassy Riverine villa" },
   { src: bathroom, alt: "Master bathroom with rain shower in an Embassy Riverine villa" },
 ];
 

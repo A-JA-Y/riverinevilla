@@ -10,7 +10,7 @@ import villa3 from "@/assets/villa-exterior-3.webp";
 import corridor from "@/assets/riparian-corridor.webp";
 import living from "@/assets/villa-living-room.webp";
 import bedroom from "@/assets/spec-bedroom.webp";
-import kitchen from "@/assets/spec-kitchen.webp";
+import hall from "@/assets/spec-kitchen.webp";
 import dining from "@/assets/spec-dining.webp";
 import bathroom from "@/assets/spec-bathroom.webp";
 import staircase from "@/assets/spec-staircase.webp";
@@ -18,19 +18,21 @@ import pool from "@/assets/outdoor-pool.webp";
 import lake from "@/assets/township-lake.webp";
 import yoga from "@/assets/yoga-pavilion.webp";
 
+// Order matters: with tall frames at these positions the grid packs into full
+// rows at both 2 and 4 columns (4 tall + 8 single = 16 cells).
 const shots = [
   { src: villa1, alt: "Villa facade at Embassy Riverine", caption: "Villa facade", tall: true },
   { src: corridor, alt: "The protected riparian corridor", caption: "The riparian corridor" },
   { src: living, alt: "Living volume with 2.9 m finished ceilings", caption: "Living · 2.9 m ceilings" },
+  { src: staircase, alt: "Villa staircase", caption: "Staircase", tall: true },
   { src: pool, alt: "Outdoor resort-style pool", caption: "Resort pool" },
-  { src: bedroom, alt: "Bedroom with engineered wood flooring", caption: "Engineered wood floors", tall: true },
-  { src: kitchen, alt: "Kitchen with engineered stone counter", caption: "The kitchen" },
+  { src: hall, alt: "Marble-floored entrance hall and staircase", caption: "Entrance hall · marble" },
   { src: dining, alt: "Formal dining in premium marble", caption: "Dining · marble" },
-  { src: staircase, alt: "Villa staircase and double-height foyer", caption: "Double-height foyer" },
+  { src: bedroom, alt: "Bedroom with engineered wood flooring", caption: "Engineered wood floors", tall: true },
+  { src: villa3, alt: "Villa street within the precinct", caption: "Villa street", tall: true },
   { src: bathroom, alt: "Master bathroom with rain shower", caption: "Master bath" },
   { src: lake, alt: "The central lake with a landscaped edge", caption: "Central lake" },
   { src: yoga, alt: "Yoga and meditation pavilion", caption: "Yoga pavilion" },
-  { src: villa3, alt: "Villa street within the precinct", caption: "Villa street" },
 ];
 
 export default function EnclaveGallery() {

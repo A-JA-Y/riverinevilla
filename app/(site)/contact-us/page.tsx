@@ -100,14 +100,14 @@ const contactDetails: { icon: IconType; label: string; body: ReactNode }[] = [
         >
           {project.email}
         </a>
-        <span className="block mt-1">Reply within one working day</span>
+        <span className="block mt-1">reply within one working day</span>
       </>
     ),
   },
   {
     icon: FaCalendarCheck,
     label: "Site visits",
-    body: <>Seven days a week, by appointment, with pickup from Hebbal or Yelahanka</>,
+    body: <>seven days a week, by appointment, with pickup from Hebbal or Yelahanka</>,
   },
   {
     icon: FaMapMarkerAlt,
@@ -123,7 +123,7 @@ const contactDetails: { icon: IconType; label: string; body: ReactNode }[] = [
     label: "Embassy Riverine sales office",
     body: (
       <>
-        Visits are held at the project site on Chapparkallu Road; we meet you at the
+        visits are held at the project site on Chapparkallu Road; we meet you at the
         township gate or pick you up
       </>
     ),
@@ -227,7 +227,7 @@ const bookingSteps: { id: string; body: ReactNode }[] = [
     id: "shortlist",
     body: (
       <>
-        <strong className="text-[#12302a]">Shortlist</strong> a villa &amp; configuration
+        <strong className="text-[#12302a]">Shortlist</strong>{" "}a villa &amp; configuration
         from the{" "}
         <Link href="/price" className={linkCls}>
           price list
@@ -410,7 +410,7 @@ export default function ContactUsPage() {
                   <Icon size={14} />
                 </span>
                 <div className="min-w-0 text-[15px] text-gray-700 leading-relaxed">
-                  <strong className={labelCls}>{label}</strong>
+                  <strong className={labelCls}>{label}</strong>{" "}
                   {body}
                 </div>
               </Reveal>
@@ -471,7 +471,7 @@ export default function ContactUsPage() {
               className="bg-[#FAF8F3] rounded-lg p-6 border-l-[3px] border-[#C8A24A] text-[15px] text-gray-700 leading-relaxed space-y-3"
             >
               <p>
-                <strong className={labelCls}>What you will see:</strong>
+                <strong className={labelCls}>What you will see:</strong>{" "}
                 the stream corridor and the retained tree cover, which are already there; the
                 location of the clubhouse and the central lake on the ground; the position of
                 the villa clusters against the{" "}
@@ -493,7 +493,7 @@ export default function ContactUsPage() {
               className="bg-[#FAF8F3] rounded-lg p-6 border-l-[3px] border-[#C8A24A] text-[15px] text-gray-700 leading-relaxed"
             >
               <p>
-                <strong className={labelCls}>What you get the same day:</strong>
+                <strong className={labelCls}>What you get the same day:</strong>{" "}
                 the current cost sheet for your format, the floor plan and master plan set, the
                 amenities list as filed with RERA, and the location map with your shortlisted
                 plots marked.
@@ -535,7 +535,7 @@ export default function ContactUsPage() {
                 delay={(i % 2) * 70}
                 className="bg-white rounded-lg p-6 border-l-[3px] border-[#C8A24A] shadow-sm text-gray-700 text-[15px] leading-relaxed"
               >
-                <strong className={labelCls}>{item.label}:</strong>
+                <strong className={labelCls}>{item.label}:</strong>{" "}
                 {item.body}
               </Reveal>
             ))}

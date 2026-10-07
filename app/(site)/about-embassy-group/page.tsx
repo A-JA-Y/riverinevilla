@@ -219,8 +219,8 @@ export default function AboutEmbassyGroupPage() {
             </Link>
             . Founded in 1993 and led by Chairman and Managing Director Jitendra Virwani, it
             has built roughly{" "}
-            <strong className="text-[#12302a]">85 to 100 million sq ft</strong> across office
-            parks, homes, hotels, industrial, retail and education assets in Bengaluru,
+            <strong className="text-[#12302a]">85 to 100 million sq ft</strong>{" "}
+            across office parks, homes, hotels, industrial, retail and education assets in Bengaluru,
             Chennai, Hyderabad, Pune, Coimbatore and Trivandrum, with projects in Serbia and
             Malaysia. Most of that footprint is commercial, which matters: it is a landlord to
             much of the city&apos;s office market and sponsored India&apos;s first listed REIT

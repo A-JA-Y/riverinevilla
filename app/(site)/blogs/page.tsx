@@ -49,6 +49,12 @@ export const metadata: Metadata = {
       },
     ],
   },
+  twitter: {
+    card: "summary_large_image",
+    title: META_TITLE,
+    description: META_DESCRIPTION,
+    images: ["/og-cover.webp"],
+  },
 };
 
 const linkCls = "text-[#A8822E] font-semibold link-wipe";
@@ -71,21 +77,14 @@ const topics: IndexTopic[] = [
   { name: "Embassy Group", description: "the developer's villa projects and track record" },
 ];
 
-/** Data categories that are listed under a different topic name in the doc. */
-const topicAlias: Record<string, string> = {
-  "Market Comparison": "Comparisons",
-};
-
 /** "Latest Guides" card copy from the doc, keyed by post slug. */
-const guideCopy: Record<string, { topic: string; blurb: string; cta: string }> = {
+const guideCopy: Record<string, { blurb: string; cta: string }> = {
   "villa-projects-north-bangalore-2026": {
-    topic: "Comparisons",
     blurb:
       "Embassy Riverine set against Embassy Boulevard, Total Environment After the Rain, Sobha Lifestyle Legacy and Keya Life by the Lake on density, plot size and price per sq ft. Where Rs 33,100 to 37,700 per sq ft sits in the corridor, and what the premium actually buys.",
     cta: "Read the comparison",
   },
   "embassy-riverine-north-bangalore-buyers-guide-2026": {
-    topic: "Buyer's Guide",
     blurb:
       "Price, villa & configuration, floor plan, master plan, amenities, location, the RERA number and the possession date in one read, followed by the questions to ask before you pay the booking amount and the risks a brochure will not list.",
     cta: "Read the buyer's guide",
@@ -101,7 +100,7 @@ const posts: IndexPost[] = [...blogData]
       title: b.title,
       image: b.image,
       alt: b.altText || b.title,
-      topic: copy?.topic ?? topicAlias[b.category] ?? b.category,
+      topic: b.category,
       readTime: b.readTime,
       date: b.date,
       blurb: copy?.blurb ?? b.excerpt,

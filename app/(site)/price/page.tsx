@@ -628,7 +628,7 @@ export default function PricePage() {
               >
                 <strong className="block text-[11px] font-bold uppercase tracking-[0.16em] text-[#A8822E] mb-2">
                   {item.label}:
-                </strong>
+                </strong>{" "}
                 {item.body}
               </Reveal>
             ))}

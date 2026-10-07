@@ -679,7 +679,7 @@ export default function AboutEmbassyRiverinePage() {
             {reraTimeline.map((row) => (
               <div
                 key={row.label}
-                className="grid sm:grid-cols-[minmax(0,15rem)_minmax(0,1fr)] gap-1 sm:gap-6 px-5 py-4 odd:bg-[#FAF8F3] bg-white"
+                className="grid grid-cols-[minmax(0,1fr)] sm:grid-cols-[minmax(0,15rem)_minmax(0,1fr)] gap-1 sm:gap-6 px-5 py-4 odd:bg-[#FAF8F3] bg-white"
               >
                 <dt className="text-[11px] font-semibold uppercase tracking-[0.14em] text-[#A8822E] sm:pt-0.5">
                   {row.label}
@@ -733,7 +733,7 @@ export default function AboutEmbassyRiverinePage() {
               >
                 <strong className="block text-[#12302a] font-bold mb-2 leading-snug">
                   {item.title}
-                </strong>
+                </strong>{" "}
                 {item.body}
               </Reveal>
             ))}

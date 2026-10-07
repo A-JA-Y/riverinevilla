@@ -57,9 +57,11 @@ export default function QRSection() {
             <br />
             Project address: {project.street}, {project.city} {project.postalCode}
           </p>
-          <p className="text-[12px] text-white/45 mt-3">
-            Karnataka RERA Agent Registration: [insert Real Revenue agent number]
-          </p>
+          {rera.agent ? (
+            <p className="text-[12px] text-white/45 mt-3">
+              Karnataka RERA Agent Registration: {rera.agent}
+            </p>
+          ) : null}
         </div>
       </div>
     </section>

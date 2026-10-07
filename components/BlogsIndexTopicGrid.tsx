@@ -1,7 +1,7 @@
 "use client";
 
 import { useMemo, useRef, useState } from "react";
-import Image from "next/image";
+import Image, { type StaticImageData } from "next/image";
 import Link from "next/link";
 import Reveal from "./Reveal";
 
@@ -22,7 +22,7 @@ export type IndexTopic = {
 export type IndexPost = {
   slug: string;
   title: string;
-  image: string;
+  image: string | StaticImageData;
   alt: string;
   /** Must match one of the topic names to be filterable. */
   topic: string;

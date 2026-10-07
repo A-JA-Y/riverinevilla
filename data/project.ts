@@ -33,6 +33,8 @@ export const rera = {
   completion: "30 September 2032",
   handover: "from 2030 onwards",
   portal: "https://rera.karnataka.gov.in",
+  /** Real Revenue's Karnataka RERA agent registration. Shown in the footer once filled in. */
+  agent: "",
 } as const;
 
 /** Hero price strip. */
@@ -93,7 +95,7 @@ export const configurations = [
     priceFrom: "Rs 14.10 Cr",
     blurb:
       "The entry format, and the one families moving up from a large apartment ask for first. 48 units, 3 car parks. If you want a 4 BHK villa for sale near Bangalore airport with a proper plot rather than a row-house footprint, this is the one to see.",
-    features: ["4 Bedrooms", "3 Car Parks", "Private Deck", "Study"],
+    features: ["4 Bedrooms", "3 Car Parks", "48 Units"],
   },
   {
     id: "45bhk",
@@ -107,7 +109,7 @@ export const configurations = [
     priceFrom: "Rs 17.43 Cr",
     blurb:
       "137 units, so most of the precinct is this format. The half room works as a study, a home office or a puja room, and the 3,500 sq ft plot leaves room for a private deck or pool.",
-    features: ["4.5 Bedrooms", "4 Car Parks", "Family Lounge", "Garden Deck"],
+    features: ["4 Bedrooms + Half Room", "4 Car Parks", "137 Units"],
   },
   {
     id: "5bhk",
@@ -121,7 +123,7 @@ export const configurations = [
     priceFrom: "On request",
     blurb:
       "32 units with 6 car parks on 5,400 sq ft plots, the largest in the precinct. Anyone searching for a 5 BHK villa for sale in North Bangalore at this scale should ask early; it is the smallest release.",
-    features: ["5 Bedrooms", "6 Car Parks", "Pool Deck", "Double-Height Foyer"],
+    features: ["5 Bedrooms", "6 Car Parks", "32 Units"],
   },
 ];
 
@@ -146,7 +148,7 @@ export const additionalCharges = [
 export const amenityGroups = [
   {
     id: "clubhouse",
-    title: "Embassy Riverine Clubhouse (40,000 Sq Ft)",
+    title: "Embassy Riverine clubhouse (40,000 sq ft)",
     intro:
       "The clubhouse sits at the centre of the villa precinct, on the lake, within walking distance of every cluster.",
     items: [
@@ -177,7 +179,7 @@ export const amenityGroups = [
   },
   {
     id: "family",
-    title: "Family and Outdoors",
+    title: "Family and outdoors",
     intro:
       "Nineteen acres of the 85 are reserved open space, spread through the layout instead of walled into one park.",
     items: [

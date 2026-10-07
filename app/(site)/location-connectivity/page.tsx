@@ -171,7 +171,9 @@ const neighbourhood: { title: string; icon: typeof FaGraduationCap; body: ReactN
   },
 ];
 
-const locationFaqs = [
+/** `answer` is the plain text used in the FAQPage JSON-LD; `answerNode`, when set,
+ *  is the on-page version carrying the same words with the copy's links. */
+const locationFaqs: { question: string; answer: string; answerNode?: ReactNode }[] = [
   {
     question: "Where exactly is Embassy Riverine located?",
     answer:
@@ -209,8 +211,28 @@ const locationFaqs = [
     question: "How do I reach the site for a visit?",
     answer:
       "Call or WhatsApp +91 63566 63535. We arrange pickup from Hebbal or Yelahanka seven days a week, walk the master plan on site and send the price sheet the same day.",
+    answerNode: (
+      <>
+        Call or WhatsApp {project.phone}. We arrange pickup from Hebbal or Yelahanka seven days
+        a week, walk the{" "}
+        <Link href="/master-plan" className={linkCls}>
+          master plan
+        </Link>{" "}
+        on site and send the{" "}
+        <Link href="/price" className={linkCls}>
+          price
+        </Link>{" "}
+        sheet the same day.
+      </>
+    ),
   },
 ];
+
+/* On-page answers carry the doc's links; the JSON-LD below keeps the plain text. */
+const faqItems = locationFaqs.map((f) => ({
+  question: f.question,
+  answer: f.answerNode ?? f.answer,
+}));
 
 const schema = {
   "@context": "https://schema.org",
@@ -338,8 +360,9 @@ export default function LocationConnectivityPage() {
               </dl>
             </Reveal>
 
-            <Reveal variant="up" delay={90} className="lg:col-span-3">
-              <div className="w-full h-[300px] md:h-[400px] rounded-lg overflow-hidden shadow-md border border-[#e5dcc5]">
+            {/* Map first on phones so the "Open the ... Location Map" CTA lands on it. */}
+            <Reveal variant="up" delay={90} className="lg:col-span-3 order-first lg:order-none">
+              <div className="w-full h-[300px] md:h-[400px] rounded-lg overflow-hidden shadow-md border border-[#e5dcc5] bg-[#F6F2E8]">
                 <iframe
                   src={MAP_EMBED}
                   width="100%"
@@ -469,19 +492,19 @@ export default function LocationConnectivityPage() {
         <Reveal variant="up" className="max-w-5xl mx-auto">
           <h2 className="text-2xl md:text-3xl font-bold text-[#12302a] mb-6">Distances</h2>
           <div className="overflow-x-auto rounded-lg border border-[#e5dcc5] shadow-sm bg-white">
-            <table className="w-full text-sm text-left min-w-[480px]">
+            <table className="w-full text-sm text-left min-w-[320px]">
               <caption className="sr-only">
                 Distances and drive times by road from the Embassy Riverine project gate
               </caption>
               <thead className="bg-[#F6F2E8] text-[#A8822E] uppercase text-[11px] tracking-[0.12em]">
                 <tr>
-                  <th scope="col" className="px-5 py-4 font-semibold">
+                  <th scope="col" className="px-3 sm:px-5 py-4 font-semibold">
                     Destination
                   </th>
-                  <th scope="col" className="px-5 py-4 font-semibold">
+                  <th scope="col" className="px-3 sm:px-5 py-4 font-semibold">
                     Distance
                   </th>
-                  <th scope="col" className="px-5 py-4 font-semibold">
+                  <th scope="col" className="px-3 sm:px-5 py-4 font-semibold">
                     Drive time
                   </th>
                 </tr>
@@ -492,11 +515,11 @@ export default function LocationConnectivityPage() {
                     key={d.destination}
                     className="border-t border-[#e5dcc5] hover:bg-[#FAF8F3] transition-colors"
                   >
-                    <th scope="row" className="px-5 py-3.5 text-left font-normal text-[#12302a]">
+                    <th scope="row" className="px-3 sm:px-5 py-3.5 text-left font-normal text-[#12302a]">
                       {d.destination}
                     </th>
-                    <td className="px-5 py-3.5 text-gray-600 whitespace-nowrap">{d.distance}</td>
-                    <td className="px-5 py-3.5 text-gray-600 whitespace-nowrap">{d.time}</td>
+                    <td className="px-3 sm:px-5 py-3.5 text-gray-600 whitespace-nowrap">{d.distance}</td>
+                    <td className="px-3 sm:px-5 py-3.5 text-gray-600 whitespace-nowrap">{d.time}</td>
                   </tr>
                 ))}
               </tbody>
@@ -635,7 +658,7 @@ export default function LocationConnectivityPage() {
       </section>
 
       <FaqAccordion
-        faqs={locationFaqs}
+        faqs={faqItems}
         title="Frequently Asked Questions"
         eyebrow="FAQ"
         className="bg-[#FAF8F3] border-y border-[#e5dcc5]"

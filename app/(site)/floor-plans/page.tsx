@@ -307,7 +307,7 @@ export default function FloorPlansPage() {
                       title={`Embassy Riverine ${copy.heading}`}
                       subtitle={figures}
                       detail={`On the plan: ${copy.onPlan}.`}
-                      className="h-60 sm:h-72 md:h-full md:min-h-[380px]"
+                      className="aspect-[1400/1092] md:aspect-auto md:h-full md:min-h-[380px]"
                     />
                   </div>
 
@@ -386,10 +386,8 @@ export default function FloorPlansPage() {
                 delay={180}
                 className="bg-white rounded-lg p-6 border-t-[3px] border-[#C8A24A] shadow-sm text-[15px] text-gray-700 leading-relaxed"
               >
-                <strong className="text-[#12302a]">Carpet area</strong> is the usable floor
-                inside the walls, smaller than built-up, and it is the figure that goes into the
-                RERA agreement. Ask for it per villa &amp; configuration before you compare with
-                another project.
+                <strong className="text-[#12302a]">Carpet area</strong>{" "}
+                {"is the usable floor inside the walls, smaller than built-up, and it is the figure that goes into the RERA agreement. Ask for it per villa & configuration before you compare with another project."}
               </Reveal>
             </ul>
 

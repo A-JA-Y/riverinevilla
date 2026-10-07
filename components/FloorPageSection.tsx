@@ -200,7 +200,7 @@ export function FloorPlanImage({
         alt={alt}
         fill
         sizes={sizes}
-        className={`object-cover object-top transition duration-500 ${
+        className={`object-contain transition duration-500 ${
           isUnlocked ? "group-hover:scale-105" : "blur-[5px] scale-105"
         }`}
       />
