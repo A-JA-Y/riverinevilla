@@ -56,9 +56,8 @@ const NewsData: NewsMeta[] = [
     canonical: `${SITE_URL}/news/embassy-origins-launch-north-bangalore-2026`,
 
     /* Display */
-    image: "/news-1.webp",
-    altText:
-      "North Bangalore development along the airport corridor following the Embassy Origins launch",
+    image: "/news-embassy-origins.webp",
+    altText: "Aerial view of a villa with a private garden beside a stream",
     date: "2026-09-16",
     updatedAt: "2026-09-21",
     author: "Real Revenue",
@@ -90,7 +89,7 @@ const NewsData: NewsMeta[] = [
         name: "Real Revenue",
         logo: { "@type": "ImageObject", url: `${SITE_URL}/logo.webp` },
       },
-      image: `${SITE_URL}/news-1.webp`,
+      image: `${SITE_URL}/news-embassy-origins.webp`,
       mainEntityOfPage: {
         "@type": "WebPage",
         "@id": `${SITE_URL}/news/embassy-origins-launch-north-bangalore-2026`,

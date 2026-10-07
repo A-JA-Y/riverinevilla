@@ -1,12 +1,8 @@
-import type { Metadata } from "next";
-
-export const metadata: Metadata = {
-  title: "Blogs | Embassy Riverine, North Bangalore",
-  description:
-    "Buyer guides, pricing breakdowns and market comparisons for villa projects in the North Bangalore airport corridor.",
-  alternates: { canonical: "/blogs" },
-};
-
+/**
+ * /blogs segment layout. The listing page (page.tsx) is a server component and
+ * exports its own metadata; each article in [slug] sets its own through
+ * generateMetadata, so nothing is set here that could leak into the articles.
+ */
 export default function BlogsLayout({
   children,
 }: {

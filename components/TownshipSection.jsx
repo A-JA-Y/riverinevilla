@@ -42,9 +42,9 @@ export default function TownshipSection() {
     <section className="w-full bg-white py-16 px-6 sm:px-8">
       <div className="max-w-6xl mx-auto">
         <Reveal variant="up">
-          <h6 className="text-center uppercase mb-3 text-[#A8822E] tracking-[0.22em] text-xs font-semibold">
+          <p className="text-center uppercase mb-3 text-[#A8822E] tracking-[0.22em] text-xs font-semibold">
             The Township
-          </h6>
+          </p>
           <h2 className="text-center font-semibold text-[#12302a] mb-4 text-[clamp(1.75rem,4vw,2.6rem)] leading-tight">
             Embassy Origins
           </h2>

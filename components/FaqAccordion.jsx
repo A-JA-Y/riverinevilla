@@ -4,6 +4,14 @@ import { useState } from "react";
 import Reveal from "./Reveal";
 import { faqs as allFaqs } from "@/data/project";
 
+/**
+ * @param {{
+ *   faqs?: { question: string; answer: import("react").ReactNode }[];
+ *   title?: string;
+ *   eyebrow?: string;
+ *   className?: string;
+ * }} props
+ */
 export default function FaqAccordion({
   faqs = allFaqs,
   title = "Frequently Asked Questions",
@@ -17,9 +25,9 @@ export default function FaqAccordion({
       <div className="max-w-3xl mx-auto">
         <Reveal variant="up" className="text-center mb-10">
           {eyebrow && (
-            <h6 className="uppercase text-xs font-semibold tracking-[0.22em] text-[#A8822E] mb-3">
+            <p className="uppercase text-xs font-semibold tracking-[0.22em] text-[#A8822E] mb-3">
               {eyebrow}
-            </h6>
+            </p>
           )}
           <h2 className="text-3xl md:text-4xl font-bold text-[#12302a] leading-tight">
             {title}

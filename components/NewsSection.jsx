@@ -14,22 +14,24 @@ export default function NewsSection() {
     <section className="w-full bg-[#FAF8F3] py-16 md:py-20 px-6" id="news">
       <div className="max-w-6xl mx-auto flex flex-col gap-10">
         <Reveal variant="up" className="text-center">
-          <h6 className="uppercase text-xs font-semibold tracking-[0.22em] text-[#A8822E] mb-3">
+          <p className="uppercase text-xs font-semibold tracking-[0.22em] text-[#A8822E] mb-3">
             Latest News
-          </h6>
+          </p>
           <h2 className="text-3xl md:text-4xl font-bold text-[#12302a] leading-tight">
             Market &amp; Infrastructure Updates
           </h2>
         </Reveal>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {/* flex-wrap + centre, so one or two cards sit in the middle rather than
+            leaving empty columns on the right */}
+        <div className="flex flex-wrap justify-center gap-6">
           {latest.map((item, i) => (
             <Reveal
               as="article"
               key={item.id}
               variant="up"
               delay={i * 110}
-              className="card-lift bg-white rounded-xl overflow-hidden border border-[#e5dcc5] shadow-sm group"
+              className="w-full sm:w-[calc(50%-12px)] lg:w-[calc((100%-48px)/3)] card-lift bg-white rounded-xl overflow-hidden border border-[#e5dcc5] shadow-sm group"
             >
               <Link href={`/news/${item.slug}`} className="block">
                 <div className="relative h-[190px] overflow-hidden">

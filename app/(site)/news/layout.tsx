@@ -1,12 +1,8 @@
-import type { Metadata } from "next";
-
-export const metadata: Metadata = {
-  title: "News & Updates | Embassy Riverine, North Bangalore",
-  description:
-    "Launch news, infrastructure updates and market movements across the North Bangalore airport corridor.",
-  alternates: { canonical: "/news" },
-};
-
+/**
+ * /news segment layout. The listing page (page.tsx) is a server component and
+ * exports its own metadata; each story in [slug] sets its own through
+ * generateMetadata, so nothing is set here that could leak into the stories.
+ */
 export default function NewsLayout({
   children,
 }: {

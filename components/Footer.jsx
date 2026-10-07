@@ -108,8 +108,8 @@ export default function Footer() {
             indicative, exclusive of taxes and statutory charges, and subject to revision
             without notice. Nothing on this site constitutes an offer or a contract. Please
             refer to the RERA-registered particulars and the agreement to sell before
-            making any purchase decision. Karnataka RERA Agent Registration: [insert Real
-            Revenue agent number].
+            making any purchase decision.
+            {rera.agent ? ` Karnataka RERA Agent Registration: ${rera.agent}.` : null}
           </p>
           <hr className="border-t border-white/10 mt-3" />
         </div>

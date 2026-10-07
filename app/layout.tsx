@@ -24,25 +24,32 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-  title: "Embassy Riverine | 4 & 5 BHK Villas in North Bangalore",
+  title: "Embassy Riverine Villas | Price, Floor Plan, North Bangalore",
   description:
-    "Embassy Riverine offers 217 luxury 4, 4.5 & 5 BHK villas across 85 acres at Embassy Origins, North Bangalore. Prices from Rs 14.10 Cr. RERA approved. Book a site visit.",
+    "Embassy Riverine villas at Embassy Origins, North Bangalore. 217 RERA-approved 4, 4.5 & 5 BHK villas from Rs 14.10 Cr. Get price, floor plan & site visit.",
 
   keywords: [
     "Embassy Riverine",
     "Embassy Riverine villas",
-    "Embassy Origins Bangalore",
-    "luxury villas North Bangalore",
-    "5 BHK villas Yelahanka",
-    "Embassy villas near airport",
     "Embassy Riverine price",
     "Embassy Riverine floor plan",
-    "villa projects North Bangalore",
-    "Embassy Developments new launch",
-    "Tarahunise villas",
+    "Embassy Riverine master plan",
+    "Embassy Riverine amenities",
+    "Embassy Riverine location",
+    "Embassy Riverine RERA number",
+    "Embassy Origins",
+    "luxury villas in North Bangalore",
+    "4 BHK villa for sale near Bangalore airport",
+    "5 BHK villa for sale in North Bangalore",
+    "villas near Devanahalli airport",
+    "villas for sale in Bettahalsur",
+    "villas for sale on IVC Road",
+    "villas near Yelahanka",
+    "Embassy villas in North Bangalore",
   ],
 
-  alternates: { canonical: "/" },
+  // No canonical here: every page sets its own (the home page in app/page.tsx),
+  // so a page that forgets one is not silently canonicalised to the home page.
 
   robots: {
     index: true,
@@ -57,9 +64,9 @@ export const metadata: Metadata = {
   },
 
   openGraph: {
-    title: "Embassy Riverine | 217 Luxury Villas at Embassy Origins, North Bangalore",
+    title: "Embassy Riverine Villas | Price, Floor Plan, North Bangalore",
     description:
-      "A riverine corridor, 4,000 trees and 217 villas across 85 acres. 4, 4.5 and 5 BHK homes from Rs 14.10 Cr in North Bangalore's airport corridor.",
+      "Embassy Riverine villas at Embassy Origins, North Bangalore. 217 RERA-approved 4, 4.5 & 5 BHK villas from Rs 14.10 Cr. Get price, floor plan & site visit.",
     url: "/",
     siteName: "Embassy Riverine",
     images: [
@@ -76,9 +83,9 @@ export const metadata: Metadata = {
 
   twitter: {
     card: "summary_large_image",
-    title: "Embassy Riverine | 217 Luxury Villas, North Bangalore",
+    title: "Embassy Riverine Villas | Price, Floor Plan, North Bangalore",
     description:
-      "4, 4.5 and 5 BHK villas from Rs 14.10 Cr across the 85-acre Embassy Origins township at Tarahunise, North Bangalore.",
+      "Embassy Riverine villas at Embassy Origins, North Bangalore. 217 RERA-approved 4, 4.5 & 5 BHK villas from Rs 14.10 Cr. Get price, floor plan & site visit.",
     images: ["/og-cover.webp"],
   },
 

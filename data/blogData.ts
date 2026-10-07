@@ -139,7 +139,7 @@ export const blogData: BlogMeta[] = [
     date: "2026-09-20",
     updatedAt: "2026-09-21",
     author: "Real Revenue",
-    category: "Market Comparison",
+    category: "Comparisons",
     readTime: "9 min read",
     tags: ["north bangalore", "comparison", "villa projects", "investment"],
     featured: false,

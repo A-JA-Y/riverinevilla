@@ -7,15 +7,95 @@ import submitForm from "@/api/submitform";
 import { reportLeadConversion } from "@/utils/gtagConversion";
 import { downloadBrochure } from "@/utils/downloadBrochure";
 import { InputField } from "@/components/form/InputFields";
+import { FaPhoneAlt, FaWhatsapp, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
 import Reveal from "./Reveal";
-import logo from "@/assets/logo.webp";
+import { project } from "@/data/project";
+// The section sits on dark green, so it takes the light wordmark
+import logo from "@/assets/logo-light.webp";
 import backdrop from "@/assets/enquiry-backdrop.webp";
 
+const WHATSAPP_MESSAGE =
+  "Hi, I am interested in Embassy Riverine villas at Embassy Origins, North Bangalore. Please share the price sheet and availability.";
+
+/** Contact number, email and site address, from data/project.ts. */
+function ContactDetails() {
+  const rows = [
+    {
+      icon: FaPhoneAlt,
+      label: "Embassy Riverine contact number",
+      value: `${project.phone} (call or WhatsApp)`,
+      href: `tel:${project.phoneHref}`,
+    },
+    {
+      icon: FaWhatsapp,
+      label: "WhatsApp",
+      value: project.phone,
+      href: `https://wa.me/${project.whatsapp}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`,
+      external: true,
+    },
+    {
+      icon: FaEnvelope,
+      label: "Email",
+      value: project.email,
+      href: `mailto:${project.email}`,
+    },
+    {
+      icon: FaMapMarkerAlt,
+      label: "Site address",
+      value: `${project.township}, ${project.street}, ${project.city} ${project.postalCode}`,
+    },
+  ];
+
+  return (
+    <ul className="flex flex-col gap-3 mt-1">
+      {rows.map(({ icon: Icon, label, value, href, external }) => (
+        <li key={label} className="flex items-start gap-3">
+          <Icon className="text-[#C8A24A] mt-1 flex-shrink-0" size={14} aria-hidden="true" />
+          <div className="min-w-0">
+            <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-[#C8A24A]">
+              {label}
+            </p>
+            {href ? (
+              <a
+                href={href}
+                {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                className="text-sm text-[#F6F2E8] break-words hover:text-[#C8A24A] transition-colors"
+              >
+                {value}
+              </a>
+            ) : (
+              <p className="text-sm text-[#F6F2E8]">{value}</p>
+            )}
+          </div>
+        </li>
+      ))}
+    </ul>
+  );
+}
+
+/**
+ * Closing enquiry band: copy on the left, form on the right.
+ * Defaults to the original copy. `intro` (node) replaces the `body` paragraph,
+ * and `showContactDetails` lists the number, email and site address.
+ *
+ * @param {{
+ *   logoSrc?: import("next/image").StaticImageData,
+ *   logoAlt?: string,
+ *   heading?: string,
+ *   body?: string,
+ *   intro?: import("react").ReactNode,
+ *   showContactDetails?: boolean,
+ *   formTitle?: string,
+ * }} props
+ */
 export default function EnquirySection({
   logoSrc = logo,
   logoAlt = "Embassy Riverine",
   heading = "See the riverine corridor before it is landscaped.",
   body = "Site visits run seven days a week. We arrange pickup from Hebbal or Yelahanka, walk you through the master plan on site, and send the price sheet the same day. Real Revenue is an authorised channel partner for Embassy Riverine — we handle the cost sheet, the inventory position, home-loan pre-approval and, for overseas buyers, the power-of-attorney paperwork.",
+  intro = null,
+  showContactDetails = false,
+  formTitle = "Book a Site Visit",
 }) {
   const router = useRouter();
   const [form, setForm] = useState({ name: "", phone: "", email: "" });
@@ -94,7 +174,13 @@ export default function EnquirySection({
             {heading}
           </h2>
 
-          <p className="text-sm leading-relaxed text-[#F6F2E8]/75">{body}</p>
+          {intro ? (
+            <div className="text-[15px] leading-relaxed text-[#F6F2E8]/80 space-y-4">{intro}</div>
+          ) : (
+            <p className="text-sm leading-relaxed text-[#F6F2E8]/75">{body}</p>
+          )}
+
+          {showContactDetails ? <ContactDetails /> : null}
 
           <ul className="flex flex-wrap gap-2 mt-1">
             {["Cost sheet", "Floor plans", "Master plan", "Payment schedule"].map((t) => (
@@ -114,9 +200,9 @@ export default function EnquirySection({
 
         {/* Right: form */}
         <Reveal variant="right" className="lg:w-1/2">
-          <h6 className="text-xs font-semibold uppercase tracking-[0.22em] text-[#C8A24A] mb-3">
-            Book a Site Visit
-          </h6>
+          <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[#C8A24A] mb-3">
+            {formTitle}
+          </p>
           <p className="text-[#F6F2E8] text-sm mb-5">
             Leave your details and one of our Embassy Riverine specialists will call you
             back.
