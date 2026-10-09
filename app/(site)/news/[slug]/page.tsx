@@ -76,8 +76,6 @@ export async function generateMetadata({ params }: { params: Params }) {
         ? [
           {
             url: imageUrl,
-            width: 1200,
-            height: 630,
             alt: news.title,
           },
         ]

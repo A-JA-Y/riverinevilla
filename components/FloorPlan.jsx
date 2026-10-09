@@ -136,14 +136,15 @@ export default function PlansSection() {
                     {c.short}
                   </span>
                 </div>
-
-                <div className="p-5">
-                  <h3 className="text-base font-bold text-[#12302a]">{c.short} floor plan</h3>
-                  <p className="text-[13px] text-gray-700 mt-1.5 leading-relaxed">
-                    {c.plot} plot · {c.builtUp} built-up · {c.parking} car parks
-                  </p>
-                </div>
               </button>
+
+              {/* outside the button so the heading and figures stay readable to screen readers */}
+              <div className="p-5">
+                <h3 className="text-base font-bold text-[#12302a]">{c.short} floor plan</h3>
+                <p className="text-[13px] text-gray-700 mt-1.5 leading-relaxed">
+                  {c.plot} plot · {c.builtUp} built-up · {c.parking} car parks
+                </p>
+              </div>
             </Reveal>
           ))}
         </ul>

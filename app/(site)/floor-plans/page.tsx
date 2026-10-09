@@ -33,6 +33,12 @@ export const metadata: Metadata = {
     "luxury villas in North Bangalore",
     "independent villas in North Bangalore",
   ],
+  twitter: {
+    card: "summary_large_image",
+    title: META_TITLE,
+    description: META_DESCRIPTION,
+    images: ["/og-cover.webp"],
+  },
   openGraph: {
     title: META_TITLE,
     description: META_DESCRIPTION,

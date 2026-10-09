@@ -38,6 +38,12 @@ export const metadata: Metadata = {
     "buy a villa in Embassy Riverine",
     "home loans for Embassy Riverine",
   ],
+  twitter: {
+    card: "summary_large_image",
+    title: META_TITLE,
+    description: META_DESCRIPTION,
+    images: ["/og-cover.webp"],
+  },
   openGraph: {
     title: META_TITLE,
     description: META_DESCRIPTION,
@@ -384,6 +390,22 @@ export default function ContactUsPage() {
             back within working hours. Nothing is sent that is not in writing from the
             developer.
           </p>
+          {/* the form sits below the contact details; let visitors jump straight to it */}
+          <a
+            href="#enquiry-form"
+            className="btn-sheen mt-6 inline-flex items-center justify-center gap-2 bg-[#C8A24A] hover:bg-[#A8822E] text-white text-xs font-bold uppercase tracking-[0.16em] px-7 py-4 rounded transition-colors"
+          >
+            Go to the Enquiry Form
+            <svg width="12" height="12" viewBox="0 0 11 11" fill="none" aria-hidden="true">
+              <path
+                d="M5.5 1.5v8M2 6l3.5 3.5L9 6"
+                stroke="currentColor"
+                strokeWidth="1.4"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </a>
         </Reveal>
       </section>
 

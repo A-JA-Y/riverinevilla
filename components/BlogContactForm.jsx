@@ -81,7 +81,7 @@ const BlogContactForm = () => {
         Book Site Visit
       </h3>
       <p className="text-xs text-gray-500 mb-4">
-        Get details & best offers
+        Cost sheet and floor plans sent the same day.
       </p>
 
       {/* Form */}

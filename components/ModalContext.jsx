@@ -18,10 +18,13 @@ export const ModalProvider = ({ children }) => {
   const closeModal = () => setIsOpen(false);
 
   useEffect(() => {
-    // Auto-open logic
-    if (typeof window !== "undefined" && localStorage.getItem("formSubmitted") === "true") {
-      return;
-    }
+    // Auto-open logic. Storage can throw when the browser blocks site data;
+    // treat that as "not submitted" rather than breaking the page.
+    let submitted = false;
+    try {
+      submitted = localStorage.getItem("formSubmitted") === "true";
+    } catch {}
+    if (submitted) return;
 
     const timer = setTimeout(() => {
       setIsOpen(true);
