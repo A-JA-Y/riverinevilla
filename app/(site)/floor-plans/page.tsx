@@ -12,6 +12,7 @@ import FaqAccordion from "@/components/FaqAccordion";
 import Reveal from "@/components/Reveal";
 import StickyDownloadButton from "@/components/StickyButton";
 import { configurations, projectSchema, breadcrumb } from "@/data/project";
+import { villaProductSchemas } from "@/data/seoSchema";
 
 const META_TITLE = "Embassy Riverine Floor Plan | 4, 4.5 & 5 BHK Villa Plans PDF";
 const META_DESCRIPTION =
@@ -164,6 +165,7 @@ const schema = {
   "@context": "https://schema.org",
   "@graph": [
     projectSchema,
+    ...villaProductSchemas,
     {
       "@type": "FAQPage",
       mainEntity: floorPlanFaqs.map((f) => ({

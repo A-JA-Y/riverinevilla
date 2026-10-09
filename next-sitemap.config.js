@@ -2,13 +2,13 @@
 
 module.exports = {
   siteUrl: "https://embassyriverinevilla.in",
-  generateRobotsTxt: true,
+  generateRobotsTxt: false,
   generateIndexSitemap: false,
 
   exclude: ["/thank-you"],
 
   robotsTxtOptions: {
-    policies: [{ userAgent: "*", allow: "/", disallow: ["/thank-you"] }],
+    policies: [{ userAgent: "*", disallow: ["/cgi-bin/"] }],
   },
 
   transform: async (config, path) => {

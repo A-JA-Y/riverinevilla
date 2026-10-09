@@ -5,6 +5,7 @@ import Script from "next/script";
 import { Analytics } from "@vercel/analytics/next";
 import { ModalProvider } from "@/components/ModalContext";
 import { SITE_URL } from "@/data/project";
+import { siteSchema } from "@/data/seoSchema";
 
 // Inter for everything, headings included, matching the reference layout
 const inter = Inter({
@@ -106,6 +107,11 @@ export default function RootLayout({
     >
       <head>
         <link rel="preconnect" href="https://images.pexels.com" />
+        <script
+          id="site-schema"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(siteSchema) }}
+        />
       </head>
 
       {/* horizontal overflow is clipped in globals.css (html + body) */}

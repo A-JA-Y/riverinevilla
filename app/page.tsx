@@ -13,15 +13,14 @@ import HomeSpecifications from "@/components/HomeSpecifications";
 import HomeEmbassyGroup from "@/components/HomeEmbassyGroup";
 import HomeRera from "@/components/HomeRera";
 import {
-  SITE_URL,
   projectSchema,
   agentSchema,
   faqs,
   faqSchema,
   breadcrumb,
-  configurations,
   atAGlance,
 } from "@/data/project";
+import { villaProductSchemas } from "@/data/seoSchema";
 
 /** Home-page meta, as in the SEO doc; openGraph and twitter come from the root layout. */
 export const metadata: Metadata = {
@@ -51,28 +50,11 @@ const FloatingActions = dynamic(() => import("@/components/FloatingActions"));
 const linkCls = "text-[#A8822E] font-semibold link-wipe";
 const darkLinkCls = "text-[#C8A24A] font-semibold link-wipe";
 
-/** Product nodes for the two configurations that carry a published price. */
-const productSchemas = configurations
-  .filter((c) => c.id !== "5bhk")
-  .map((c) => ({
-    "@type": "Product",
-    name: `Embassy Riverine ${c.short} Villa`,
-    description: `${c.short} villa on a ${c.plot} plot with ${c.builtUp} built-up area and ${c.parking} car parks at Embassy Riverine, North Bangalore.`,
-    brand: { "@type": "Brand", name: "Embassy Developments Limited" },
-    offers: {
-      "@type": "Offer",
-      price: c.id === "4bhk" ? "141000000" : "174300000",
-      priceCurrency: "INR",
-      availability: "https://schema.org/InStock",
-      url: `${SITE_URL}/`,
-    },
-  }));
-
 const schema = {
   "@context": "https://schema.org",
   "@graph": [
     projectSchema,
-    ...productSchemas,
+    ...villaProductSchemas,
     agentSchema,
     // FAQPage built from the same `faqs` array the accordion below renders
     faqSchema,
