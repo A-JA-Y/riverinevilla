@@ -134,7 +134,7 @@ export default function ContactForm({ variant = "wide" }) {
             {/* a form title, not a content heading — keeps the page outline clean */}
             <p className="text-lg md:text-xl font-bold text-[#12302a] leading-snug">
               Embassy Riverine – Villas at Embassy Origins,{" "}
-              <span className="text-[#A8822E]">Tarahunise, North Bangalore</span>
+              <span className="text-[#A8822E]">Tharahunise, North Bangalore</span>
             </p>
             <p className="text-gray-600 text-sm mt-1.5 leading-relaxed">
               4, 4.5 and 5 BHK from Rs 14.10 Cr. Cost sheet and floor plans sent the same

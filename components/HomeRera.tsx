@@ -64,6 +64,11 @@ export default function HomeRera() {
             </a>{" "}
             before paying any booking amount.
           </p>
+          <p className="text-[15px] leading-relaxed text-white/80 mt-4">
+            Ask for the handover commitment in the agreement, not the brochure. If anything on
+            this page does not match what you see on the portal, tell us — we will correct the
+            page and name the correction.
+          </p>
         </Reveal>
       </div>
     </section>

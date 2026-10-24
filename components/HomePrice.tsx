@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Reveal from "./Reveal";
 import EnquiryButton from "./EnquiryButton";
+import { priceUpdated } from "@/data/project";
 
 const priceList = [
   { label: "Embassy Riverine 4 BHK villa price", value: "Rs 14.10 – 14.97 Cr" },
@@ -76,6 +77,11 @@ export default function HomePrice() {
                 Corner, end-unit and view premiums apply to specific plots, and additional car
                 parks are charged separately.
               </p>
+              <p>
+                On a Rs 14 Cr base, these add up to a figure most buyers underestimate by a
+                wide margin. We will not quote you a headline price without the all-inclusive
+                working beside it.
+              </p>
             </div>
           </Reveal>
 
@@ -87,6 +93,10 @@ export default function HomePrice() {
               amount and the balance tied to construction milestones. The cost sheet moves
               with inventory, so take the all-inclusive working in writing before you decide.
               We send it the same day.
+            </p>
+            <p className="text-[13px] text-gray-500 leading-relaxed mt-4">
+              Prices and inventory last updated: {priceUpdated} · Source: the current
+              developer cost sheet.
             </p>
             <div className="mt-7">
               <EnquiryButton>Request the Cost Sheet</EnquiryButton>

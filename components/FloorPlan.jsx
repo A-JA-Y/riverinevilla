@@ -89,7 +89,17 @@ export default function PlansSection() {
             </Link>{" "}
             is for an independent villa on its own plot, with 3.4 m floor-to-floor height
             and finished ceilings close to 2.9 m in the main living spaces. Double-glazed
-            sliding systems open the living areas onto the garden.
+            sliding systems open the living areas onto the garden. Sets are issued per villa
+            type, with ground, first and second floor layouts, the terrace plan and the car
+            park arrangement for each.
+          </p>
+          <p className="text-gray-700 text-[15px] md:text-base mt-4 leading-relaxed">
+            Two things worth checking on the plan rather than taking on trust: the usable
+            width of the setback on your specific plot, and where the staircase lands on the
+            first floor, because it differs between the mirrored plot orientations. We mark
+            both on the plan before we send it. Request the set for the format you are
+            considering and we will include the plot-level drawing, not just the generic type
+            plan.
           </p>
         </Reveal>
 

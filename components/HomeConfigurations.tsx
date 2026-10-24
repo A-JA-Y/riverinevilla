@@ -87,23 +87,35 @@ export default function HomeConfigurations() {
           ))}
         </div>
 
-        {/* RERA carpet-area note */}
+        {/* RERA carpet area — its own sub-section, as in the copy */}
         <Reveal
           variant="up"
-          className="mt-10 bg-[#FAF8F3] border-l-[3px] border-[#C8A24A] rounded-r p-5"
+          className="mt-12 bg-[#FAF8F3] border-l-[3px] border-[#C8A24A] rounded-r p-6"
         >
-          <p className="text-gray-700 text-sm leading-relaxed">
-            The{" "}
-            <Link
-              href="/about-embassy-riverine"
-              className="text-[#A8822E] font-semibold link-wipe"
-            >
-              Embassy Riverine
-            </Link>{" "}
-            villa sizes above are built-up areas from the brochure. Ask for the RERA carpet
-            area of the villa &amp; configuration you shortlist before comparing it with
-            other projects, as marketing area and RERA area are not the same figure.
-          </p>
+          <h3 className="text-xl md:text-2xl font-bold text-[#12302a]">
+            Embassy Riverine carpet area
+          </h3>
+          <div className="space-y-4 mt-4 text-gray-700 text-sm md:text-[15px] leading-relaxed">
+            <p>
+              The figures above are built-up areas from the brochure. The{" "}
+              <Link
+                href="/about-embassy-riverine"
+                className="text-[#A8822E] font-semibold link-wipe"
+              >
+                Embassy Riverine
+              </Link>{" "}
+              carpet area is the smaller, legally defined RERA number, and it is what you
+              should compare across projects.
+            </p>
+            <p>
+              We are not publishing carpet figures here that we have not read off the Form-C
+              ourselves. Several listings quote them; we have seen the same villa type given
+              two different carpet areas on two different sites. Ask us for the carpet area on
+              the specific villa you shortlist, in writing, and we will send the relevant page
+              of the RERA filing with it. Marketing area and RERA area are not the same figure,
+              and the gap is wider on villas than on apartments.
+            </p>
+          </div>
         </Reveal>
 
         <Reveal variant="up" className="mt-8">

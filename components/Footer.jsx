@@ -25,7 +25,7 @@ export default function Footer() {
             />
             <p className="text-white/55 text-xs leading-relaxed">
               217 luxury 4, 4.5 and 5 BHK villas across the 85-acre Embassy Origins
-              township at Tarahunise, North Bangalore, by Embassy Developments Limited.
+              township at Tharahunise, North Bangalore, by Embassy Developments Limited.
             </p>
             <p className="text-white/40 text-[11px] leading-relaxed mt-3 break-all">
               RERA: {rera.villas}

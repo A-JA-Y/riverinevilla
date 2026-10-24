@@ -15,8 +15,8 @@ export const project = {
   developer: "Embassy Developments Limited",
   group: "Embassy Group",
   tagline: "Where a River Decided the Master Plan",
-  locality: "Tarahunise, North Bangalore",
-  street: "Chapparkallu Road, Tarahunise, Bettahalsur, Jala Hobli",
+  locality: "Tharahunise, North Bangalore",
+  street: "Chapparkallu Road, Tharahunise, Bettahalsur, Jala Hobli",
   city: "Bengaluru",
   region: "Karnataka",
   postalCode: "562157",
@@ -53,6 +53,12 @@ export const priceStrip = [
   { config: "4.5 BHK", area: "5,200 sq ft", price: "Rs 17.43 Cr onwards" },
   { config: "5 BHK", area: "6,800 sq ft", price: "Price on request" },
 ];
+
+/**
+ * Shown under the price section. Update this whenever the cost sheet is refreshed —
+ * it is the date the page claims its prices and inventory are good for.
+ */
+export const priceUpdated = "24 October 2026";
 
 /** Hero trust line, as written in the home-page copy. */
 export const trustStrip = [
@@ -104,7 +110,7 @@ export const configurations = [
     price: "Rs 14.10 – 14.97 Cr",
     priceFrom: "Rs 14.10 Cr",
     blurb:
-      "The entry format, and the one families moving up from a large apartment ask for first. 48 units, 3 car parks. If you want a 4 BHK villa for sale near Bangalore airport with a proper plot rather than a row-house footprint, this is the one to see.",
+      "The entry format, and the one families moving up from a large apartment ask for first. 48 units, 3 car parks. If you want a 4 BHK villa for sale near Bangalore airport with a proper plot rather than a row-house footprint, this is the one to see. In our experience this format moves first in any villa launch, because it is the only one most buyers can underwrite without selling something else.",
     features: ["4 Bedrooms", "3 Car Parks", "48 Units"],
   },
   {
@@ -118,7 +124,7 @@ export const configurations = [
     price: "Rs 17.43 – 19.87 Cr",
     priceFrom: "Rs 17.43 Cr",
     blurb:
-      "137 units, so most of the precinct is this format. The half room works as a study, a home office or a puja room, and the 3,500 sq ft plot leaves room for a private deck or pool.",
+      "137 units, so most of the precinct is this format. The half room works as a study, a home office or a puja room, and the 3,500 sq ft plot leaves room for a private deck or pool. Ask us which plots in this format are north-east facing before you shortlist — availability is limited and changes week to week, so we will confirm it against live inventory rather than quote you a number from a brochure.",
     features: ["4 Bedrooms + Half Room", "4 Car Parks", "137 Units"],
   },
   {
@@ -323,44 +329,87 @@ export const competitors = [
 /** Home-page FAQ, reused for both the UI and the FAQPage schema. */
 export const faqs = [
   {
-    question: "What is the Embassy Riverine price?",
-    answer:
-      "Embassy Riverine price starts at Rs 14.10 Cr for a 4 BHK villa (4,200 sq ft) and Rs 17.43 Cr for a 4.5 BHK villa (5,200 sq ft). The 5 BHK villa (6,800 sq ft) is priced on request. All figures exclude GST, stamp duty and registration.",
-  },
-  {
     question: "Where is Embassy Riverine located?",
     answer:
-      "On Chapparkallu Road at Tarahunise, in the Bettahalsur belt north of Yelahanka, just off NH-44. It is the villa precinct of the 85-acre Embassy Origins township, about 15 km from Kempegowda International Airport.",
+      "On Chapparkallu Road at Tharahunise, in the Bettahalsur belt of North Yelahanka, just off NH-44. It is the villa precinct of the 85-acre Embassy Origins township, within Embassy's wider Knowledge Park landholding, about 15 km from Kempegowda International Airport.",
   },
   {
-    question: "What villa configurations and sizes are available?",
+    question: "What is the Embassy Riverine price?",
     answer:
-      "Three formats: 4 BHK (2,400 sq ft plot, 4,200 sq ft built-up, 48 units), 4.5 BHK (3,500 sq ft plot, 5,200 sq ft built-up, 137 units) and 5 BHK (5,400 sq ft plot, 6,800 sq ft built-up, 32 units). 217 villas in total.",
+      "Rs 14.10 Cr onwards for the 4 BHK villa and Rs 17.43 Cr onwards for the 4.5 BHK villa; the 5 BHK villa is shared on request. That is the base price before GST, stamp duty, registration, deposits and corpus — ask us for the all-inclusive working on the specific villa you shortlist.",
   },
   {
-    question: "What is the Embassy Riverine RERA number and possession date?",
+    question: "What is the Embassy Riverine carpet area?",
     answer:
-      "PRM/KA/RERA/1251/309/PR/090926/008924, registered on 9 September 2026. The RERA-filed completion date is 30 September 2032, with phased handover indicated from 2030.",
+      "Built-up areas are 4,200 sq ft for the 4 BHK, 5,200 sq ft for the 4.5 BHK and 6,800 sq ft for the 5 BHK. The RERA carpet area is smaller and is the figure to compare across projects. We send it in writing with the relevant page of the filing rather than publishing a number we have not verified ourselves.",
   },
   {
-    question: "What is the booking amount and payment plan?",
+    question: "How many villas are there, and what is the density?",
     answer:
-      "Around 10% of the villa price at booking, with the balance on a construction-linked schedule. Ask us for the current Embassy Riverine payment plan and cost sheet in writing.",
+      "217 independent villas on roughly 50 acres — fewer than 4.5 homes to the acre, with 19 acres as reserved open space. Listings quoting 218 or 270 are wrong; the RERA filing counts 48 + 137 + 32.",
   },
   {
-    question: "How far is Embassy Riverine from Kempegowda International Airport?",
+    question: "Is Embassy Riverine the same as Embassy Knowledge Park?",
     answer:
-      "About 15 km by road, a 20 to 25 minute drive on NH-44 without entering the city.",
+      "Embassy Riverine is the villa enclave inside Embassy Origins, which sits within Embassy's wider Knowledge Park landholding at Tharahunise. Listings describing Embassy Knowledge Park Villas or EKP Villas are referring to this project.",
   },
   {
-    question: "What amenities does Embassy Riverine have?",
+    question: "What is the Embassy Riverine booking amount and payment plan?",
     answer:
-      "A 40,000 sq ft clubhouse with a heated indoor pool, gym, spa, squash court, business lounge and banquet hall, plus an outdoor pool, central lake, floodlit tennis, padel and pickleball courts, cricket nets, a putting green, a skating rink, riparian trails, a sky walk and a pet park.",
+      "Around 10% as the booking amount, with the balance construction-linked to milestones. The cost sheet moves with inventory, so take the working in writing before you decide.",
   },
   {
-    question: "How do I book an Embassy Riverine site visit?",
+    question: "What is the Embassy Riverine possession date?",
     answer:
-      "Call or WhatsApp +91 63566 63535, or use the form on this page. Visits run seven days a week with pickup from Hebbal or Yelahanka, and you get the price sheet the same day.",
+      "The RERA-filed completion date is 30 September 2032. The developer indicates phased handover from 2030, but the filed date is the enforceable one.",
+  },
+  {
+    question: "Are these waterfront villas?",
+    answer:
+      "A natural stream runs through the site and the master plan keeps it open, with clusters and trails laid along it — which is why some listings call them waterfront villas. It is a stream and a lake, not a waterfront, and we would rather you heard that from us before the site visit than after.",
+  },
+];
+
+/**
+ * Figures that circulate on portals and listings, against the RERA record.
+ * Rendered as the home page's "What the listings get wrong" table.
+ */
+export const listingClaims = [
+  {
+    claim: "218 villas",
+    where: "Several channel-partner sites",
+    record: "217 — 48 + 137 + 32, per the RERA filing",
+  },
+  {
+    claim: "270 villas",
+    where: "Social posts, some listings",
+    record: "217",
+  },
+  {
+    claim: "From Rs 11 Cr",
+    where: "Two sites ranking on page 1",
+    record: "Rs 14.10 Cr for the 4 BHK",
+  },
+  {
+    claim: "From Rs 4.50 Cr",
+    where: "At least two listings",
+    record: "Rs 14.10 Cr",
+  },
+  {
+    claim: "Jalahalli, Bangalore",
+    where: "A major portal",
+    record: "Tharahunise, Jala Hobli — a different part of the city entirely",
+  },
+  {
+    claim: "Possession September 2026",
+    where: "One listing",
+    record: "30 September 2032, RERA-filed",
+  },
+  {
+    claim: "200 acres / 50.8 acres / 85 acres",
+    where: "All three appear",
+    record:
+      "50.8 acres is the RERA-registered extent; 85 acres is Embassy Origins; about 200 acres is the wider Knowledge Park parcel",
   },
 ];
 

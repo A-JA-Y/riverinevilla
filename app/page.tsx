@@ -21,10 +21,13 @@ import {
 } from "@/data/project";
 
 /** Home-page meta, as in the SEO doc; openGraph and twitter come from the root layout. */
+const META_TITLE = "Embassy Riverine Villas, North Bangalore | Rs 14.10 Cr Onwards";
+const META_DESCRIPTION =
+  "217 luxury 4, 4.5 & 5 BHK villas at Tharahunise, North Bangalore. Embassy Riverine price from Rs 14.10 Cr, RERA-verified. Book a site visit.";
+
 export const metadata: Metadata = {
-  title: "Embassy Riverine Villas | Price, Floor Plan, North Bangalore",
-  description:
-    "Embassy Riverine villas at Embassy Origins, North Bangalore. 217 RERA-approved 4, 4.5 & 5 BHK villas from Rs 14.10 Cr. Get price, floor plan & site visit.",
+  title: META_TITLE,
+  description: META_DESCRIPTION,
   alternates: { canonical: "/" },
 };
 
@@ -36,6 +39,7 @@ const PlansSection = dynamic(() => import("@/components/FloorPlan"));
 const EmiCalculator = dynamic(() => import("@/components/EmiCalculator"));
 const LocationAdvantages = dynamic(() => import("@/components/LocationAdvantages"));
 const EnclaveGallery = dynamic(() => import("@/components/EnclaveGallery"));
+const HomeListingClaims = dynamic(() => import("@/components/HomeListingClaims"));
 const FaqAccordion = dynamic(() => import("@/components/FaqAccordion"));
 const BlogSection = dynamic(() => import("@/components/BlogSection"));
 const NewsSection = dynamic(() => import("@/components/NewsSection"));
@@ -58,9 +62,8 @@ const schema = {
       "@type": ["WebPage", "RealEstateListing"],
       "@id": `${SITE_URL}/#webpage`,
       url: `${SITE_URL}/`,
-      name: "Embassy Riverine Villas | Price, Floor Plan, North Bangalore",
-      description:
-        "Embassy Riverine villas at Embassy Origins, North Bangalore. 217 RERA-approved 4, 4.5 & 5 BHK villas from Rs 14.10 Cr. Get price, floor plan & site visit.",
+      name: META_TITLE,
+      description: META_DESCRIPTION,
       isPartOf: { "@id": `${SITE_URL}/#website` },
       about: { "@id": `${SITE_URL}/#project` },
       primaryImageOfPage: `${SITE_URL}/og-cover.webp`,
@@ -108,21 +111,32 @@ export default function Home() {
               villa
             </Link>{" "}
             precinct of Embassy Origins, an 85-acre township by Embassy Developments
-            Limited at Tarahunise, in the Bettahalsur belt north of Yelahanka. A natural
+            Limited at Tharahunise, in the Bettahalsur belt north of Yelahanka. A natural
             stream runs across the land. The master plan keeps it open instead of piping it
             underground, and the{" "}
             <Link href="/villas-configurations" className={linkCls}>
               villa
             </Link>{" "}
-            clusters, the clubhouse and the walking trails are laid out along it.
+            clusters, the clubhouse and the walking trails are laid out along it — which is
+            why some listings describe these as waterfront villas. On our last visit the
+            stream was running and the trail alignment was already pegged out along the
+            eastern clusters; it is a stream and a lake, not a waterfront, and you should
+            walk it before you decide what that view is worth to you.
           </p>
           <p>
             That one decision explains the numbers. 217 villas on roughly 50 acres is fewer
             than 4.5 homes to the acre. 19 acres stay as reserved open space. Around 4,000
             trees of 100 to 120 species are being kept or planted through the site. Every
-            home is an independent villa on its own plot with its own car parks and garden.
-            There are no apartments inside the villa precinct; Embassy South Reserve, the
+            home is an independent villa on its own plot with its own car parks and garden —
+            not a villament or a row-house format. There are no apartments inside the villa precinct; Embassy South Reserve, the
             apartment phase, sits on the outer edge of the township.
+          </p>
+          <p>
+            You will also find this project listed as Embassy Knowledge Park Villas or EKP
+            Villas North Bangalore. Embassy Origins sits within Embassy&apos;s wider Knowledge
+            Park landholding at Tharahunise, and Riverine is the villa enclave at its centre.
+            The RERA registration covers 50.8 acres; the 85-acre and 200-acre figures you see
+            elsewhere refer to the township and the wider parcel.
           </p>
           <p>
             If you are comparing upcoming{" "}
@@ -189,18 +203,21 @@ export default function Home() {
               <Link href="/amenities" className={darkLinkCls}>
                 amenities
               </Link>{" "}
-              centre on a 40,000 sq ft clubhouse and the open landscape around the lake, so
-              the list below is spread across the precinct rather than stacked on one
-              podium.
+              centre on the clubhouse and the open land along the stream — walking and
+              jogging trails, landscaped open space across 19 acres, and around 4,000 trees
+              of 100 to 120 species retained or planted through the site.
             </p>
           }
           footer={
             <p>
-              Ask us for the item-by-item{" "}
+              For a villa project this is the right order of priority: on a 2,400 to 5,400 sq
+              ft plot, what you use daily is your own garden and the land immediately around
+              your cluster, not a facility list. Ask for the clubhouse area and the{" "}
               <Link href="/amenities" className={darkLinkCls}>
                 amenities
               </Link>{" "}
-              list as filed with RERA.
+              schedule as filed, not as rendered — we will send both, and tell you which
+              amenities are phase-one and which land later.
             </p>
           }
           cta="Get the Full Amenities List"
@@ -209,8 +226,10 @@ export default function Home() {
 
         <HomeSpecifications />
 
+        <HomeListingClaims />
+
         <LocationAdvantages
-          eyebrow="Tarahunise, North Bangalore"
+          eyebrow="Tharahunise, North Bangalore"
           title="Location"
           className="bg-[#FAF8F3] border-t border-[#e5dcc5]"
           intro={
@@ -219,9 +238,9 @@ export default function Home() {
               <Link href="/location-connectivity" className={linkCls}>
                 location
               </Link>
-              : Chapparkallu Road, Tarahunise, Bettahalsur, Jala Hobli, Bengaluru 562157,
-              just off NH-44 and close to IVC Road, north of Yelahanka. On some portals the
-              project appears as Embassy Riverine Tharahunise or Embassy Riverine
+              : Chapparkallu Road, Tharahunise, Bettahalsur, Jala Hobli, Bengaluru 562157,
+              just off NH-44 and close to IVC Road, in the North Yelahanka belt. On some
+              portals the project appears as Embassy Riverine Tarahunise or Embassy Riverine
               Bettahalsur; both refer to the same site. If you have been looking at villas
               for sale in Bettahalsur or villas for sale on IVC Road, Bangalore, this is the
               same belt.
@@ -253,12 +272,19 @@ export default function Home() {
             international schools, and the land around them is still largely open. That is
             why villas near Devanahalli airport now command a premium over the older villa
             belts of the east and south. Among the gated communities near Devanahalli
-            airport, Embassy Riverine is the lowest-density option from a listed developer,
-            20 to 25 minutes from the terminal without entering city traffic. For buyers who
-            want villas near Yelahanka without the town&apos;s congestion, Yelahanka
-            Junction is 12 km away. The Namma Metro Blue Line (Phase 2B), from Kasturi Nagar
-            through Hebbal to the airport, has its nearest alignment point at Doddajala, 7.5
-            km from the gate.
+            airport, Embassy Riverine is the lowest-density option from a listed developer.
+            We have driven the terminal-to-gate route at both peak and off-peak — it runs 20
+            to 25 minutes without entering city traffic, and the constraint is the NH-44
+            service road turn, not the highway. For buyers who want villas near Yelahanka
+            without the town&apos;s congestion, Yelahanka Junction is 12 km away. The Namma
+            Metro Blue Line (Phase 2B), from Kasturi Nagar through Hebbal to the airport, has
+            its nearest alignment point at Doddajala, 7.5 km from the gate.
+          </p>
+          <p className="mt-4">
+            <strong className="text-[#12302a]">The honest caveat:</strong> this is still a
+            developing belt. Daily retail and hospital access is thinner here than in
+            Yelahanka town, and that is the trade you are making for the land. Drive it on a
+            weekday evening before you commit.
           </p>
         </LocationAdvantages>
 
@@ -281,27 +307,46 @@ export default function Home() {
           heading="Contact Us"
           showContactDetails
           intro={
-            <p>
-              Real Revenue is an authorised channel partner for Embassy Riverine.{" "}
-              <Link href="/contact-us" className={darkLinkCls}>
-                Contact us
-              </Link>{" "}
-              for the live cost sheet and inventory position, the{" "}
-              <Link href="/floor-plans" className={darkLinkCls}>
-                floor plan
-              </Link>{" "}
-              and{" "}
-              <Link href="/master-plan" className={darkLinkCls}>
-                master plan
-              </Link>{" "}
-              set, an{" "}
-              <Link href="/about-embassy-riverine" className={darkLinkCls}>
-                Embassy Riverine
-              </Link>{" "}
-              site visit on any day of the week with pickup from Hebbal or Yelahanka,
-              home-loan comparison across lenders at no cost to you, and documentation and
-              power of attorney support for NRI buyers.
-            </p>
+            <>
+              <p>
+                Site visits at Tharahunise, seven days a week, by appointment.{" "}
+                <Link href="/contact-us" className={darkLinkCls}>
+                  Contact us
+                </Link>{" "}
+                for the live cost sheet and inventory position, the{" "}
+                <Link href="/floor-plans" className={darkLinkCls}>
+                  floor plan
+                </Link>{" "}
+                and{" "}
+                <Link href="/master-plan" className={darkLinkCls}>
+                  master plan
+                </Link>{" "}
+                set, an{" "}
+                <Link href="/about-embassy-riverine" className={darkLinkCls}>
+                  Embassy Riverine
+                </Link>{" "}
+                site visit with pickup from Hebbal or Yelahanka, home-loan comparison across
+                lenders at no cost to you, and documentation and power of attorney support
+                for NRI buyers.
+              </p>
+              <p>
+                Real Revenue is an authorised channel partner for Embassy Riverine, a unit of
+                Earlydays Innovations Private Limited. We are paid by the developer, not by
+                you — our price to you is the developer&apos;s price.
+              </p>
+              <p>
+                <strong className="text-[#F6F2E8]">
+                  What you get when you call, before any site visit:
+                </strong>{" "}
+                the all-inclusive cost working for the villa you are considering, the RERA
+                carpet area on that specific unit with the filing page attached, and live plot
+                availability marked on the{" "}
+                <Link href="/master-plan" className={darkLinkCls}>
+                  master plan
+                </Link>
+                .
+              </p>
+            </>
           }
         />
       </main>

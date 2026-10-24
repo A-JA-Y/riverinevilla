@@ -113,7 +113,7 @@ export default function Hero({ form }) {
                 style={{ "--d": "80ms" }}
               >
                 <span className="h-px w-8 flex-shrink-0 bg-[#c8a24a]" />
-                New Launch · Embassy Origins, Tarahunise, North Bangalore
+                New Launch · Embassy Origins, Tharahunise, North Bangalore
               </p>
 
               {/* The page's only h1 */}
@@ -133,9 +133,19 @@ export default function Hero({ form }) {
                 className="hero-rise mt-5 text-white/85 text-sm sm:text-base leading-relaxed max-w-xl"
               >
                 217 independent villas on about 50 acres inside the 85-acre Embassy Origins
-                township, 15 km from Kempegowda International Airport. Embassy Riverine price
-                starts at <strong className="text-white font-semibold">Rs 14.10 Cr</strong> for
-                a 4 BHK villa.
+                township at Tharahunise, North Yelahanka, 15 km from Kempegowda International
+                Airport. Embassy Riverine price starts at{" "}
+                <strong className="text-white font-semibold">Rs 14.10 Cr</strong> for a 4 BHK
+                villa.
+              </p>
+
+              {/* The doc's trust line, directly under the hero copy */}
+              <p
+                style={{ "--d": "360ms" }}
+                className="hero-rise mt-4 text-white/70 text-[13px] sm:text-sm leading-relaxed max-w-xl"
+              >
+                Every figure on this page is checked against the Karnataka RERA filing. Where a
+                portal disagrees with the filing, we say so and show you both.
               </p>
 
               {/* price strip */}

@@ -40,6 +40,13 @@ export default function HomeMasterPlan() {
             and the 19 acres of open space are distributed through the layout rather than
             gathered into one park.
           </p>
+          <p className="text-gray-700 text-[15px] md:text-base leading-relaxed mt-4">
+            When you look at the master plan, look at cluster position before you look at
+            villa type. On a low-density layout like this one, the difference between an
+            internal plot and one backing the open space is the difference that actually shows
+            up at resale. We will mark the available plots on the master plan for you rather
+            than leaving you to guess from the brochure.
+          </p>
         </Reveal>
 
         <div className="grid md:grid-cols-2 gap-10 mt-10 items-center">
