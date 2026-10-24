@@ -13,14 +13,12 @@ import HomeSpecifications from "@/components/HomeSpecifications";
 import HomeEmbassyGroup from "@/components/HomeEmbassyGroup";
 import HomeRera from "@/components/HomeRera";
 import {
-  projectSchema,
-  agentSchema,
   faqs,
   faqSchema,
   breadcrumb,
   atAGlance,
+  SITE_URL,
 } from "@/data/project";
-import { villaProductSchemas } from "@/data/seoSchema";
 
 /** Home-page meta, as in the SEO doc; openGraph and twitter come from the root layout. */
 export const metadata: Metadata = {
@@ -50,19 +48,38 @@ const FloatingActions = dynamic(() => import("@/components/FloatingActions"));
 const linkCls = "text-[#A8822E] font-semibold link-wipe";
 const darkLinkCls = "text-[#C8A24A] font-semibold link-wipe";
 
+// Page-level nodes only. The project, the villa formats, the channel partner and
+// the Embassy organisations are emitted once site-wide from the root layout
+// (data/seoSchema.ts), so this graph just references them by @id.
 const schema = {
   "@context": "https://schema.org",
   "@graph": [
-    projectSchema,
-    ...villaProductSchemas,
-    agentSchema,
+    {
+      "@type": ["WebPage", "RealEstateListing"],
+      "@id": `${SITE_URL}/#webpage`,
+      url: `${SITE_URL}/`,
+      name: "Embassy Riverine Villas | Price, Floor Plan, North Bangalore",
+      description:
+        "Embassy Riverine villas at Embassy Origins, North Bangalore. 217 RERA-approved 4, 4.5 & 5 BHK villas from Rs 14.10 Cr. Get price, floor plan & site visit.",
+      isPartOf: { "@id": `${SITE_URL}/#website` },
+      about: { "@id": `${SITE_URL}/#project` },
+      primaryImageOfPage: `${SITE_URL}/og-cover.webp`,
+      datePosted: "2026-09-15",
+      dateModified: "2026-10-24",
+      inLanguage: "en-IN",
+      breadcrumb: { "@id": `${SITE_URL}/#breadcrumb` },
+    },
     // FAQPage built from the same `faqs` array the accordion below renders
-    faqSchema,
-    breadcrumb([
-      { name: "Home", path: "/" },
-      { name: "North Bangalore Villas", path: "/#location" },
-      { name: "Embassy Riverine", path: "/#project" },
-    ]),
+    {
+      ...faqSchema,
+      "@id": `${SITE_URL}/#faq`,
+      isPartOf: { "@id": `${SITE_URL}/#website` },
+      about: { "@id": `${SITE_URL}/#project` },
+    },
+    {
+      ...breadcrumb([{ name: "Home", path: "/" }]),
+      "@id": `${SITE_URL}/#breadcrumb`,
+    },
   ],
 };
 

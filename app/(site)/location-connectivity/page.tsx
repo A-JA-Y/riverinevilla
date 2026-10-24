@@ -8,7 +8,7 @@ import FaqAccordion from "@/components/FaqAccordion";
 import ContactBlock from "@/components/ContactBlock";
 import Reveal from "@/components/Reveal";
 import StickyDownloadButton from "@/components/StickyButton";
-import { project, projectSchema, agentSchema, breadcrumb, SITE_URL } from "@/data/project";
+import { project, breadcrumb, SITE_URL } from "@/data/project";
 
 import airport from "@/assets/loc-airport.webp";
 import metro from "@/assets/loc-metro.webp";
@@ -243,8 +243,6 @@ const faqItems = locationFaqs.map((f) => ({
 const schema = {
   "@context": "https://schema.org",
   "@graph": [
-    projectSchema,
-    agentSchema,
     {
       "@type": "FAQPage",
       "@id": `${SITE_URL}/location-connectivity#faq`,

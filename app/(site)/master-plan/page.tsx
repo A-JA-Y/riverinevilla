@@ -12,7 +12,7 @@ import masterPlan from "@/assets/master-plan.webp";
 import corridorImg from "@/assets/riparian-corridor.webp";
 import treesImg from "@/assets/township-trees.webp";
 import lakeImg from "@/assets/township-lake.webp";
-import { configurations, rera, projectSchema, breadcrumb } from "@/data/project";
+import { configurations, rera, breadcrumb } from "@/data/project";
 
 const META_TITLE = "Embassy Riverine Master Plan | 85-Acre Embassy Origins Map";
 const META_DESCRIPTION =
@@ -162,7 +162,6 @@ const masterPlanFaqs = [
 const schema = {
   "@context": "https://schema.org",
   "@graph": [
-    projectSchema,
     {
       "@type": "FAQPage",
       mainEntity: masterPlanFaqs.map((f) => ({

@@ -27,6 +27,13 @@ export const project = {
   whatsapp: "916356663535",
   email: "vishalajitsaria1988@gmail.com",
   brochure: "/embassy-riverine-brochure.pdf",
+  /** Real Revenue's corporate office, used for the channel-partner node in the JSON-LD graph. */
+  office: {
+    street: "19th Floor, Etherea, Bhutani Alphathum Tower B, Sector 90",
+    city: "Noida",
+    region: "Uttar Pradesh",
+    postalCode: "201304",
+  },
 } as const;
 
 export const rera = {

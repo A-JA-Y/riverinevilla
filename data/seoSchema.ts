@@ -10,6 +10,16 @@ const siteAddress = {
   addressCountry: "IN",
 };
 
+const officeAddress = {
+  "@type": "PostalAddress",
+  "@id": `${SITE_URL}/#office-address`,
+  streetAddress: project.office.street,
+  addressLocality: project.office.city,
+  addressRegion: project.office.region,
+  postalCode: project.office.postalCode,
+  addressCountry: "IN",
+};
+
 const geo = {
   "@type": "GeoCoordinates",
   "@id": `${SITE_URL}/#geo`,
@@ -25,78 +35,89 @@ const logo = {
   caption: "Embassy Riverine",
 };
 
-export const villaProductSchemas = configurations.map((configuration) => {
+/** Per-format facts the villa nodes need beyond what `configurations` already carries. */
+const villaMeta: Record<
+  string,
+  { bedrooms: number; rooms: number; image: string; description: string }
+> = {
+  "4bhk": {
+    bedrooms: 4,
+    rooms: 4,
+    image: "plan-4bhk.15g.bgwnto9ag.webp",
+    description: "Entry format. 2,400 sq ft plot, 4,200 sq ft built-up, 3 car parks. 48 units.",
+  },
+  "45bhk": {
+    bedrooms: 4,
+    rooms: 5,
+    image: "plan-45bhk.03.gna0~qp-8r.webp",
+    description:
+      "Four bedrooms plus a half room usable as a study, home office or puja room. 3,500 sq ft plot, 5,200 sq ft built-up, 4 car parks. 137 units.",
+  },
+  "5bhk": {
+    bedrooms: 5,
+    rooms: 5,
+    image: "plan-5bhk.0njv5.qe9a8fi.webp",
+    description:
+      "Largest format in the precinct. 5,400 sq ft plot, 6,800 sq ft built-up, 6 car parks. 32 units.",
+  },
+};
+
+/** One residence node per format, each carrying its own FloorPlan. */
+const villaNodes = configurations.map((configuration) => {
   const id = configuration.id;
+  const meta = villaMeta[id];
   const builtUp = Number(configuration.builtUp.replace(/[^0-9]/g, ""));
-  const plot = Number(configuration.plot.replace(/[^0-9]/g, ""));
-  const imageName = id === "4bhk" ? "plan-4bhk.15g.bgwnto9ag.webp" : id === "45bhk" ? "plan-45bhk.03.gna0~qp-8r.webp" : "plan-5bhk.0njv5.qe9a8fi.webp";
-  const product = {
-    "@type": id === "5bhk" ? "House" : ["Product", "House"],
-    "@id": `${SITE_URL}/villas-configurations#${id}`,
+  const image = `${SITE_URL}/_next/static/media/${meta.image}`;
+  const floorSize = { "@type": "QuantitativeValue", value: builtUp, unitCode: "FTK" };
+
+  return {
+    "@type": "SingleFamilyResidence",
+    "@id": `${SITE_URL}/#villa-${id}`,
     name: `Embassy Riverine ${configuration.short} Villa`,
-    description: `${configuration.type} on a ${configuration.plot} plot with ${configuration.builtUp} built-up area, ${configuration.parking} car parks and ${configuration.units} units. ${configuration.price === "On request" ? "Price on request." : `Price ${configuration.price}, excluding GST, stamp duty and registration.`}`,
-    url: `${SITE_URL}/villas-configurations#${id}`,
-    image: `${SITE_URL}/_next/static/media/${imageName}`,
-    category: "Luxury villa",
-    brand: { "@id": `${SITE_URL}/#embassy-developments` },
-    numberOfBedrooms: id === "45bhk" ? 4.5 : id === "5bhk" ? 5 : 4,
-    floorSize: {
-      "@type": "QuantitativeValue",
-      value: builtUp,
-      unitCode: "FTK",
-      unitText: "sq ft built-up",
-    },
+    description: meta.description,
+    url: `${SITE_URL}/floor-plans`,
+    image,
+    numberOfBedrooms: meta.bedrooms,
+    numberOfRooms: meta.rooms,
+    floorSize,
+    containedInPlace: { "@id": `${SITE_URL}/#project` },
+    address: { "@id": `${SITE_URL}/#site-address` },
     accommodationFloorPlan: {
       "@type": "FloorPlan",
+      "@id": `${SITE_URL}/#plan-${id}`,
       name: `Embassy Riverine ${configuration.short} floor plan`,
-      numberOfBedrooms: id === "45bhk" ? 4.5 : id === "5bhk" ? 5 : 4,
-      floorSize: {
+      image,
+      numberOfBedrooms: meta.bedrooms,
+      floorSize,
+      numberOfAvailableAccommodationUnits: {
         "@type": "QuantitativeValue",
-        value: builtUp,
-        unitCode: "FTK",
-        unitText: "sq ft built-up",
+        value: configuration.units,
       },
-      numberOfAccommodationUnits: { "@type": "QuantitativeValue", value: configuration.units },
-      image: `${SITE_URL}/_next/static/media/${imageName}`,
     },
     additionalProperty: [
-      { "@type": "PropertyValue", name: "Plot area", value: plot, unitCode: "FTK", unitText: "sq ft" },
-      { "@type": "PropertyValue", name: "Built-up area", value: builtUp, unitCode: "FTK", unitText: "sq ft" },
-      { "@type": "PropertyValue", name: "Car parks", value: configuration.parking },
-      { "@type": "PropertyValue", name: "Units", value: configuration.units },
-      ...(id === "5bhk"
-        ? [
-            { "@type": "PropertyValue", name: "Price", value: "On request" },
-            { "@type": "PropertyValue", name: "Availability", value: "Limited" },
-          ]
-        : []),
-    ],
-    ...(id === "5bhk"
-      ? { containedInPlace: { "@id": `${SITE_URL}/#project` } }
-      : {
-          offers: {
-            "@type": "AggregateOffer",
-            priceCurrency: "INR",
-            lowPrice: id === "4bhk" ? 141000000 : 174300000,
-            highPrice: id === "4bhk" ? 149700000 : 198700000,
-            offerCount: configuration.units,
-            availability: "https://schema.org/InStock",
-            itemCondition: "https://schema.org/NewCondition",
-            url: `${SITE_URL}/price`,
-            seller: { "@id": `${SITE_URL}/#realrevenue` },
-            availableAtOrFrom: { "@id": `${SITE_URL}/#project` },
-          },
-        }),
+      ["Configuration", configuration.short],
+      ["Plot area", configuration.plot],
+      ["Built-up area", configuration.builtUp],
+      ["Car parks", configuration.parking],
+      ["Units in precinct", configuration.units],
+      ["Indicative price", configuration.price],
+    ].map(([name, value]) => ({ "@type": "PropertyValue", name, value })),
   };
-
-  return product;
 });
 
 const projectNode = {
   "@type": "GatedResidenceCommunity",
   "@id": `${SITE_URL}/#project`,
   name: "Embassy Riverine",
-  alternateName: ["Embassy Riverine Villas", "Embassy Riverine, Embassy Origins", "Embassy Riverine Tarahunise", "Embassy Riverine Bettahalsur"],
+  alternateName: [
+    "Embassy Riverine Villas",
+    "Embassy Riverine, Embassy Origins",
+    "Embassy Riverine Tharahunise",
+    "Embassy Riverine Tarahunise",
+    "Embassy Riverine Bettahalsur",
+    "Embassy Knowledge Park Villas",
+    "EKP Villas North Bangalore",
+  ],
   description: "217 independent 4, 4.5 and 5 BHK luxury villas on about 50 acres inside the 85-acre Embassy Origins township at Tarahunise, North Bangalore, by Embassy Developments Limited. Fewer than 4.5 villas per acre, 19 acres of reserved open space, around 4,000 trees, a 40,000 sq ft clubhouse and a central lake, 15 km from Kempegowda International Airport. Price from Rs 14.10 Cr.",
   url: `${SITE_URL}/`,
   image: [`${SITE_URL}/og-cover.webp`, `${SITE_URL}/_next/static/media/riverine-hero.0r_ex.hdcqolf.webp`, `${SITE_URL}/_next/static/media/villa-exterior-1.0sh-dic7ehru5.webp`, `${SITE_URL}/_next/static/media/township-aerial.08uyn37k_v8zt.webp`],
@@ -105,6 +126,7 @@ const projectNode = {
   geo: { "@id": `${SITE_URL}/#geo` },
   hasMap: "https://www.google.com/maps/search/?api=1&query=13.187,77.596",
   containedInPlace: { "@id": `${SITE_URL}/#embassy-origins` },
+  containsPlace: configurations.map((configuration) => ({ "@id": `${SITE_URL}/#villa-${configuration.id}` })),
   publicAccess: false,
   identifier: { "@type": "PropertyValue", propertyID: "Karnataka RERA Registration Number", value: rera.villas },
   additionalProperty: [
@@ -139,10 +161,36 @@ const projectNode = {
   ].map((name) => ({ "@type": "LocationFeatureSpecification", name, value: true })),
 };
 
+/** The saleable product, and the single AggregateOffer the agent node points `makesOffer` at. */
+const villaProduct = {
+  "@type": "Product",
+  "@id": `${SITE_URL}/#villas`,
+  name: "Embassy Riverine Villas",
+  description: "4, 4.5 and 5 BHK independent luxury villas on individual plots at Embassy Origins, Tarahunise, North Bangalore. 217 villas on about 50 acres, from Rs 14.10 Cr.",
+  category: "Residential villa",
+  url: `${SITE_URL}/price`,
+  image: [`${SITE_URL}/og-cover.webp`, `${SITE_URL}/_next/static/media/villa-exterior-1.0sh-dic7ehru5.webp`],
+  brand: { "@id": `${SITE_URL}/#embassy-developments` },
+  offers: {
+    "@type": "AggregateOffer",
+    "@id": `${SITE_URL}/#offers`,
+    priceCurrency: "INR",
+    lowPrice: 141000000,
+    highPrice: 198700000,
+    offerCount: 217,
+    availability: "https://schema.org/PreOrder",
+    itemCondition: "https://schema.org/NewCondition",
+    priceValidUntil: "2026-12-31",
+    seller: { "@id": `${SITE_URL}/#realrevenue` },
+    areaServed: { "@type": "Country", name: "India" },
+  },
+};
+
 export const siteSchema = {
   "@context": "https://schema.org",
   "@graph": [
     siteAddress,
+    officeAddress,
     geo,
     logo,
     {
@@ -155,10 +203,22 @@ export const siteSchema = {
       image: `${SITE_URL}/og-cover.webp`,
       telephone: project.phoneHref,
       email: project.email,
-      areaServed: { "@type": "City", name: "Bengaluru" },
+      address: { "@id": `${SITE_URL}/#office-address` },
+      priceRange: "₹₹₹₹",
+      areaServed: [
+        { "@type": "City", name: "Bengaluru" },
+        { "@type": "Country", name: "India" },
+      ],
       openingHoursSpecification: { "@type": "OpeningHoursSpecification", dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"], opens: "09:00", closes: "20:00" },
-      contactPoint: { "@type": "ContactPoint", contactType: "sales", telephone: project.phoneHref, email: project.email, areaServed: "IN", availableLanguage: "en" },
-      knowsAbout: ["Embassy Riverine", "Embassy Origins", "Luxury villas in North Bangalore"],
+      contactPoint: { "@type": "ContactPoint", contactType: "sales", telephone: project.phoneHref, email: project.email, areaServed: "IN", availableLanguage: ["en", "hi", "kn"] },
+      makesOffer: { "@id": `${SITE_URL}/#offers` },
+      knowsAbout: [
+        "Embassy Riverine",
+        "Embassy Origins",
+        "Embassy Knowledge Park",
+        "Luxury villas in North Bangalore",
+        "Villas near Kempegowda International Airport",
+      ],
     },
     {
       "@type": "Organization",
@@ -194,7 +254,7 @@ export const siteSchema = {
       "@type": "Place",
       "@id": `${SITE_URL}/#embassy-origins`,
       name: "Embassy Origins",
-      alternateName: "Embassy Origins Township",
+      alternateName: ["Embassy Origins Township", "Embassy Knowledge Park"],
       description: "85-acre gated township by Embassy Developments Limited at Tarahunise, North Bangalore, master-planned by Bhumiputra Architecture around a protected riparian corridor.",
       url: `${SITE_URL}/master-plan`,
       image: `${SITE_URL}/_next/static/media/master-plan.07afn0e5r.3t9.webp`,
@@ -203,5 +263,7 @@ export const siteSchema = {
       hasMap: "https://www.google.com/maps/search/?api=1&query=13.187,77.596",
     },
     projectNode,
+    ...villaNodes,
+    villaProduct,
   ],
 };

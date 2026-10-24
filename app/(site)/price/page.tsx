@@ -8,8 +8,7 @@ import FaqAccordion from "@/components/FaqAccordion";
 import ContactBlock from "@/components/ContactBlock";
 import Reveal from "@/components/Reveal";
 import StickyDownloadButton from "@/components/StickyButton";
-import { configurations, breadcrumb, projectSchema } from "@/data/project";
-import { villaProductSchemas } from "@/data/seoSchema";
+import { configurations, breadcrumb } from "@/data/project";
 
 const META_TITLE = "Embassy Riverine Price | 4, 4.5 & 5 BHK Price List 2026";
 const META_DESCRIPTION =
@@ -210,8 +209,6 @@ const priceFaqs = [
 const schema = {
   "@context": "https://schema.org",
   "@graph": [
-    projectSchema,
-    ...villaProductSchemas,
     {
       "@type": "FAQPage",
       mainEntity: priceFaqs.map((f) => ({

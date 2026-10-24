@@ -10,7 +10,7 @@ import FaqAccordion from "@/components/FaqAccordion";
 import ContactBlock from "@/components/ContactBlock";
 import Reveal from "@/components/Reveal";
 import StickyDownloadButton from "@/components/StickyButton";
-import { projectSchema, breadcrumb } from "@/data/project";
+import { breadcrumb } from "@/data/project";
 
 import loungeBar from "@/assets/lounge-bar.webp";
 import outdoorPool from "@/assets/outdoor-pool.webp";
@@ -271,7 +271,6 @@ const faqItems = amenitiesFaqs.map((f) => ({
 const schema = {
   "@context": "https://schema.org",
   "@graph": [
-    projectSchema,
     {
       "@type": "FAQPage",
       mainEntity: amenitiesFaqs.map((f) => ({

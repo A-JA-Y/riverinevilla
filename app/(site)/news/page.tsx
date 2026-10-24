@@ -11,7 +11,7 @@ import BlogsIndexTopicGrid, {
   type IndexTopic,
 } from "@/components/BlogsIndexTopicGrid";
 import NewsData from "@/data/newsData";
-import { breadcrumb, projectSchema } from "@/data/project";
+import { breadcrumb } from "@/data/project";
 
 const META_TITLE = "Embassy Riverine News | New Launch, RERA & Site Updates";
 const META_DESCRIPTION =
@@ -236,7 +236,6 @@ const newsFaqs = [
 const schema = {
   "@context": "https://schema.org",
   "@graph": [
-    projectSchema,
     {
       "@type": "FAQPage",
       mainEntity: newsFaqs.map((f) => ({

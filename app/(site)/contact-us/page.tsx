@@ -16,7 +16,7 @@ import EnquiryButton from "@/components/EnquiryButton";
 import FaqAccordion from "@/components/FaqAccordion";
 import Reveal from "@/components/Reveal";
 import StickyDownloadButton from "@/components/StickyButton";
-import { project, rera, agentSchema, projectSchema, breadcrumb } from "@/data/project";
+import { project, rera, breadcrumb } from "@/data/project";
 
 const META_TITLE = "Embassy Riverine Contact Number | Site Visit & Booking";
 const META_DESCRIPTION =
@@ -332,8 +332,6 @@ const contactFaqs = [
 const schema = {
   "@context": "https://schema.org",
   "@graph": [
-    projectSchema,
-    agentSchema,
     {
       "@type": "FAQPage",
       mainEntity: contactFaqs.map((f) => ({

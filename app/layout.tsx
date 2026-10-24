@@ -29,26 +29,6 @@ export const metadata: Metadata = {
   description:
     "Embassy Riverine villas at Embassy Origins, North Bangalore. 217 RERA-approved 4, 4.5 & 5 BHK villas from Rs 14.10 Cr. Get price, floor plan & site visit.",
 
-  keywords: [
-    "Embassy Riverine",
-    "Embassy Riverine villas",
-    "Embassy Riverine price",
-    "Embassy Riverine floor plan",
-    "Embassy Riverine master plan",
-    "Embassy Riverine amenities",
-    "Embassy Riverine location",
-    "Embassy Riverine RERA number",
-    "Embassy Origins",
-    "luxury villas in North Bangalore",
-    "4 BHK villa for sale near Bangalore airport",
-    "5 BHK villa for sale in North Bangalore",
-    "villas near Devanahalli airport",
-    "villas for sale in Bettahalsur",
-    "villas for sale on IVC Road",
-    "villas near Yelahanka",
-    "Embassy villas in North Bangalore",
-  ],
-
   // No canonical here: every page sets its own (the home page in app/page.tsx),
   // so a page that forgets one is not silently canonicalised to the home page.
 

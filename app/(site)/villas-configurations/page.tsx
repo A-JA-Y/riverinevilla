@@ -7,8 +7,7 @@ import FaqAccordion from "@/components/FaqAccordion";
 import ContactBlock from "@/components/ContactBlock";
 import Reveal from "@/components/Reveal";
 import StickyDownloadButton from "@/components/StickyButton";
-import { configurations, breadcrumb, projectSchema } from "@/data/project";
-import { villaProductSchemas } from "@/data/seoSchema";
+import { configurations, breadcrumb } from "@/data/project";
 
 import plan4 from "@/assets/plan-4bhk.webp";
 import plan45 from "@/assets/plan-45bhk.webp";
@@ -221,8 +220,6 @@ const villaFaqs = [
 const schema = {
   "@context": "https://schema.org",
   "@graph": [
-    projectSchema,
-    ...villaProductSchemas,
     {
       "@type": "FAQPage",
       mainEntity: villaFaqs.map((f) => ({

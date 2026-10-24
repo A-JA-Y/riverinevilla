@@ -11,7 +11,7 @@ import Reveal from "@/components/Reveal";
 import StickyDownloadButton from "@/components/StickyButton";
 import corridorImg from "@/assets/riparian-corridor.webp";
 import townshipImg from "@/assets/township-85-acres.webp";
-import { configurations, rera, projectSchema, breadcrumb } from "@/data/project";
+import { configurations, rera, breadcrumb } from "@/data/project";
 
 const META_TITLE = "About Embassy Riverine North Bangalore | Embassy Origins";
 const META_DESCRIPTION =
@@ -207,7 +207,6 @@ const aboutFaqs = [
 const schema = {
   "@context": "https://schema.org",
   "@graph": [
-    projectSchema,
     {
       "@type": "FAQPage",
       mainEntity: aboutFaqs.map((f) => ({

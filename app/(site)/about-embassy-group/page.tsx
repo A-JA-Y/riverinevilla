@@ -5,7 +5,7 @@ import FaqAccordion from "@/components/FaqAccordion";
 import ContactBlock from "@/components/ContactBlock";
 import Reveal from "@/components/Reveal";
 import StickyDownloadButton from "@/components/StickyButton";
-import { SITE_URL, configurations, projectSchema, breadcrumb } from "@/data/project";
+import { SITE_URL, configurations, breadcrumb } from "@/data/project";
 
 const META_TITLE = "About Embassy Group | Embassy Villas & Projects in Bangalore";
 const META_DESCRIPTION =
@@ -170,7 +170,6 @@ const schema = {
         addressCountry: "IN",
       },
     },
-    projectSchema,
     {
       "@type": "FAQPage",
       mainEntity: groupFaqs.map((f) => ({
