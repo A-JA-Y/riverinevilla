@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Image from "next/image";
 import Reveal from "./Reveal";
 import { specifications } from "@/data/project";
@@ -68,7 +69,16 @@ export default function HomeSpecifications() {
         >
           <p className="text-gray-700 text-sm leading-relaxed">
             Specifications are indicative. The annexure to your agreement to sell is the
-            binding document; read it before you sign.
+            binding document; read it before you sign. See how these finishes sit in each
+            layout on the{" "}
+            <Link href="/floor-plans" className="text-[#A8822E] font-semibold link-wipe">
+              Embassy Riverine floor plans
+            </Link>
+            , or{" "}
+            <Link href="/contact-us" className="text-[#A8822E] font-semibold link-wipe">
+              ask us for the specification annexure
+            </Link>
+            .
           </p>
         </Reveal>
       </div>
