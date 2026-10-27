@@ -3,6 +3,7 @@ import Image from "next/image";
 import { footerNavLinks } from "@/data/siteNav";
 import { project, rera } from "@/data/project";
 import logoLight from "@/assets/logo-light.webp";
+import credaiKarnataka from "@/assets/credai-karnataka.png";
 
 export default function Footer() {
   const half = Math.ceil(footerNavLinks.length / 2);
@@ -30,6 +31,19 @@ export default function Footer() {
             <p className="text-white/40 text-[11px] leading-relaxed mt-3 break-all">
               RERA: {rera.villas}
             </p>
+            <div className="mt-4">
+              <p className="text-[#C8A24A] text-[11px] font-semibold tracking-[0.2em] uppercase mb-2">
+                Member Of
+              </p>
+              <span className="inline-flex bg-white rounded-md p-1.5">
+                <Image
+                  src={credaiKarnataka}
+                  alt="CREDAI Karnataka"
+                  className="h-12 w-auto"
+                  sizes="100px"
+                />
+              </span>
+            </div>
           </div>
 
           {/* Quick links */}
@@ -97,29 +111,11 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Disclaimer */}
-        <div className="text-center mb-4">
-          <p className="text-[11px] text-white/45 leading-relaxed">
-            Disclaimer: Real Revenue is an authorised channel partner. This website is a
-            marketing initiative and is not the official website of the developer. All
-            images, plans and specifications are indicative and subject to change by the
-            developer and the competent authority. Photography used on this site is
-            representative and does not depict the actual project. Prices quoted are
-            indicative, exclusive of taxes and statutory charges, and subject to revision
-            without notice. Nothing on this site constitutes an offer or a contract. Please
-            refer to the RERA-registered particulars and the agreement to sell before
-            making any purchase decision.
-            {rera.agent ? ` Karnataka RERA Agent Registration: ${rera.agent}.` : null}
-          </p>
-          <hr className="border-t border-white/10 mt-3" />
-        </div>
+
 
         <div className="flex flex-wrap justify-center items-center gap-x-4 gap-y-2 text-center">
-          <p className="text-white/80 text-xs tracking-wide">
-            Copyright &copy; {year} <span className="font-bold text-white">Real Revenue</span>{" "}
-            &mdash; Authorised Channel Partner
-          </p>
-          <span className="text-white/20 hidden sm:inline">|</span>
+          
+        
           <Link
             href="/privacy-policy"
             className="text-white/80 text-xs hover:text-[#C8A24A] transition-colors"
