@@ -39,6 +39,7 @@ const PlansSection = dynamic(() => import("@/components/FloorPlan"));
 const EmiCalculator = dynamic(() => import("@/components/EmiCalculator"));
 const LocationAdvantages = dynamic(() => import("@/components/LocationAdvantages"));
 const EnclaveGallery = dynamic(() => import("@/components/EnclaveGallery"));
+const HomeVideo = dynamic(() => import("@/components/HomeVideo"));
 const HomeListingClaims = dynamic(() => import("@/components/HomeListingClaims"));
 const FaqAccordion = dynamic(() => import("@/components/FaqAccordion"));
 const BlogSection = dynamic(() => import("@/components/BlogSection"));
@@ -110,16 +111,21 @@ export default function Home() {
             <Link href="/villas-configurations" className={linkCls}>
               villa
             </Link>{" "}
-            precinct of Embassy Origins, an 85-acre township by Embassy Developments
-            Limited at Tharahunise, in the Bettahalsur belt north of Yelahanka. A natural
-            stream runs across the land. The master plan keeps it open instead of piping it
-            underground, and the{" "}
-            <Link href="/villas-configurations" className={linkCls}>
-              villa
+            precinct of Embassy Origins, an 85-acre township by{" "}
+            <Link href="/about-embassy-group" className={linkCls}>
+              Embassy Developments Limited
             </Link>{" "}
-            clusters, the clubhouse and the walking trails are laid out along it — which is
-            why some listings describe these as waterfront villas. On our last visit the
-            stream was running and the trail alignment was already pegged out along the
+            at Tharahunise, in the Bettahalsur belt north of Yelahanka. A natural
+            stream runs across the land. The{" "}
+            <Link href="/master-plan" className={linkCls}>
+              master plan
+            </Link>{" "}
+            keeps it open instead of piping it underground, and the villa clusters, the{" "}
+            <Link href="/amenities" className={linkCls}>
+              clubhouse and the walking trails
+            </Link>{" "}
+            are laid out along it — which is why some listings describe these as waterfront
+            villas. On our last visit the stream was running and the trail alignment was already pegged out along the
             eastern clusters; it is a stream and a lake, not a waterfront, and you should
             walk it before you decide what that view is worth to you.
           </p>
@@ -127,51 +133,63 @@ export default function Home() {
             That one decision explains the numbers. 217 villas on roughly 50 acres is fewer
             than 4.5 homes to the acre. 19 acres stay as reserved open space. Around 4,000
             trees of 100 to 120 species are being kept or planted through the site. Every
-            home is an independent villa on its own plot with its own car parks and garden —
+            home is an{" "}
+            <Link href="/villas-configurations" className={linkCls}>
+              independent villa
+            </Link>{" "}
+            on its own plot with its own car parks and garden —
             not a villament or a row-house format. There are no apartments inside the villa precinct; Embassy South Reserve, the
             apartment phase, sits on the outer edge of the township.
           </p>
           <p>
             You will also find this project listed as Embassy Knowledge Park Villas or EKP
             Villas North Bangalore. Embassy Origins sits within Embassy&apos;s wider Knowledge
-            Park landholding at Tharahunise, and Riverine is the villa enclave at its centre.
+            Park landholding at Tharahunise, and{" "}
+            <Link href="/about-embassy-riverine" className={linkCls}>
+              Riverine is the villa enclave
+            </Link>{" "}
+            at its centre.
             The RERA registration covers 50.8 acres; the 85-acre and 200-acre figures you see
             elsewhere refer to the township and the wider parcel.
           </p>
           <p>
-            If you are comparing upcoming{" "}
+            If you are comparing{" "}
+            <Link href="/blogs/villa-projects-north-bangalore-2026" className={linkCls}>
+              upcoming villa projects in North Bangalore
+            </Link>
+            , this one stands apart on two counts: land per home
+            and ticket size. Everything a buyer usually asks about has its own page:{" "}
             <Link href="/villas-configurations" className={linkCls}>
-              villa
-            </Link>{" "}
-            projects in North Bangalore, this one stands apart on two counts: land per home
-            and ticket size. Everything a buyer usually asks about is covered below:{" "}
-            <a href="#configurations" className={linkCls}>
               villa &amp; configuration
-            </a>
+            </Link>
             ,{" "}
-            <a href="#price" className={linkCls}>
+            <Link href="/price" className={linkCls}>
               price
-            </a>
+            </Link>
             ,{" "}
-            <a href="#plans" className={linkCls}>
+            <Link href="/floor-plans" className={linkCls}>
               floor plan
-            </a>
+            </Link>
             ,{" "}
-            <a href="#master-plan" className={linkCls}>
+            <Link href="/master-plan" className={linkCls}>
               master plan
-            </a>
+            </Link>
             ,{" "}
-            <a href="#amenities" className={linkCls}>
+            <Link href="/amenities" className={linkCls}>
               amenities
-            </a>
+            </Link>
             ,{" "}
-            <a href="#location" className={linkCls}>
+            <Link href="/location-connectivity" className={linkCls}>
               location
-            </a>
+            </Link>
+            , the{" "}
+            <Link href="/blogs/embassy-riverine-north-bangalore-buyers-guide-2026" className={linkCls}>
+              buyer&apos;s guide
+            </Link>
             , and how to{" "}
-            <a href="#book-site-visit" className={linkCls}>
+            <Link href="/contact-us" className={linkCls}>
               contact us
-            </a>{" "}
+            </Link>{" "}
             for a site visit.
           </p>
         </AboutProject>
@@ -184,6 +202,8 @@ export default function Home() {
           titleAs="h3"
           id="at-a-glance"
         />
+
+        <HomeVideo />
 
         <HomeConfigurations />
 
@@ -273,7 +293,11 @@ export default function Home() {
             why villas near Devanahalli airport now command a premium over the older villa
             belts of the east and south. Among the gated communities near Devanahalli
             airport, Embassy Riverine is the lowest-density option from a listed developer.
-            We have driven the terminal-to-gate route at both peak and off-peak — it runs 20
+            See the full{" "}
+            <Link href="/location-connectivity" className={linkCls}>
+              connectivity and distance table
+            </Link>
+            . We have driven the terminal-to-gate route at both peak and off-peak — it runs 20
             to 25 minutes without entering city traffic, and the constraint is the NH-44
             service road turn, not the highway. For buyers who want villas near Yelahanka
             without the town&apos;s congestion, Yelahanka Junction is 12 km away. The Namma

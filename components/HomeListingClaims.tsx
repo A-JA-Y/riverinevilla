@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Reveal from "./Reveal";
 import { listingClaims, rera } from "@/data/project";
 
@@ -77,7 +78,15 @@ export default function HomeListingClaims() {
             Every number on this page comes from the RERA registration{" "}
             <span className="font-semibold text-[#12302a] break-all">{rera.villas}</span>, from
             the current developer cost sheet, or from our own site visit — and we say which.
-            Where a portal disagrees with the filing, the filing is the one to trust. Verify
+            Where a portal disagrees with the filing, the filing is the one to trust. Our{" "}
+            <Link href="/blogs/embassy-riverine-north-bangalore-buyers-guide-2026" className="text-[#A8822E] font-semibold link-wipe">
+              Embassy Riverine buyer&apos;s guide
+            </Link>{" "}
+            walks through what to check before you book, and the{" "}
+            <Link href="/news" className="text-[#A8822E] font-semibold link-wipe">
+              latest news
+            </Link>{" "}
+            tracks launch and pricing updates. Verify
             it yourself on the{" "}
             <a
               href={rera.portal}

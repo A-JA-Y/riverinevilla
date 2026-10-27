@@ -17,9 +17,17 @@ export default function HomeConfigurations() {
           </h2>
           <span className="rule-grow mt-3" data-shown="" />
           <p className="text-gray-700 text-[15px] md:text-base leading-relaxed mt-5">
-            Embassy Riverine villas come in three formats. Plot, built-up area and car parks
-            are fixed for each format; the only variable is where in the precinct the villa
-            stands.
+            Embassy Riverine{" "}
+            <Link href="/villas-configurations" className="text-[#A8822E] font-semibold link-wipe">
+              villas come in three formats
+            </Link>
+            . Plot, built-up area and car parks are fixed for each format; the only variable is
+            where in the precinct the villa stands. Room-by-room layouts for each format are on
+            the{" "}
+            <Link href="/floor-plans" className="text-[#A8822E] font-semibold link-wipe">
+              floor plans
+            </Link>{" "}
+            page.
           </p>
         </Reveal>
 

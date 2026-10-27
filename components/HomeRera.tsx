@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Reveal from "./Reveal";
 import { rera } from "@/data/project";
 
@@ -65,7 +66,12 @@ export default function HomeRera() {
             before paying any booking amount.
           </p>
           <p className="text-[15px] leading-relaxed text-white/80 mt-4">
-            Ask for the handover commitment in the agreement, not the brochure. If anything on
+            Ask for the handover commitment in the agreement, not the brochure. The project
+            record, phasing and developer background are on the{" "}
+            <Link href="/about-embassy-riverine" className="text-[#C8A24A] font-semibold link-wipe">
+              About Embassy Riverine
+            </Link>{" "}
+            page. If anything on
             this page does not match what you see on the portal, tell us — we will correct the
             page and name the correction.
           </p>
