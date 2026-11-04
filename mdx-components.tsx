@@ -3,9 +3,11 @@
  */
 
 import type { MDXComponents } from "mdx/types";
-import Image, { type ImageProps } from "next/image";
+import Image, { type ImageProps, type StaticImageData } from "next/image";
 import Link from "next/link";
 import React from "react";
+import PhotoCredit from "@/components/PhotoCredit";
+import type { PhotoCreditInfo } from "@/data/photoCredits";
 
 export { Link };
 
@@ -207,7 +209,7 @@ export function HeroBand({
 }: {
   label: string;
   title: string;
-  isH1:Boolean;
+  isH1?: boolean;
   sub: string;
   tags?: string[];
 }) {
@@ -531,6 +533,42 @@ function MDXImage(props: ImageProps) {
 }
 
 /* ─────────────────────────────────────────────
+   FIGURE — in-article photo with caption and credit
+───────────────────────────────────────────── */
+
+export function Figure({
+  src,
+  alt,
+  caption,
+  credit,
+}: {
+  /** A static import, so the build knows the image's width and height. */
+  src: StaticImageData;
+  alt: string;
+  caption?: React.ReactNode;
+  credit?: PhotoCreditInfo;
+}) {
+  return (
+    <figure className="my-10">
+      <Image
+        src={src}
+        alt={alt}
+        sizes="(max-width: 1024px) 100vw, 780px"
+        className="w-full h-auto rounded-xl"
+      />
+      {caption || credit ? (
+        <figcaption className="mt-3 text-[13px] leading-relaxed text-gray-500 font-light">
+          {caption}
+          {credit ? (
+            <PhotoCredit credit={credit} className="block mt-1 text-[11.5px] text-gray-400" />
+          ) : null}
+        </figcaption>
+      ) : null}
+    </figure>
+  );
+}
+
+/* ─────────────────────────────────────────────
    NEWS SPECIFIC COMPONENTS (HTML REPLICATION)
 ───────────────────────────────────────────── */
 
@@ -600,7 +638,7 @@ export function NewsPullQuote({ quote, cite }: { quote: string; cite: string }) 
   return (
     <div className="my-6 p-5 md:p-6 bg-gray-50 border-l-4 border-[#2e7d52] rounded-r-lg">
       <p className="italic text-[18px] text-gray-800 mb-2 leading-[1.5]" style={{ fontFamily: "'Playfair Display', serif" }}>
-        "{quote}"
+        &ldquo;{quote}&rdquo;
       </p>
       {cite && (
         <cite className="font-sans text-[12px] text-gray-400 not-italic">
@@ -728,7 +766,37 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     ),
     hr: () => <hr className="border-none border-t border-gray-200 my-8" />,
 
+    /* GFM tables: scroll inside their own box on phones instead of widening the page */
+    table: ({ children, ...rest }) => (
+      <div className="my-8 overflow-x-auto rounded-lg border border-gray-200">
+        <table className="w-full min-w-[560px] border-collapse text-[14.5px]" {...rest}>
+          {children}
+        </table>
+      </div>
+    ),
+    thead: ({ children, ...rest }) => (
+      <thead className="bg-emerald-800 text-white" {...rest}>
+        {children}
+      </thead>
+    ),
+    th: ({ children, ...rest }) => (
+      <th className="px-4 py-3 text-left align-top font-medium text-[13.5px]" {...rest}>
+        {children}
+      </th>
+    ),
+    tr: ({ children, ...rest }) => (
+      <tr className="even:bg-gray-50" {...rest}>
+        {children}
+      </tr>
+    ),
+    td: ({ children, ...rest }) => (
+      <td className="px-4 py-3 align-top border-t border-gray-100 text-gray-600 font-light" {...rest}>
+        {children}
+      </td>
+    ),
+
     HeroBand,
+    Figure,
     TOC,
     StatGrid,
     PullQuote,
