@@ -1,6 +1,4 @@
 import { SITE_URL } from "./project";
-import { photoCredits, type PhotoCreditInfo } from "./photoCredits";
-import { bangaloreLiveOrInvestFaqs, bhkComparisonFaqs, faqPageSchema } from "./blogFaqs";
 
 export type BlogMeta = {
   id: string;
@@ -17,8 +15,6 @@ export type BlogMeta = {
 
   /* Display */
   image: string;
-  /** Attribution for a third-party hero photo, shown on the hero. */
-  imageCredit?: PhotoCreditInfo;
   date: string;
   updatedAt: string;
   author: string;
@@ -178,83 +174,6 @@ export const blogData: BlogMeta[] = [
         },
       ],
     },
-  },
-
-  {
-    id: "blog-3",
-
-    /* SEO — from the "3 BHK or 4 BHK" content doc */
-    title: "3 BHK or 4 BHK: Which One Is Good to Live In Bangalore? (2026 Guide)",
-    slug: "3-bhk-or-4-bhk-which-is-better-to-live-in-bangalore",
-    excerpt:
-      "The real difference between 3 BHK and 4 BHK in Bangalore is not one bedroom. It is roughly Rs 1 crore, a bigger EMI, a thinner resale pool, and often a different part of the city.",
-    metaTitle: "3 BHK or 4 BHK in Bangalore: Which Is Better to Live In?",
-    metaDescription:
-      "3 BHK or 4 BHK in Bangalore? We compare size, the Rs 1 Cr price gap, EMI, maintenance, resale and where each is actually available, then give you a 5-minute test to decide.",
-    keywords: [
-      "3 BHK or 4 BHK",
-      "3 BHK vs 4 BHK Bangalore",
-      "difference between 3 BHK and 4 BHK",
-      "4 BHK apartments in Bangalore",
-      "3 BHK flats in Bangalore",
-      "upgrade from 3 BHK to 4 BHK",
-      "4 BHK villa in Bangalore",
-      "villa vs apartment in Bangalore",
-    ],
-    canonical: `${SITE_URL}/blogs/3-bhk-or-4-bhk-which-is-better-to-live-in-bangalore`,
-
-    /* Display */
-    image: "/blog-3bhk-or-4bhk-bangalore.webp",
-    imageCredit: photoCredits.prestigeShantiniketanPark,
-    altText:
-      "Apartment towers around the central park at Prestige Shantiniketan, Whitefield, Bangalore",
-    date: "2026-11-04",
-    updatedAt: "2026-11-04",
-    author: "Real Revenue",
-    category: "Buyer's Guide",
-    readTime: "11 min read",
-    tags: ["3 bhk", "4 bhk", "bangalore", "buyer guide"],
-    featured: false,
-
-    faqSchema: faqPageSchema(bhkComparisonFaqs),
-  },
-
-  {
-    id: "blog-4",
-
-    /* SEO — from the "Is Bangalore good to live or invest in" content doc */
-    title: "Is Bangalore Good to Live or Invest In? A 2026 Answer With the Numbers",
-    slug: "is-bangalore-good-to-live-or-invest-in",
-    excerpt:
-      "Yes on both counts, with conditions that matter more than the yes. 2026 prices, rental yields, unsold stock and the best areas to invest, with the risks the developer blogs leave out.",
-    metaTitle: "Is Bangalore Good to Live or Invest In? 2026 Data & Verdict",
-    metaDescription:
-      "Is Bangalore good to live or invest in? 2026 prices, rental yields, unsold stock, best areas to invest in Bangalore and the honest trade-offs, in one guide.",
-    keywords: [
-      "is Bangalore good to live or invest in",
-      "Bangalore real estate investment",
-      "best areas to invest in Bangalore",
-      "rental yield in Bangalore",
-      "Bangalore property prices 2026",
-      "North Bangalore real estate",
-      "cost of living in Bangalore",
-      "villas near Bangalore airport",
-    ],
-    canonical: `${SITE_URL}/blogs/is-bangalore-good-to-live-or-invest-in`,
-
-    /* Display */
-    image: "/blog-bangalore-live-or-invest.webp",
-    imageCredit: photoCredits.manyataBusinessPark,
-    altText: "Manyata Embassy Business Park and the North Bangalore skyline at sunset",
-    date: "2026-11-04",
-    updatedAt: "2026-11-04",
-    author: "Real Revenue",
-    category: "Location and Infrastructure",
-    readTime: "11 min read",
-    tags: ["bangalore", "investment", "rental yield", "north bangalore"],
-    featured: false,
-
-    faqSchema: faqPageSchema(bangaloreLiveOrInvestFaqs),
   },
 ];
 

@@ -56,6 +56,17 @@ const nextConfig: NextConfig = {
         destination: "/news/embassy-origins-launch-north-bangalore-2026",
         permanent: true,
       },
+      // Guides that briefly lived under /blogs before getting their own pages
+      {
+        source: "/blogs/3-bhk-or-4-bhk-which-is-better-to-live-in-bangalore",
+        destination: "/3-bhk-or-4-bhk-which-is-better-to-live-in-bangalore",
+        permanent: true,
+      },
+      {
+        source: "/blogs/is-bangalore-good-to-live-or-invest-in",
+        destination: "/is-bangalore-good-to-live-or-invest-in",
+        permanent: true,
+      },
     ];
   },
 };

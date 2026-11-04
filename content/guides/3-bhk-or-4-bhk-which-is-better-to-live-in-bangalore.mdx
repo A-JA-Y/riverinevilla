@@ -1,19 +1,19 @@
+import { GuideSection, GuideToc, GuideFigure, GuideVideo } from "@/components/GuideContent";
 import { photoCredits } from "@/data/photoCredits";
-import { bhkComparisonFaqs } from "@/data/blogFaqs";
-import livingRoom from "@/assets/blog/apartment-living-room.webp";
-import homeOffice from "@/assets/blog/home-office-desk.webp";
-import bedroom from "@/assets/blog/apartment-bedroom.webp";
-import brigadeMetropolis from "@/assets/blog/brigade-metropolis-east-bangalore.webp";
+import { walkthroughVideo } from "@/data/project";
+import livingRoom from "@/assets/guides/apartment-living-room.webp";
+import homeOffice from "@/assets/guides/home-office-desk.webp";
+import bedroom from "@/assets/guides/apartment-bedroom.webp";
+import brigadeMetropolis from "@/assets/guides/brigade-metropolis-east-bangalore.webp";
 import villaExterior from "@/assets/villa-exterior-2.webp";
 
-<HeroBand
-  label="Buyer’s Guide · Bangalore · 2026"
-  title="3 BHK or 4 BHK: Which One Is Good to Live In Bangalore? (2026 Guide)"
-  sub="We compare size, the Rs 1 Cr price gap, EMI, maintenance, resale and where each is actually available, then give you a 5-minute test to decide."
-  tags={["3 BHK", "4 BHK", "Bangalore", "2026"]}
-/>
+<GuideSection>
 
-<TOC
+If you are stuck between a 3 BHK or 4 BHK in Bangalore, here is the short version. A well-planned 3 BHK is enough for most families of three or four, and it is the configuration this city buys, rents and resells most easily. A 4 BHK earns its extra cost in four situations: your parents live with you, two people work from home on most days, you host overnight guests often, or you want live-in help to have a room of their own. If none of those apply today, and you cannot see them applying within five years, the fourth room will mostly collect boxes.
+
+That is the summary. The rest of this guide gives you the numbers behind it, because the real difference between 3 BHK and 4 BHK in Bangalore is not one bedroom. It is roughly Rs 1 crore, a bigger EMI, a thinner resale pool, and often a different part of the city.
+
+<GuideToc
   items={[
     { label: "3 BHK vs 4 BHK in Bangalore: the difference in numbers", href: "#3-bhk-vs-4-bhk-in-bangalore-the-difference-in-numbers" },
     { label: "What a 3 BHK gives you in Bangalore", href: "#what-a-3-bhk-gives-you-in-bangalore" },
@@ -29,9 +29,9 @@ import villaExterior from "@/assets/villa-exterior-2.webp";
   ]}
 />
 
-If you are stuck between a 3 BHK or 4 BHK in Bangalore, here is the short version. A well-planned 3 BHK is enough for most families of three or four, and it is the configuration this city buys, rents and resells most easily. A 4 BHK earns its extra cost in four situations: your parents live with you, two people work from home on most days, you host overnight guests often, or you want live-in help to have a room of their own. If none of those apply today, and you cannot see them applying within five years, the fourth room will mostly collect boxes.
+</GuideSection>
 
-That is the summary. The rest of this guide gives you the numbers behind it, because the real difference between 3 BHK and 4 BHK in Bangalore is not one bedroom. It is roughly Rs 1 crore, a bigger EMI, a thinner resale pool, and often a different part of the city.
+<GuideSection tone="cream">
 
 ## 3 BHK vs 4 BHK in Bangalore: the difference in numbers
 
@@ -48,11 +48,15 @@ That is the summary. The rest of this guide gives you the numbers behind it, bec
 
 Figures are indicative ranges from JLL’s 2025 Bangalore research, Sobha’s Bangalore market notes and current portal listings. Your project will differ; the gaps between the two columns are what to pay attention to.
 
+</GuideSection>
+
+<GuideSection>
+
 ## What a 3 BHK gives you in Bangalore
 
 Three bedrooms is the city’s default home. Roughly every second apartment sold in Bangalore in 2025 was a 3 BHK, and 3 BHK apartments in Bangalore keep leading launches and sales in Whitefield, North Bangalore and the ORR belt.
 
-<Figure
+<GuideFigure
   src={livingRoom}
   alt="Bright apartment living room with sofas, and a dining table by the windows"
   caption="Representative image: an apartment living and dining space."
@@ -62,6 +66,10 @@ Three bedrooms is the city’s default home. Roughly every second apartment sold
 The reason is simple. A master bedroom, a children’s room and one flexible room cover a family of four with one spare: the third room is a study on weekdays and a guest room when parents visit. Newer 3 BHK flats in Bangalore have also grown. The average apartment in the city went from about 1,480 sq ft in 2023 to about 1,660 sq ft by the end of 2024, so a 2026-launch 3 BHK at 1,700 to 2,000 sq ft is not the cramped unit of ten years ago.
 
 Two practical advantages follow. A 3 BHK is the easiest home in Bangalore to sell, because the buyer pool is the largest. And it rents well: Rs 35,000 to 60,000 a month in mid-range areas, Rs 45,000 to 90,000 in premium ones, according to JLL.
+
+</GuideSection>
+
+<GuideSection tone="cream">
 
 ## When a 4 BHK makes sense
 
@@ -73,7 +81,7 @@ Two practical advantages follow. A 3 BHK is the easiest home in Bangalore to sel
 * **You want a room for live-in help.** Many 4 BHK flats in Bangalore include a separate utility room with an attached bathroom for this.
 * **Your children are nearing their teens.** Two kids in one room works until about twelve. After that it does not.
 
-<Figure
+<GuideFigure
   src={homeOffice}
   alt="Home office desk with a computer, keyboard and mouse"
   caption="Representative image: a home office desk."
@@ -81,6 +89,10 @@ Two practical advantages follow. A 3 BHK is the easiest home in Bangalore to sel
 />
 
 If your honest answer to all five is “not really, but maybe someday”, the 4 BHK is a want, not a need. There is nothing wrong with wanting it. Just pay for it with that clarity, because “someday” rooms are the ones that stay empty.
+
+</GuideSection>
+
+<GuideSection>
 
 ## The real cost gap: purchase price, EMI, stamp duty, maintenance
 
@@ -96,6 +108,10 @@ This is where most of the difference between 3 BHK and 4 BHK in Bangalore actual
 
 Our rule of thumb: if the 4 BHK pushes your EMI past about 40% of household take-home, buy the better 3 BHK in the better location. A stretched 4 BHK in a weaker area is the most common regret we hear from buyers who upgraded too early.
 
+</GuideSection>
+
+<GuideSection tone="cream">
+
 ## 3 BHK vs 4 BHK resale value and rental demand
 
 For resale, the 3 BHK wins on liquidity. More buyers can afford it, so it sells faster and at a price closer to your ask. A 4 BHK takes longer to sell because the buyer pool is NRIs, senior professionals and joint families, and in a slow quarter that pool can go quiet.
@@ -106,11 +122,15 @@ For rental yield, the 3 BHK is the safer bet in IT corridors. A 4 BHK rents to a
 
 The honest verdict: location, developer and the price you pay decide resale far more than the bedroom count. A 3 BHK from a reputed developer near a metro line will outperform a 4 BHK at the wrong end of a half-built road.
 
+</GuideSection>
+
+<GuideSection>
+
 ## Check the carpet area before you check the bedroom count
 
 A 4 BHK with four small rooms is a worse home than a 3 BHK with three generous ones. Modern high-rises in Bangalore typically deliver only 62 to 63% of super built-up area as carpet plus balcony, so a “1,400 sq ft” 3 BHK can be 880 to 960 sq ft of actual floor. Developers know buyers count bedrooms, which is why a 2,000 sq ft 4 BHK sometimes has rooms you cannot fit a queen bed and a wardrobe into.
 
-<Figure
+<GuideFigure
   src={bedroom}
   alt="Apartment bedroom with a double bed beside a large window"
   caption="Representative image: an apartment bedroom."
@@ -118,6 +138,10 @@ A 4 BHK with four small rooms is a worse home than a 3 BHK with three generous o
 />
 
 Before you decide 3 BHK or 4 BHK, ask for the RERA carpet area in writing, check that every bedroom is at least 120 sq ft, and walk the floor plan with furniture in mind. Bedrooms you cannot use are not bedrooms.
+
+</GuideSection>
+
+<GuideSection tone="cream">
 
 ## Where 3 BHKs and 4 BHKs are actually available in Bangalore
 
@@ -127,7 +151,7 @@ This is the part the comparison blogs skip, and it changes the decision.
 
 **East Bangalore** (Whitefield, Sarjapur Road, Gunjur) and **North Bangalore** (Hebbal, Yelahanka, the airport corridor) are where township-scale projects with proper 4 BHK floor plates are being launched. Anarock’s Q1 2026 data put 53% of Bangalore launches above Rs 1.5 Cr, and most of that is larger formats in these two corridors.
 
-<Figure
+<GuideFigure
   src={brigadeMetropolis}
   alt="Apartment towers of the Brigade Metropolis township on Whitefield Road, East Bangalore"
   caption="Brigade Metropolis, a township-scale apartment project on Whitefield Road, East Bangalore."
@@ -135,6 +159,10 @@ This is the part the comparison blogs skip, and it changes the decision.
 />
 
 So in practice the question is rarely “3 BHK or 4 BHK in the same building”. It is “a 4 BHK in Yelahanka or a 3 BHK in Indiranagar”, and that is a commute question as much as a space question. Drive both routes on a weekday evening before you choose.
+
+</GuideSection>
+
+<GuideSection>
 
 ## Already own a 3 BHK? Whether to upgrade from 3 BHK to 4 BHK
 
@@ -147,13 +175,17 @@ If you are living in a 3 BHK and wondering whether to upgrade, four questions se
 
 Because of that fourth point, upgrade once and upgrade to the right thing. Which brings up the question most 3 BHK owners end up asking anyway.
 
+</GuideSection>
+
+<GuideSection tone="cream">
+
 ## When the 4 BHK question becomes a villa question
 
 Once a Bangalore budget crosses about Rs 4 to 5 crore, the 4 BHK apartment starts competing with a 4 BHK villa, and the villa vs apartment in Bangalore debate is really a trade between land and convenience.
 
 A 4 BHK apartment gives you lift access, lock-and-leave security, lower maintenance effort and faster resale. A 4 BHK villa in Bangalore gives you your own plot, no shared walls, your own garden and car parks, and far fewer neighbours, at the cost of higher upkeep, a slower resale and a longer drive. Row villas and villaments in the city’s developing belts list in the Rs 3 to 6.5 Cr range for 2,500 to 4,800 sq ft. Independent villas on their own plots from listed developers are a different bracket again.
 
-<Figure
+<GuideFigure
   src={villaExterior}
   alt="Independent villa with its own car porch and garden"
   caption="Representative image: an independent villa on its own plot."
@@ -161,7 +193,17 @@ A 4 BHK apartment gives you lift access, lock-and-leave security, lower maintena
 
 We will be plain about where [Embassy Riverine](/about-embassy-riverine) sits. Its [4 BHK villa](/villas-configurations) is 4,200 sq ft of built-up area on a 2,400 sq ft plot with three car parks, and the [price](/price) starts at Rs 14.10 Cr. That is not an alternative to a Rs 2.5 Cr 4 BHK flat, and we will not pretend it is. It is the alternative when your 4 BHK apartment shortlist is already in the luxury bracket and you are asking what the same money buys as land: 217 villas on roughly 50 acres inside the 85-acre Embassy Origins township at Tharahunise, [15 km from Kempegowda International Airport](/location-connectivity), with 19 acres of open space on the [master plan](/master-plan) and a 40,000 sq ft clubhouse in the [amenities](/amenities) schedule. The [floor plans](/floor-plans) are for independent villas with 3.4 m floor-to-floor height, which is the single biggest difference in daily living between a 4 BHK flat and 4 BHK villas in North Bangalore.
 
+<GuideVideo
+  id={walkthroughVideo.id}
+  title={walkthroughVideo.title}
+  caption="Video: Embassy Riverine villas, price and site visit (North Bangalore, 2026)."
+/>
+
 If that is the comparison you are making, our [villa projects in North Bangalore](/blogs/villa-projects-north-bangalore-2026) comparison and the [Embassy Riverine buyer’s guide](/blogs/embassy-riverine-north-bangalore-buyers-guide-2026) cover density, land and price against the other airport-corridor villa launches.
+
+</GuideSection>
+
+<GuideSection>
 
 ## A quick checklist before you decide
 
@@ -172,8 +214,4 @@ If that is the comparison you are making, our [villa projects in North Bangalore
 * Drive the commute on a weekday evening.
 * Check RERA registration and the developer’s delivery record before the bedroom count.
 
-## FAQ
-
-<FAQ items={bhkComparisonFaqs} />
-
-Still deciding between 3 BHK or 4 BHK, or between a 4 BHK flat and a villa? [Contact us](/contact-us) and we will send the Embassy Riverine cost sheet, floor plans and live plot availability the same day, with the all-inclusive working beside the headline price.
+</GuideSection>

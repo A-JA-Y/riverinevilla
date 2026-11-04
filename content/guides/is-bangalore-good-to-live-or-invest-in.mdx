@@ -1,19 +1,16 @@
+import { GuideSection, GuideToc, GuideFigure, GuideVideo } from "@/components/GuideContent";
 import { photoCredits } from "@/data/photoCredits";
-import { bangaloreLiveOrInvestFaqs } from "@/data/blogFaqs";
-import hebbalTraffic from "@/assets/blog/hebbal-road-traffic.webp";
-import varthurSkyline from "@/assets/blog/varthur-skyline.webp";
-import mgRoadMetro from "@/assets/blog/mg-road-metro.webp";
-import kiaTerminal2 from "@/assets/blog/kempegowda-airport-terminal-2.webp";
-import villaByStream from "@/assets/township-85-acres.webp";
+import { walkthroughVideo } from "@/data/project";
+import hebbalTraffic from "@/assets/guides/hebbal-road-traffic.webp";
+import varthurSkyline from "@/assets/guides/varthur-skyline.webp";
+import mgRoadMetro from "@/assets/guides/mg-road-metro.webp";
+import kiaTerminal2 from "@/assets/guides/kempegowda-airport-terminal-2.webp";
 
-<HeroBand
-  label="Location and Infrastructure · Bangalore · 2026"
-  title="Is Bangalore Good to Live or Invest In? A 2026 Answer With the Numbers"
-  sub="2026 prices, rental yields, unsold stock, best areas to invest in Bangalore and the honest trade-offs, in one guide."
-  tags={["Bangalore", "Investment", "Rental Yield", "2026"]}
-/>
+<GuideSection>
 
-<TOC
+Is Bangalore good to live or invest in? Yes on both counts, with conditions that matter more than the yes. Living here works when your income is earned here and your home sits within a sane commute of your office. Investing works when you buy in a corridor with a funded growth driver, hold for seven to ten years, and stop expecting rent to cover the EMI. This guide puts the 2026 numbers behind that answer, covers the risks the developer blogs leave out, and gives you a way to work out which side of the question you are on.
+
+<GuideToc
   items={[
     { label: "The short answer", href: "#the-short-answer" },
     { label: "Is Bangalore a good place to live in 2026?", href: "#is-bangalore-a-good-place-to-live-in-2026" },
@@ -29,7 +26,9 @@ import villaByStream from "@/assets/township-85-acres.webp";
   ]}
 />
 
-Is Bangalore good to live or invest in? Yes on both counts, with conditions that matter more than the yes. Living here works when your income is earned here and your home sits within a sane commute of your office. Investing works when you buy in a corridor with a funded growth driver, hold for seven to ten years, and stop expecting rent to cover the EMI. This guide puts the 2026 numbers behind that answer, covers the risks the developer blogs leave out, and gives you a way to work out which side of the question you are on.
+</GuideSection>
+
+<GuideSection tone="cream">
 
 ## The short answer
 
@@ -37,13 +36,17 @@ Is Bangalore good to live or invest in? Yes on both counts, with conditions that
 * **To invest:** prices rose about 9% in the year to June 2026 on Knight Frank’s count, and more than 60% over the three years before that on Anarock’s. Appreciation is the return. Rental yield is not.
 * **The catch:** unsold stock is at a multi-year high and new launches are priced well above resale. 2026 is a good year to negotiate and a bad year to buy on fear of missing out.
 
+</GuideSection>
+
+<GuideSection>
+
 ## Is Bangalore a good place to live in 2026?
 
 **What works.** The city holds roughly a third of India’s global capability centres, and Knight Frank’s Q1 2026 index had prime office rents up 14% in a year, the steepest rise in Asia-Pacific. Those offices are why people keep arriving, and why housing demand has held through every slowdown headline. The climate is still the mildest of any Indian metro. For families, the school and hospital bench is deep: NPS, DPS, Inventure and Stonehill on one side, Manipal, Aster and Narayana on the other. The food, music and weekend scene is as varied as any city in the country.
 
 **What doesn’t.** Traffic first. TomTom’s congestion index has placed Bengaluru among the three slowest cities in the world, with drivers losing well over 100 hours a year. Water second. The 2024 summer shortage is still fresh; Cauvery Stage V has improved supply in the core since late 2024, but many gated projects on the periphery still run on borewells and tankers. The cost of living in Bangalore is the third issue. A 1 BHK in the city now rents for ₹20,000 to ₹45,000 a month, a 2 BHK near Whitefield or Sarjapur Road for ₹30,000 to ₹48,000 on Anarock’s Q3 2026 data, and a single professional spends ₹60,000 to ₹65,000 a month before any serious saving.
 
-<Figure
+<GuideFigure
   src={hebbalTraffic}
   alt="Evening traffic on Hebbal Road (Bellary Road), Bangalore, on a wet day"
   caption="Evening traffic on Hebbal Road (Bellary Road), Bangalore, July 2025."
@@ -51,6 +54,10 @@ Is Bangalore good to live or invest in? Yes on both counts, with conditions that
 />
 
 Living in Bangalore pros and cons reduce to one variable: where you sit relative to where you work. People who solve the commute first and the house second tend to like the city. People who do it the other way round write the Reddit threads.
+
+</GuideSection>
+
+<GuideSection tone="cream">
 
 ## Is Bangalore good for investment? What the 2026 data says
 
@@ -64,12 +71,16 @@ The appreciation record is strong and well documented:
 
 So anyone who chose to invest in Bangalore real estate in the last decade has done well. The useful question is whether the next decade repeats the last one, and three things say the Bangalore real estate investment case will look different: the base is higher, supply is heavier, and yields are thinner. Each is covered below.
 
-<Figure
+<GuideFigure
   src={varthurSkyline}
   alt="New apartment towers on the Varthur skyline in East Bangalore"
   caption="New apartment towers on the skyline of Varthur, East Bangalore."
   credit={photoCredits.varthurSkyline}
 />
+
+</GuideSection>
+
+<GuideSection>
 
 ## Bangalore property prices 2026, zone by zone
 
@@ -85,18 +96,26 @@ Rates are indicative new-launch asking prices compiled from Knight Frank, Anaroc
 
 The spread between zones is widening, which is the single most important thing to understand about Bangalore property prices 2026: the city no longer moves as one market. Emerging corridors appreciate 15% to 20% a year from a lower base; mature pockets manage 5% to 8% from a high one.
 
-<Figure
+<GuideFigure
   src={mgRoadMetro}
   alt="Namma Metro train arriving at MG Road station, seen from above"
   caption="A Namma Metro train arriving at MG Road station, October 2024."
   credit={photoCredits.mgRoadMetro}
 />
 
+</GuideSection>
+
+<GuideSection tone="cream">
+
 ## Rental yield in Bangalore: the number most blogs get wrong
 
 Developer blogs quoting 8% to 9% yields are describing commercial property. Residential gross yields in Bangalore run 4% to 5% in the apartment-heavy east and south on Anarock’s Q3 2026 rents against asking rates, about 5% on Global Property Guide’s city-wide estimate, and 2% to 3.5% for premium homes and villas. Take off maintenance, vacancy, property tax and income tax, and the net yield in most projects is below a bank fixed deposit.
 
 That is not an argument against buying. It is an argument against buying for the wrong reason. Rental yield in Bangalore will not pay your loan. The return comes from two places: the appreciation on the land under your home, and the rent you stop paying yourself. If neither applies to you, you are not investing, you are parking money.
+
+</GuideSection>
+
+<GuideSection>
 
 ## The risks: unsold stock, overpricing and the bubble question
 
@@ -108,11 +127,15 @@ The Reddit thread asking whether Bangalore real estate is actually worth it anym
 
 So, is Bangalore real estate worth it, or is the Bangalore real estate bubble about to pop? Prices have not fallen; a few oversupplied pockets corrected 2% to 3% while the city average rose. Demand is end-user and employer-led rather than speculative, and office absorption is still climbing. The one scenario that would break the market is large employers moving hiring out of the city, and nothing in 2026 points that way. What the inventory data does mean is leverage: this is a year to negotiate payment plans, waivers on floor-rise and car-park charges, and possession terms, not a year to pay list price because the sales executive said the next price revision is on Monday.
 
+</GuideSection>
+
+<GuideSection tone="cream">
+
 ## Best areas to invest in Bangalore in 2026
 
 **North Bangalore (Hebbal, Yelahanka, Thanisandra, Devanahalli, Bettahalsur–Tharahunise).** North Bangalore real estate is the city’s appreciation play. Kempegowda International Airport, the KIADB Aerospace Park, Metro Blue Line Phase 2B, suburban rail Corridor 4 and the Satellite Town Ring Road all land here, and the zone supplied 46% of the city’s new homes in Q3 2026. Listing trackers put Devanahalli at roughly 20% and Yelahanka at 18% price growth over the last year. It is also the only belt where contiguous land for low-density homes still exists, which is why the [luxury villas in North Bangalore](/villas-configurations) launched in 2026 cluster between Yelahanka and the airport. For a project-by-project view, see our comparison of [upcoming villa projects in North Bangalore](/blogs/villa-projects-north-bangalore-2026).
 
-<Figure
+<GuideFigure
   src={kiaTerminal2}
   alt="Terminal 2 departures frontage at Kempegowda International Airport, Bangalore"
   caption="Terminal 2 departures at Kempegowda International Airport, Bangalore."
@@ -125,6 +148,10 @@ So, is Bangalore real estate worth it, or is the Bangalore real estate bubble ab
 
 **Central Bangalore (Indiranagar, Koramangala, Jayanagar).** Buy to live, not to earn. Supply is frozen, percentage growth is slow and yields are the thinnest in the city.
 
+</GuideSection>
+
+<GuideSection>
+
 ## Live or invest? How to decide
 
 | Buy to live if | Buy to invest if | Rent and wait if |
@@ -134,6 +161,10 @@ So, is Bangalore real estate worth it, or is the Bangalore real estate bubble ab
 | You have driven the commute on a weekday evening | The corridor has a funded infrastructure driver, not a proposed one | Your only thesis is that prices always go up |
 
 Most people who do well here fall into the first column and happen to land in the second. A home you live in, in a corridor that appreciates, is the Bangalore trade that has worked for twenty years.
+
+</GuideSection>
+
+<GuideSection tone="cream">
 
 ## What to check before you buy property in Bangalore
 
@@ -145,18 +176,20 @@ Most people who do well here fall into the first column and happen to land in th
 6. **Density.** For a villa, units per acre and your plot’s position against open space matter more than the amenities list.
 7. **Commute.** Drive it at 6.30 pm on a Tuesday before you sign anything.
 
+</GuideSection>
+
+<GuideSection>
+
 ## Where North Bangalore villas, and Embassy Riverine, fit this answer
 
 If you want both halves of the question answered by one purchase, a home you will live in, in the corridor with the strongest appreciation case, the 2026 answer is a low-density villa in the airport belt. That is the segment we work in, and villas near Bangalore airport are where our own money would go on a ten-year view.
 
-<Figure
-  src={villaByStream}
-  alt="Aerial view of a villa with a private garden beside a stream"
-  caption="Representative image: a villa on its own plot beside a stream."
-/>
-
 [Embassy Riverine](/about-embassy-riverine) is the villa precinct of [Embassy Group’s](/about-embassy-group) 85-acre Embassy Origins township at Tharahunise, 15 km from the airport: 217 independent 4, 4.5 and 5 BHK villas on about 50 acres, fewer than 4.5 homes to the acre, with the [Embassy Riverine price](/price) starting at ₹14.10 crore for a 4 BHK on a 2,400 sq ft plot. The [master plan](/master-plan) keeps a natural stream open as the green spine, the [amenities](/amenities) centre on a 40,000 sq ft clubhouse, and [floor plans](/floor-plans) are issued per villa type. The [location](/location-connectivity) is the honest trade-off: this is a developing belt, retail and hospitals are thinner than in Yelahanka town, and the RERA-filed completion date is September 2032. We would rather you read our [Embassy Riverine buyer’s guide](/blogs/embassy-riverine-north-bangalore-buyers-guide-2026) before a site visit than after one. When you are ready, [contact us](/contact-us) for the live cost sheet and plot availability.
 
-## FAQ
+<GuideVideo
+  id={walkthroughVideo.id}
+  title={walkthroughVideo.title}
+  caption="Video: Embassy Riverine villas, price and site visit (North Bangalore, 2026)."
+/>
 
-<FAQ items={bangaloreLiveOrInvestFaqs} />
+</GuideSection>
