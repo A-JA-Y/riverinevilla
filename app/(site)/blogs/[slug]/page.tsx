@@ -4,6 +4,7 @@
 
 import BlogContactForm from "@/components/BlogContactForm";
 import RelatedPosts from "@/components/RelatedPosts";
+import PhotoCredit from "@/components/PhotoCredit";
 import { blogData } from "@/data/blogData";
 import Image from "next/image";
 import { notFound } from "next/navigation";
@@ -151,12 +152,12 @@ export default async function BlogDetail({ params }: { params: Params }) {
     "@type": "Article",
     headline: blog.title,
     description: blog.metaDescription || blog.excerpt,
-    image: imageUrl || undefined,
+    // absolute, as schema.org image URLs should be
+    image: imageUrl ? new URL(imageUrl, "https://embassyriverinevilla.in").href : undefined,
     datePublished: blog.date,
     dateModified: blog.updatedAt || blog.date,
-    author: blog.author
-      ? { "@type": "Person", name: blog.author }
-      : { "@type": "Organization", name: "Real Revenue" },
+    // posts are published by Real Revenue, an organisation, not a person
+    author: { "@type": "Organization", name: blog.author || "Real Revenue" },
     publisher: {
       "@type": "Organization",
       name: "Real Revenue",
@@ -223,6 +224,13 @@ export default async function BlogDetail({ params }: { params: Params }) {
           />
 
           <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
+
+          {blog.imageCredit && (
+            <PhotoCredit
+              credit={blog.imageCredit}
+              className="absolute bottom-2 right-3 md:right-6 max-w-[90%] text-right text-[10px] leading-snug text-white/70"
+            />
+          )}
 
           <div className="absolute bottom-0 px-6 md:px-16 py-10 max-w-5xl">
             <span className="text-xs text-white/80 border px-3 py-1 rounded-full">
