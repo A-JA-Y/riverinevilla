@@ -36,6 +36,12 @@ export const project = {
   },
 } as const;
 
+/** The project walkthrough on YouTube, embedded on the home page and the guides. */
+export const walkthroughVideo = {
+  id: "15bfrmFi1X8",
+  title: "Embassy Riverine Villas Price & Site Visit | North Bangalore 2026",
+} as const;
+
 export const rera = {
   villas: "PRM/KA/RERA/1251/309/PR/090926/008924",
   apartments: "PRM/KA/RERA/1251/309/PR/090926/008925",

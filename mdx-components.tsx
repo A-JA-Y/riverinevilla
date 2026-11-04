@@ -3,11 +3,9 @@
  */
 
 import type { MDXComponents } from "mdx/types";
-import Image, { type ImageProps, type StaticImageData } from "next/image";
+import Image, { type ImageProps } from "next/image";
 import Link from "next/link";
 import React from "react";
-import PhotoCredit from "@/components/PhotoCredit";
-import type { PhotoCreditInfo } from "@/data/photoCredits";
 
 export { Link };
 
@@ -533,42 +531,6 @@ function MDXImage(props: ImageProps) {
 }
 
 /* ─────────────────────────────────────────────
-   FIGURE — in-article photo with caption and credit
-───────────────────────────────────────────── */
-
-export function Figure({
-  src,
-  alt,
-  caption,
-  credit,
-}: {
-  /** A static import, so the build knows the image's width and height. */
-  src: StaticImageData;
-  alt: string;
-  caption?: React.ReactNode;
-  credit?: PhotoCreditInfo;
-}) {
-  return (
-    <figure className="my-10">
-      <Image
-        src={src}
-        alt={alt}
-        sizes="(max-width: 1024px) 100vw, 780px"
-        className="w-full h-auto rounded-xl"
-      />
-      {caption || credit ? (
-        <figcaption className="mt-3 text-[13px] leading-relaxed text-gray-500 font-light">
-          {caption}
-          {credit ? (
-            <PhotoCredit credit={credit} className="block mt-1 text-[11.5px] text-gray-400" />
-          ) : null}
-        </figcaption>
-      ) : null}
-    </figure>
-  );
-}
-
-/* ─────────────────────────────────────────────
    NEWS SPECIFIC COMPONENTS (HTML REPLICATION)
 ───────────────────────────────────────────── */
 
@@ -796,7 +758,6 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     ),
 
     HeroBand,
-    Figure,
     TOC,
     StatGrid,
     PullQuote,

@@ -22,6 +22,11 @@ export const navGroups = [
     items: [
       { label: "Blogs", href: "/blogs" },
       { label: "News", href: "/news" },
+      {
+        label: "3 BHK or 4 BHK Guide",
+        href: "/3-bhk-or-4-bhk-which-is-better-to-live-in-bangalore",
+      },
+      { label: "Live or Invest in Bangalore", href: "/is-bangalore-good-to-live-or-invest-in" },
     ],
   },
   {
