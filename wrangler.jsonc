@@ -1,0 +1,8 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "riverine-villa",
+  "compatibility_date": "2026-11-16",
+  "assets": {
+    "directory": "./out"
+  }
+}
