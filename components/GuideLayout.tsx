@@ -1,4 +1,4 @@
-import type { ReactNode } from "react";
+import { Fragment, type ReactNode } from "react";
 import Image from "next/image";
 import PageBanner from "./PageBanner";
 import FaqAccordion from "./FaqAccordion";
@@ -15,8 +15,10 @@ export type GuideHero = {
   width: number;
   height: number;
   alt: string;
-  credit?: PhotoCreditInfo;
 };
+
+/** A photo that needs attribution (CC BY / BY-SA), and what it shows. */
+export type GuidePhotoCredit = { subject: string; credit: PhotoCreditInfo };
 
 /** Article + FAQPage + breadcrumb graph for a guide page. */
 export function guideSchema({
@@ -71,8 +73,10 @@ export function guideSchema({
 }
 
 /**
- * Shell for the long-form guide pages: title band, hero photo, the guide body
- * (MDX, rendered by the page), the FAQ and a closing contact block.
+ * Shell for the long-form guide pages: hero photo, title band, the guide body
+ * (MDX, rendered by the page), the FAQ, a closing contact block and, at the
+ * very end, the credits the Creative Commons photos require (kept off the
+ * images themselves).
  */
 export default function GuideLayout({
   schema,
@@ -83,6 +87,7 @@ export default function GuideLayout({
   children,
   faqs,
   contactIntro,
+  photoCredits = [],
 }: {
   schema: object;
   eyebrow: string;
@@ -92,6 +97,7 @@ export default function GuideLayout({
   children: ReactNode;
   faqs: GuideFaq[];
   contactIntro?: ReactNode;
+  photoCredits?: GuidePhotoCredit[];
 }) {
   return (
     <>
@@ -100,26 +106,19 @@ export default function GuideLayout({
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
       />
 
-      <PageBanner eyebrow={eyebrow} title={title} subtitle={subtitle} />
+      {/* hero photo first, above the page title */}
+      <div className="relative w-full h-[240px] sm:h-[340px] md:h-[440px] lg:h-[500px] bg-[#0b1f1a]">
+        <Image
+          src={hero.src}
+          alt={hero.alt}
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover"
+        />
+      </div>
 
-      <section className="w-full bg-white pt-12 md:pt-14 px-6">
-        <figure className="max-w-5xl mx-auto">
-          <Image
-            src={hero.src}
-            width={hero.width}
-            height={hero.height}
-            alt={hero.alt}
-            priority
-            sizes="(max-width: 1100px) 100vw, 1024px"
-            className="w-full h-auto rounded-xl border border-[#e5dcc5]"
-          />
-          {hero.credit ? (
-            <figcaption className="mt-2 text-right text-[11.5px] text-gray-400">
-              <PhotoCredit credit={hero.credit} />
-            </figcaption>
-          ) : null}
-        </figure>
-      </section>
+      <PageBanner eyebrow={eyebrow} title={title} subtitle={subtitle} />
 
       {children}
 
@@ -131,6 +130,19 @@ export default function GuideLayout({
       />
 
       <ContactBlock intro={contactIntro} className="bg-white" />
+
+      {photoCredits.length > 0 ? (
+        <div className="w-full bg-white px-6 pb-10">
+          <p className="max-w-5xl mx-auto border-t border-[#e5dcc5] pt-5 text-[11px] leading-relaxed text-gray-400">
+            {photoCredits.map((c, i) => (
+              <Fragment key={c.subject}>
+                {i > 0 ? " · " : null}
+                <PhotoCredit credit={c.credit} label={c.subject} />
+              </Fragment>
+            ))}
+          </p>
+        </div>
+      ) : null}
 
       <div className="relative">
         <StickyDownloadButton />

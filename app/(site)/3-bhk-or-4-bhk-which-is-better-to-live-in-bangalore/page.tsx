@@ -1,6 +1,10 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import GuideLayout, { guideSchema, type GuideHero } from "@/components/GuideLayout";
+import GuideLayout, {
+  guideSchema,
+  type GuideHero,
+  type GuidePhotoCredit,
+} from "@/components/GuideLayout";
 import { guideMdxComponents } from "@/components/GuideContent";
 import GuideBody from "@/content/guides/3-bhk-or-4-bhk-which-is-better-to-live-in-bangalore.mdx";
 import { bhkComparisonFaqs } from "@/data/guideFaqs";
@@ -18,8 +22,13 @@ const hero: GuideHero = {
   width: 1600,
   height: 840,
   alt: "Apartment towers around the central park at Prestige Shantiniketan, Whitefield, Bangalore",
-  credit: photoCredits.prestigeShantiniketanPark,
 };
+
+/** Creative Commons photos on this page, credited at the foot of the page. */
+const credits: GuidePhotoCredit[] = [
+  { subject: "Prestige Shantiniketan", credit: photoCredits.prestigeShantiniketanPark },
+  { subject: "Brigade Metropolis", credit: photoCredits.brigadeMetropolis },
+];
 
 export const metadata: Metadata = {
   title: META_TITLE,
@@ -72,6 +81,7 @@ export default function ThreeOrFourBhkPage() {
       subtitle="We compare size, the Rs 1 Cr price gap, EMI, maintenance, resale and where each is actually available, then give you a 5-minute test to decide."
       hero={hero}
       faqs={bhkComparisonFaqs}
+      photoCredits={credits}
       contactIntro={
         <p>
           Still deciding between 3 BHK or 4 BHK, or between a 4 BHK flat and a villa?{" "}

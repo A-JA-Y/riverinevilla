@@ -1,5 +1,9 @@
 import type { Metadata } from "next";
-import GuideLayout, { guideSchema, type GuideHero } from "@/components/GuideLayout";
+import GuideLayout, {
+  guideSchema,
+  type GuideHero,
+  type GuidePhotoCredit,
+} from "@/components/GuideLayout";
 import { guideMdxComponents } from "@/components/GuideContent";
 import GuideBody from "@/content/guides/is-bangalore-good-to-live-or-invest-in.mdx";
 import { bangaloreLiveOrInvestFaqs } from "@/data/guideFaqs";
@@ -17,8 +21,16 @@ const hero: GuideHero = {
   width: 1600,
   height: 840,
   alt: "Manyata Embassy Business Park and the North Bangalore skyline at sunset",
-  credit: photoCredits.manyataBusinessPark,
 };
+
+/** Creative Commons photos on this page, credited at the foot of the page. */
+const credits: GuidePhotoCredit[] = [
+  { subject: "Manyata Embassy Business Park", credit: photoCredits.manyataBusinessPark },
+  { subject: "Hebbal Road", credit: photoCredits.hebbalRoadTraffic },
+  { subject: "Varthur skyline", credit: photoCredits.varthurSkyline },
+  { subject: "MG Road metro", credit: photoCredits.mgRoadMetro },
+  { subject: "Kempegowda Airport Terminal 2", credit: photoCredits.kempegowdaTerminal2 },
+];
 
 export const metadata: Metadata = {
   title: META_TITLE,
@@ -71,6 +83,7 @@ export default function BangaloreLiveOrInvestPage() {
       subtitle="2026 prices, rental yields, unsold stock, best areas to invest in Bangalore and the honest trade-offs, in one guide."
       hero={hero}
       faqs={bangaloreLiveOrInvestFaqs}
+      photoCredits={credits}
     >
       <GuideBody components={guideMdxComponents} />
     </GuideLayout>

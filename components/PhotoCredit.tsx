@@ -7,16 +7,19 @@ import type { PhotoCreditInfo } from "@/data/photoCredits";
  */
 export default function PhotoCredit({
   credit,
+  label = "Photo",
   className = "",
 }: {
   credit: PhotoCreditInfo;
+  /** What the line credits, e.g. the subject of the photo. */
+  label?: string;
   className?: string;
 }) {
   const linkCls = "underline decoration-current/40 underline-offset-2 hover:decoration-current";
 
   return (
     <span className={className}>
-      Photo:{" "}
+      {label}:{" "}
       {credit.source ? (
         <a href={credit.source} target="_blank" rel="noopener noreferrer" className={linkCls}>
           {credit.author}

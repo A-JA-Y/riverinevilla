@@ -3,9 +3,8 @@ import type { ReactNode } from "react";
 import Image, { type StaticImageData } from "next/image";
 import Link from "next/link";
 import Reveal from "./Reveal";
-import PhotoCredit from "./PhotoCredit";
 import VideoFacade from "./VideoFacade";
-import type { PhotoCreditInfo } from "@/data/photoCredits";
+import videoPoster from "@/assets/riverine-hero.webp";
 
 /**
  * Building blocks for the long-form guide pages. The guide copy lives in MDX
@@ -63,14 +62,12 @@ export function GuideFigure({
   src,
   alt,
   caption,
-  credit,
   priority = false,
 }: {
   /** A static import, so the build knows the image's width and height. */
   src: StaticImageData;
   alt: string;
   caption?: ReactNode;
-  credit?: PhotoCreditInfo;
   priority?: boolean;
 }) {
   return (
@@ -82,19 +79,18 @@ export function GuideFigure({
         sizes="(max-width: 800px) 100vw, 768px"
         className="w-full h-auto rounded-lg border border-[#e5dcc5]"
       />
-      {caption || credit ? (
-        <figcaption className="mt-2.5 text-[13px] leading-relaxed text-gray-500">
-          {caption}
-          {credit ? (
-            <PhotoCredit credit={credit} className="block mt-0.5 text-[11.5px] text-gray-400" />
-          ) : null}
-        </figcaption>
+      {caption ? (
+        <figcaption className="mt-2.5 text-[13px] leading-relaxed text-gray-500">{caption}</figcaption>
       ) : null}
     </figure>
   );
 }
 
-/** The click-to-load YouTube player with a caption, for use mid-article. */
+/**
+ * The click-to-load YouTube player, for use mid-article. It shows one of the
+ * site's own photos until played, not YouTube's thumbnail (the channel's
+ * thumbnail carries another seller's phone number).
+ */
 export function GuideVideo({
   id,
   title,
@@ -106,7 +102,7 @@ export function GuideVideo({
 }) {
   return (
     <figure className="my-9">
-      <VideoFacade id={id} title={title} />
+      <VideoFacade id={id} title={title} poster={videoPoster} />
       {caption ? (
         <figcaption className="mt-2.5 text-[13px] leading-relaxed text-gray-500">{caption}</figcaption>
       ) : null}
