@@ -89,10 +89,4 @@ export const photoCredits = {
     licenseUrl: CC0,
     source: "https://www.rawpixel.com/image/5920688/photo-image-public-domain-house-home",
   },
-  homeOfficeDesk: {
-    author: "StockSnap",
-    license: "CC0",
-    licenseUrl: CC0,
-    source: "https://stocksnap.io/photo/home-office-QUU0AQABSN",
-  },
 } satisfies Record<string, PhotoCreditInfo>;

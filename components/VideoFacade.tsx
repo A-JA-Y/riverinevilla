@@ -1,13 +1,22 @@
 "use client";
 
 import { useState } from "react";
-import Image from "next/image";
+import Image, { type StaticImageData } from "next/image";
 
 /**
  * Click-to-load YouTube player. Only the thumbnail loads with the page; the
  * YouTube player (and its scripts) is swapped in when the visitor presses play.
+ * `poster` replaces YouTube's own thumbnail with one of the site's images.
  */
-export default function VideoFacade({ id, title }: { id: string; title: string }) {
+export default function VideoFacade({
+  id,
+  title,
+  poster,
+}: {
+  id: string;
+  title: string;
+  poster?: StaticImageData;
+}) {
   const [playing, setPlaying] = useState(false);
 
   return (
@@ -29,7 +38,7 @@ export default function VideoFacade({ id, title }: { id: string; title: string }
           className="group absolute inset-0 w-full h-full cursor-pointer"
         >
           <Image
-            src={`https://i.ytimg.com/vi/${id}/maxresdefault.jpg`}
+            src={poster ?? `https://i.ytimg.com/vi/${id}/maxresdefault.jpg`}
             alt={title}
             fill
             sizes="(max-width: 1024px) 100vw, 1024px"
