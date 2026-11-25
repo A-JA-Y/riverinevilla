@@ -1,26 +1,10 @@
-import { Fragment } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { FaShieldAlt } from "react-icons/fa";
 import { footerNavLinks } from "@/data/siteNav";
 import { project, rera } from "@/data/project";
 import logoLight from "@/assets/logo-light.webp";
-import credaiKarnataka from "@/assets/credai-karnataka.png";
-
-/** Long slash-separated IDs (RERA numbers) wrap after a slash, never mid-segment;
-    <wbr> adds no characters, so the number still copies intact. */
-function SlashBreaks({ text }) {
-  return text.split("/").map((part, i) => (
-    <Fragment key={i}>
-      {i > 0 ? (
-        <>
-          /<wbr />
-        </>
-      ) : null}
-      {part}
-    </Fragment>
-  ));
-}
+import ProjectNetwork from "@/components/ProjectNetwork";
+import RegulatoryLogos from "@/components/RegulatoryLogos";
 
 export default function Footer() {
   const half = Math.ceil(footerNavLinks.length / 2);
@@ -45,49 +29,6 @@ export default function Footer() {
               217 luxury 4, 4.5 and 5 BHK villas across the 85-acre Embassy Origins
               township at Tharahunise, North Bangalore, by Embassy Developments Limited.
             </p>
-            {/* Karnataka RERA: the registration number and the authority's website,
-                which K-RERA asks project advertising to show */}
-            <div className="mt-4">
-              <p className="text-[#C8A24A] text-[11px] font-semibold tracking-[0.2em] uppercase mb-2">
-                Karnataka RERA
-              </p>
-              <a
-                href={rera.portal}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group flex items-start gap-2.5"
-                aria-label={`Karnataka RERA registration ${rera.villas}, verify at rera.karnataka.gov.in`}
-              >
-                {/* TODO(K-RERA logo): swap this icon for the official logo image once supplied */}
-                <span
-                  aria-hidden="true"
-                  className="flex-shrink-0 grid place-items-center w-9 h-9 rounded-md bg-white text-[#12302a]"
-                >
-                  <FaShieldAlt size={16} />
-                </span>
-                <span className="min-w-0 text-[11px] leading-relaxed">
-                  <span className="block text-white/70">
-                    Reg. No. <SlashBreaks text={rera.villas} />
-                  </span>
-                  <span className="block text-white/45 group-hover:text-[#C8A24A] transition-colors">
-                    rera.karnataka.gov.in
-                  </span>
-                </span>
-              </a>
-            </div>
-            <div className="mt-4">
-              <p className="text-[#C8A24A] text-[11px] font-semibold tracking-[0.2em] uppercase mb-2">
-                Member Of
-              </p>
-              <span className="inline-flex bg-white rounded-md p-1.5">
-                <Image
-                  src={credaiKarnataka}
-                  alt="CREDAI Karnataka"
-                  className="h-12 w-auto"
-                  sizes="100px"
-                />
-              </span>
-            </div>
           </div>
 
           {/* Quick links */}
@@ -155,7 +96,19 @@ export default function Footer() {
           </div>
         </div>
 
+        {/* Sister project websites */}
+        <ProjectNetwork
+          currentSiteIds={["embassy-riverine-villa"]}
+          className="mb-8 border-t border-[#C8A24A]/20 pt-6"
+          headingClassName="text-[#C8A24A] text-[11px] font-semibold tracking-[0.2em] uppercase mb-4"
+          regionClassName="text-white/55 text-[10px] font-semibold tracking-[0.18em] uppercase mb-2"
+          linkClassName="text-white/70 text-xs leading-snug hover:text-[#C8A24A] transition-colors"
+          domainClassName="block text-[10px] text-white/50"
+        />
 
+        {/* Karnataka RERA registration and the authority's website, which K-RERA
+            asks project advertising to show, beside the CREDAI mark */}
+        <RegulatoryLogos registration={rera.villas} className="mb-6 justify-center" />
 
         <div className="flex flex-wrap justify-center items-center gap-x-4 gap-y-2 text-center">
           
