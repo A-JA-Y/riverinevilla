@@ -5,7 +5,9 @@ module.exports = {
   generateRobotsTxt: false,
   generateIndexSitemap: false,
 
-  exclude: ["/thank-you"],
+  // App Router icon files (app/icon.png, app/apple-icon.png) export as routes;
+  // keep them out of the sitemap, which lists pages only.
+  exclude: ["/thank-you", "/icon.png", "/apple-icon.png"],
 
   robotsTxtOptions: {
     policies: [{ userAgent: "*", disallow: ["/cgi-bin/"] }],
