@@ -36,7 +36,7 @@ export default function ProjectNetwork({
               <ul className={`grid grid-cols-2 gap-x-6 gap-y-2.5 ${wide ? "" : "sm:grid-cols-1"}`}>
                 {sites.map((site) => (
                   <li key={site.id}>
-                    <a href={site.url} target="_blank" rel="noopener" className={`block ${linkClassName}`}>
+                    <a href={site.url} target="_blank" rel="noopener" className={`block [overflow-wrap:anywhere] ${linkClassName}`}>
                       {site.name}
                       {showDomain ? <span className={domainClassName}>{hostOf(site.url)}</span> : null}
                     </a>
