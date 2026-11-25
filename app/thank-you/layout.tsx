@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import FloatingActions from "@/components/FloatingActions";
 
 const TITLE = "Thank You | Embassy Riverine";
 const DESCRIPTION =
@@ -14,6 +15,13 @@ export const metadata: Metadata = {
   twitter: { title: TITLE, description: DESCRIPTION },
 };
 
+// This route sits outside app/(site), so it mounts the floating call / WhatsApp
+// buttons itself; every other page gets them once from its own layout or page.
 export default function ThankYouLayout({ children }: { children: React.ReactNode }) {
-  return children;
+  return (
+    <>
+      {children}
+      <FloatingActions />
+    </>
+  );
 }
