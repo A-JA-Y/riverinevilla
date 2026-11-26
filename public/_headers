@@ -1,0 +1,5 @@
+# Cloudflare static-asset response headers (copied into ./out by `next build`).
+# Files under /_next/static/ carry a content hash in their names and never change in
+# place, so browsers may keep them for a year (Vercel sends the same header itself).
+/_next/static/*
+  Cache-Control: public, max-age=31536000, immutable

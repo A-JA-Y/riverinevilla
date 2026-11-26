@@ -1,0 +1,21 @@
+# Cloudflare static-asset redirects (copied into ./out by `next build`).
+# Mirrors redirects() in next.config.ts, which Next can't apply to a static export.
+# Keep the two in sync. Each path is listed with and without a trailing slash, as Next
+# redirected both; matching here is case-sensitive. Exact paths come first, and the
+# first matching rule wins.
+/about-godrej-golf-links                                                     /about-embassy-riverine  301
+/about-godrej-golf-links/                                                    /about-embassy-riverine  301
+/about-godrej-properties                                                     /about-embassy-group  301
+/about-godrej-properties/                                                    /about-embassy-group  301
+/crownresidences                                                             /villas-configurations  301
+/crownresidences/                                                            /villas-configurations  301
+/blogs/godrej-golf-links-greater-noida-buyers-guide-2026                     /blogs/embassy-riverine-north-bangalore-buyers-guide-2026  301
+/blogs/godrej-golf-links-greater-noida-buyers-guide-2026/                    /blogs/embassy-riverine-north-bangalore-buyers-guide-2026  301
+/blogs/jewar-airport-godrej-golf-links-greater-noida-smart-investment-2026   /blogs/villa-projects-north-bangalore-2026  301
+/blogs/jewar-airport-godrej-golf-links-greater-noida-smart-investment-2026/  /blogs/villa-projects-north-bangalore-2026  301
+/news/greater-noida-circle-rate-hike-godrej-golf-links-2026                  /news/embassy-origins-launch-north-bangalore-2026  301
+/news/greater-noida-circle-rate-hike-godrej-golf-links-2026/                 /news/embassy-origins-launch-north-bangalore-2026  301
+/blogs/3-bhk-or-4-bhk-which-is-better-to-live-in-bangalore                   /3-bhk-or-4-bhk-which-is-better-to-live-in-bangalore  301
+/blogs/3-bhk-or-4-bhk-which-is-better-to-live-in-bangalore/                  /3-bhk-or-4-bhk-which-is-better-to-live-in-bangalore  301
+/blogs/is-bangalore-good-to-live-or-invest-in                                /is-bangalore-good-to-live-or-invest-in  301
+/blogs/is-bangalore-good-to-live-or-invest-in/                               /is-bangalore-good-to-live-or-invest-in  301

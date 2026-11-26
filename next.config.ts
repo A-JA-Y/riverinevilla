@@ -22,6 +22,8 @@ const nextConfig: NextConfig = {
 
   allowedDevOrigins: ["192.168.29.216"],
 
+  // Static hosting (Cloudflare) can't run this: mirrored in public/_redirects. Keep both in sync.
+
   async redirects() {
     return [
       // Routes renamed in the Embassy Riverine rebuild — keep the old paths alive.
