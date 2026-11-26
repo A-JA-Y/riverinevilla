@@ -3,6 +3,10 @@
   "name": "riverine-villa",
   "compatibility_date": "2026-11-16",
   "assets": {
-    "directory": "./out"
+    "directory": "./out",
+    // /about serves about.html; /about/ and /about.html redirect to /about.
+    "html_handling": "auto-trailing-slash",
+    // Unknown URLs get the site's own 404 page (out/404.html) with a 404 status.
+    "not_found_handling": "404-page"
   }
 }

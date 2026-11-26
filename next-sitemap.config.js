@@ -2,6 +2,9 @@
 
 module.exports = {
   siteUrl: "https://embassyriverinevilla.in",
+  // Static export: `next build` has already copied public/ into out/ by the time this
+  // runs, so write sitemap.xml (and robots.txt) straight into the deployed folder.
+  outDir: "out",
   generateRobotsTxt: false,
   generateIndexSitemap: false,
 
