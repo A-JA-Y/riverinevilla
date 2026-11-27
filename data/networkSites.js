@@ -1,6 +1,9 @@
 // Sister project websites linked from the footer of every project site.
 // Keep this file identical across all the project sites. Each footer hides its
 // own entry by passing its id(s) to <ProjectNetwork currentSiteIds={[...]} />.
+//
+// Godrej Golf Links, Godrej Crown Residences, Jaypee Greens and Konnark Estates are
+// deliberately left out: no site links to them, and they link to none of these.
 
 export const networkRegions = [
   "Noida & Greater Noida",
@@ -16,14 +19,11 @@ export const networkSites = [
   // Noida & Greater Noida
   { id: "prestige-sector-150", name: "Prestige Sector 150 Noida", url: "https://prestigenoidasector150.com/", region: "Noida & Greater Noida" },
   { id: "godrej-dmic", name: "Godrej DMIC Greater Noida", url: "https://dmicgodrej.com/", region: "Noida & Greater Noida" },
-  { id: "godrej-golf-links", name: "Godrej Golf Links", url: "https://www.godrejgolflink.in/", region: "Noida & Greater Noida" },
-  { id: "godrej-crown-residences", name: "Godrej Crown Residences", url: "https://crownresidences.godrejgolflink.in/", region: "Noida & Greater Noida" },
   { id: "legacy-by-gaurs", name: "Legacy by Gaurs", url: "https://thelegacybygaurs.com/", region: "Noida & Greater Noida" },
   { id: "the-islands-by-gaurs", name: "The Islands by Gaurs", url: "https://theislandbygaurs.com/", region: "Noida & Greater Noida" },
   { id: "trecento-residences", name: "Trecento Residences", url: "https://tracentobygaurs.com/", region: "Noida & Greater Noida" },
   { id: "trecento-by-gaurs", name: "Trecento by Gaurs", url: "https://trecentogaurs.com/", region: "Noida & Greater Noida" },
   { id: "crc-the-peridona", name: "CRC The Peridona", url: "https://thecrcperidona.com/", region: "Noida & Greater Noida" },
-  { id: "jaypee-greens", name: "Jaypee Greens", url: "https://jaypeegreen.com/", region: "Noida & Greater Noida" },
   { id: "northwind-sanctuary", name: "NorthWind Sanctuary", url: "https://thenorthwindestates.com/", region: "Noida & Greater Noida" },
   { id: "northwind-yamuna", name: "Northwind Yamuna", url: "https://northwindyamuna.com/", region: "Noida & Greater Noida" },
 
@@ -56,6 +56,5 @@ export const networkSites = [
   { id: "abhinandan-lodha-the-ridge", name: "Abhinandan Lodha The Ridge, Mashobra", url: "https://abhinandanlodhashimla.com/", region: "Shimla" },
 
   // More projects
-  { id: "konnark-estates", name: "Konnark Estates", url: "https://konnarkestates.com/", region: "More Projects" },
   { id: "konnark-high-castle", name: "Konnark High Castle", url: "https://konnarkhighcastle.in/", region: "More Projects" },
 ];
