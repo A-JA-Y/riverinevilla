@@ -69,6 +69,12 @@ const nextConfig: NextConfig = {
         destination: "/is-bangalore-good-to-live-or-invest-in",
         permanent: true,
       },
+      // A second copy of the villa formats post, published 28 Nov 2026 and retired the same day
+      {
+        source: "/blogs/4-bhk-vs-4-5-bhk-vs-5-bhk-villa-embassy-riverine-north-bangalore",
+        destination: "/blogs/embassy-riverine-4-bhk-vs-4-5-bhk-vs-5-bhk-villa",
+        permanent: true,
+      },
     ];
   },
 };
