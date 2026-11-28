@@ -1,6 +1,5 @@
 import type { MDXComponents } from "mdx/types";
 import type { ReactNode } from "react";
-import Image, { type StaticImageData } from "next/image";
 import Link from "next/link";
 import Reveal from "./Reveal";
 import VideoFacade from "./VideoFacade";
@@ -58,33 +57,8 @@ export function GuideToc({ items }: { items: { label: string; href: string }[] }
   );
 }
 
-export function GuideFigure({
-  src,
-  alt,
-  caption,
-  priority = false,
-}: {
-  /** A static import, so the build knows the image's width and height. */
-  src: StaticImageData;
-  alt: string;
-  caption?: ReactNode;
-  priority?: boolean;
-}) {
-  return (
-    <figure className="my-9">
-      <Image
-        src={src}
-        alt={alt}
-        priority={priority}
-        sizes="(max-width: 800px) 100vw, 768px"
-        className="w-full h-auto rounded-lg border border-[#e5dcc5]"
-      />
-      {caption ? (
-        <figcaption className="mt-2.5 text-[13px] leading-relaxed text-gray-500">{caption}</figcaption>
-      ) : null}
-    </figure>
-  );
-}
+/** A photo or drawing in the guide copy. Shared with the blog posts. */
+export { default as GuideFigure } from "./ArticleFigure";
 
 /**
  * The click-to-load YouTube player, for use mid-article. It shows one of the
