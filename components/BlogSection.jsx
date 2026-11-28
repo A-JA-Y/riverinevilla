@@ -2,13 +2,12 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { blogData } from "@/data/blogData";
+import { guidesAndBlogs } from "@/data/articles";
 import Reveal from "./Reveal";
 
 export default function BlogSection() {
-  const latest = [...blogData]
-    .sort((a, b) => new Date(b.date) - new Date(a.date))
-    .slice(0, 3);
+  // the three newest of the blog posts and the root-level guides
+  const latest = guidesAndBlogs.slice(0, 3);
 
   return (
     <section className="w-full bg-white py-16 md:py-20 px-6" id="blog">
@@ -28,16 +27,16 @@ export default function BlogSection() {
           {latest.map((item, i) => (
             <Reveal
               as="article"
-              key={item.id}
+              key={item.slug}
               variant="up"
               delay={i * 110}
               className="w-full sm:w-[calc(50%-12px)] lg:w-[calc((100%-48px)/3)] card-lift bg-[#FAF8F3] rounded-xl overflow-hidden border border-[#e5dcc5] shadow-sm group"
             >
-              <Link href={`/blogs/${item.slug}`} className="block">
+              <Link href={item.href} className="block">
                 <div className="relative h-[190px] overflow-hidden">
                   <Image
                     src={item.image}
-                    alt={item.altText || item.title}
+                    alt={item.alt}
                     fill
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 380px"
                     quality={74}

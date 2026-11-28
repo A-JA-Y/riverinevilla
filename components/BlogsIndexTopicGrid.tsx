@@ -21,6 +21,8 @@ export type IndexTopic = {
 
 export type IndexPost = {
   slug: string;
+  /** Where the card links. Defaults to `${basePath}/${slug}`; the root-level guides set their own. */
+  href?: string;
   title: string;
   image: string | StaticImageData;
   alt: string;
@@ -194,7 +196,7 @@ export default function BlogsIndexTopicGrid({
           ) : (
             <div className={`grid gap-6 ${single ? "" : "md:grid-cols-2"}`}>
               {filtered.map((p, i) => {
-                const href = `${basePath}/${p.slug}`;
+                const href = p.href ?? `${basePath}/${p.slug}`;
                 return (
                   <Reveal
                     as="article"
