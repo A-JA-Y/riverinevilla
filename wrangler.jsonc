@@ -8,5 +8,10 @@
     "html_handling": "auto-trailing-slash",
     // Unknown URLs get the site's own 404 page (out/404.html) with a 404 status.
     "not_found_handling": "404-page"
-  }
+  },
+  // Branch and pull-request builds run `npx wrangler preview`, which refuses to run
+  // without this block. It is empty because the site is static assets only: assets and
+  // compatibility_date stay at the top level and apply to Previews too. Previews do not
+  // inherit vars or bindings, so add any the Worker gains here as well.
+  "previews": {}
 }
