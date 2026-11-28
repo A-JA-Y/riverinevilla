@@ -39,103 +39,10 @@ const publisher = {
 
 export const blogData: BlogMeta[] = [
   {
-    "id": "blog-20261128152409",
-    "title": "4 BHK vs 4.5 BHK vs 5 BHK Villa at Embassy Riverine North Bangalore: Which One Should You Buy?",
-    "slug": "4-bhk-vs-4-5-bhk-vs-5-bhk-villa-embassy-riverine-north-bangalore",
-    "excerpt": "Hero image slot: my research returned no usable project photos, so add an official render of the stream-side villa clusters here.",
-    "metaTitle": "4 vs 4.5 vs 5 BHK Villa: Embassy Riverine North Bangalore",
-    "metaDescription": "Comparing 4, 4.5 and 5 BHK villas at Embassy Riverine North Bangalore? See plot sizes, built-up areas, indicative prices and which format fits your family.",
-    "keywords": [
-      "embassy riverine north bangalore",
-      "embassy riverine",
-      "villas in north bangalore",
-      "4 bhk villa bangalore",
-      "embassy origins",
-      "luxury villas yelahanka",
-      "ekp villas"
-    ],
-    "canonical": "https://embassyriverinevilla.in/blogs/4-bhk-vs-4-5-bhk-vs-5-bhk-villa-embassy-riverine-north-bangalore",
-    "image": "/og-image.webp",
-    "altText": "4 BHK vs 4.5 BHK vs 5 BHK Villa at Embassy Riverine North Bangalore: Which One Should You Buy?",
-    "date": "2026-11-28",
-    "updatedAt": "2026-11-28",
-    "author": "Admin",
-    "category": "Buyer Guides",
-    "readTime": "9 min read",
-    "tags": [
-      "embassy riverine",
-      "villas in north bangalore",
-      "4 bhk villa bangalore",
-      "embassy origins",
-      "luxury villas yelahanka",
-      "ekp villas"
-    ],
-    "featured": false,
-    "schemaMarkup": {
-      "@context": "https://schema.org",
-      "@type": "Article",
-      "headline": "4 BHK vs 4.5 BHK vs 5 BHK Villa at Embassy Riverine North Bangalore: Which One Should You Buy?",
-      "author": {
-        "@type": "Person",
-        "name": "Admin"
-      },
-      "publisher": {
-        "@type": "Organization",
-        "name": "Prestige Sector 150 Noida"
-      }
-    },
-    "faqSchema": {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "What is the price of a 4 BHK villa at Embassy Riverine North Bangalore?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "The project website lists an indicative Rs 14.10 – 14.97 Cr for the 4 BHK. Other sources quote different ranges, so confirm the current cost sheet with the official team."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Why is Embassy Riverine priced higher than other villa projects in North Bangalore?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Mainly density. There are fewer than 4.5 villas per acre, and each is an independent villa on its own plot. Whether that premium is worth it is a personal call, and it's best made after a site visit."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Is North Bangalore still worth it for a luxury villa?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Forum opinion leans yes, citing the airport and employment hubs, though some of the infrastructure is still in progress. Judge it on your own commute and holding period, not on appreciation claims."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "What is the difference between the 4 BHK and 4.5 BHK villa?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "The 4.5 BHK has a 3,500 sq ft plot, 5,200 sq ft built-up area and four car parks. The 4 BHK has 2,400 sq ft, 4,200 sq ft and three. See the floor plans for the room layout."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Is Embassy Riverine North Bangalore RERA registered, and when is possession?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "The website says the RERA registration covers 50.8 acres, and a property portal lists possession as September 2032. Verify the registration number and timeline on the Karnataka RERA portal."
-          }
-        }
-      ]
-    }
-  },
-  {
     "id": "blog-20261128150743",
     "title": "4 BHK vs 4.5 BHK vs 5 BHK Villa at Embassy Riverine: Which Format Is Right for You?",
     "slug": "embassy-riverine-4-bhk-vs-4-5-bhk-vs-5-bhk-villa",
-    "excerpt": "So you've settled on a villa in North Bangalore. Good. Now comes the harder part: which one? At Embassy Riverine, the three formats aren't separated by just a bedroom. The plot changes, the built-up area changes, the...",
+    "excerpt": "So you've settled on a villa in North Bangalore. Good. Now comes the harder part: which one? At Embassy Riverine, the three formats aren't separated by just a bedroom.",
     "metaTitle": "Embassy Riverine: 4 vs 4.5 vs 5 BHK Villa Compared",
     "metaDescription": "Comparing 4, 4.5 and 5 BHK villas at Embassy Riverine North Bangalore? See plot sizes, built-up areas, indicative prices and which format suits your family.",
     "keywords": [
@@ -148,12 +55,12 @@ export const blogData: BlogMeta[] = [
       "luxury villas near Bangalore airport"
     ],
     "canonical": "https://embassyriverinevilla.in/blogs/embassy-riverine-4-bhk-vs-4-5-bhk-vs-5-bhk-villa",
-    "image": "/og-image.webp",
-    "altText": "4 BHK vs 4.5 BHK vs 5 BHK Villa at Embassy Riverine: Which Format Is Right for You?",
+    "image": "/blog-villa-formats.webp",
+    "altText": "Representative image of an independent villa with its own car porch and garden",
     "date": "2026-11-28",
     "updatedAt": "2026-11-28",
-    "author": "Admin",
-    "category": "Buyer Guides",
+    "author": "Real Revenue",
+    "category": "Buyer's Guide",
     "readTime": "11 min read",
     "tags": [
       "embassy riverine",
@@ -168,14 +75,15 @@ export const blogData: BlogMeta[] = [
       "@context": "https://schema.org",
       "@type": "Article",
       "headline": "4 BHK vs 4.5 BHK vs 5 BHK Villa at Embassy Riverine: Which Format Is Right for You?",
-      "author": {
-        "@type": "Person",
-        "name": "Admin"
+      "datePublished": "2026-11-28",
+      "dateModified": "2026-11-28",
+      "author": { "@type": "Organization", "name": "Real Revenue" },
+      publisher,
+      "image": `${SITE_URL}/blog-villa-formats.webp`,
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": `${SITE_URL}/blogs/embassy-riverine-4-bhk-vs-4-5-bhk-vs-5-bhk-villa`,
       },
-      "publisher": {
-        "@type": "Organization",
-        "name": "Prestige Sector 150 Noida"
-      }
     },
     "faqSchema": {
       "@context": "https://schema.org",
