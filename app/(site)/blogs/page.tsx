@@ -10,7 +10,7 @@ import BlogsIndexTopicGrid, {
   type IndexPost,
   type IndexTopic,
 } from "@/components/BlogsIndexTopicGrid";
-import { blogData } from "@/data/blogData";
+import { guidesAndBlogs } from "@/data/articles";
 import { breadcrumb } from "@/data/project";
 
 const META_TITLE = "Embassy Riverine Blog | Review, Price & Buyer Guides";
@@ -91,22 +91,23 @@ const guideCopy: Record<string, { blurb: string; cta: string }> = {
   },
 };
 
-const posts: IndexPost[] = [...blogData]
-  .sort((a, b) => b.date.localeCompare(a.date))
-  .map((b) => {
-    const copy = guideCopy[b.slug];
-    return {
-      slug: b.slug,
-      title: b.title,
-      image: b.image,
-      alt: b.altText || b.title,
-      topic: b.category,
-      readTime: b.readTime,
-      date: b.date,
-      blurb: copy?.blurb ?? b.excerpt,
-      cta: copy?.cta ?? "Read the guide",
-    };
-  });
+/* The blog posts and the guides with their own pages at the site root
+   (data/guideData.ts), newest first, each linking to where it lives. */
+const posts: IndexPost[] = guidesAndBlogs.map((a) => {
+  const copy = guideCopy[a.slug];
+  return {
+    slug: a.slug,
+    href: a.href,
+    title: a.title,
+    image: a.image,
+    alt: a.alt,
+    topic: a.category,
+    readTime: a.readTime,
+    date: a.date,
+    blurb: copy?.blurb ?? a.excerpt,
+    cta: copy?.cta ?? "Read the guide",
+  };
+});
 
 const whereToStart: { label: string; body: ReactNode }[] = [
   {

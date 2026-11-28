@@ -1,19 +1,15 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { blogData } from "@/data/blogData";
-import NewsData from "@/data/newsData";
+import { guidesAndBlogs, newsCards, newestFirst } from "@/data/articles";
 
 interface RelatedPostsProps {
   currentSlug: string;
 }
 
 export default function RelatedPosts({ currentSlug }: RelatedPostsProps) {
-  // Combine and sort all content
-  const allPosts = [
-    ...blogData.map((b) => ({ ...b, type: "blogs" })),
-    ...NewsData.map((n) => ({ ...n, type: "news" })),
-  ].sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+  // Blog posts, the root-level guides and news, newest first
+  const allPosts = [...guidesAndBlogs, ...newsCards].sort(newestFirst);
 
   // Filter out current and take top 5
   const related = allPosts
@@ -36,7 +32,7 @@ export default function RelatedPosts({ currentSlug }: RelatedPostsProps) {
         {related.map((post) => (
           <Link
             key={post.slug}
-            href={`/${post.type}/${post.slug}`}
+            href={post.href}
             className="group flex gap-4 items-start"
           >
             <div className="relative w-20 h-20 flex-shrink-0 overflow-hidden rounded-lg bg-gray-50 border border-gray-100">

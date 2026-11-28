@@ -1,27 +1,21 @@
 import type { Metadata } from "next";
-import GuideLayout, {
-  guideSchema,
-  type GuideHero,
-  type GuidePhotoCredit,
-} from "@/components/GuideLayout";
+import GuideLayout, { guideSchema, type GuidePhotoCredit } from "@/components/GuideLayout";
 import { guideMdxComponents } from "@/components/GuideContent";
 import GuideBody from "@/content/guides/is-bangalore-good-to-live-or-invest-in.mdx";
+import { getGuide } from "@/data/guideData";
 import { bangaloreLiveOrInvestFaqs } from "@/data/guideFaqs";
 import { photoCredits } from "@/data/photoCredits";
 
-const PATH = "/is-bangalore-good-to-live-or-invest-in";
+/* URL, title, date and hero come from data/guideData.ts, which the article
+   listings (/blogs, the home page, "Recent Stories") read too. */
+const guide = getGuide("is-bangalore-good-to-live-or-invest-in");
+const PATH = guide.href;
 const META_TITLE = "Is Bangalore Good to Live or Invest In? 2026 Data & Verdict";
 const META_DESCRIPTION =
   "Is Bangalore good to live or invest in? 2026 prices, rental yields, unsold stock, best areas to invest in Bangalore and the honest trade-offs, in one guide.";
-const TITLE = "Is Bangalore Good to Live or Invest In? A 2026 Answer With the Numbers";
-const PUBLISHED = "2026-11-04";
-
-const hero: GuideHero = {
-  src: "/guides/bangalore-live-or-invest.webp",
-  width: 1600,
-  height: 840,
-  alt: "Manyata Embassy Business Park and the North Bangalore skyline at sunset",
-};
+const TITLE = guide.title;
+const PUBLISHED = guide.published;
+const hero = guide.hero;
 
 /** Creative Commons photos on this page, credited at the foot of the page. */
 const credits: GuidePhotoCredit[] = [

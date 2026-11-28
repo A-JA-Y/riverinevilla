@@ -1,28 +1,22 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import GuideLayout, {
-  guideSchema,
-  type GuideHero,
-  type GuidePhotoCredit,
-} from "@/components/GuideLayout";
+import GuideLayout, { guideSchema, type GuidePhotoCredit } from "@/components/GuideLayout";
 import { guideMdxComponents } from "@/components/GuideContent";
 import GuideBody from "@/content/guides/3-bhk-or-4-bhk-which-is-better-to-live-in-bangalore.mdx";
+import { getGuide } from "@/data/guideData";
 import { bhkComparisonFaqs } from "@/data/guideFaqs";
 import { photoCredits } from "@/data/photoCredits";
 
-const PATH = "/3-bhk-or-4-bhk-which-is-better-to-live-in-bangalore";
+/* URL, title, date and hero come from data/guideData.ts, which the article
+   listings (/blogs, the home page, "Recent Stories") read too. */
+const guide = getGuide("3-bhk-or-4-bhk-which-is-better-to-live-in-bangalore");
+const PATH = guide.href;
 const META_TITLE = "3 BHK or 4 BHK in Bangalore: Which Is Better to Live In?";
 const META_DESCRIPTION =
   "3 BHK or 4 BHK in Bangalore? We compare size, the Rs 1 Cr price gap, EMI, maintenance, resale and where each is actually available, then give you a 5-minute test to decide.";
-const TITLE = "3 BHK or 4 BHK: Which One Is Good to Live In Bangalore? (2026 Guide)";
-const PUBLISHED = "2026-11-04";
-
-const hero: GuideHero = {
-  src: "/guides/3-bhk-or-4-bhk-bangalore.webp",
-  width: 1600,
-  height: 840,
-  alt: "Apartment towers around the central park at Prestige Shantiniketan, Whitefield, Bangalore",
-};
+const TITLE = guide.title;
+const PUBLISHED = guide.published;
+const hero = guide.hero;
 
 /** Creative Commons photos on this page, credited at the foot of the page. */
 const credits: GuidePhotoCredit[] = [
