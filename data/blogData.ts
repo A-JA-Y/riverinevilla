@@ -39,6 +39,99 @@ const publisher = {
 
 export const blogData: BlogMeta[] = [
   {
+    "id": "blog-20261128150743",
+    "title": "4 BHK vs 4.5 BHK vs 5 BHK Villa at Embassy Riverine: Which Format Is Right for You?",
+    "slug": "embassy-riverine-4-bhk-vs-4-5-bhk-vs-5-bhk-villa",
+    "excerpt": "So you've settled on a villa in North Bangalore. Good. Now comes the harder part: which one? At Embassy Riverine, the three formats aren't separated by just a bedroom. The plot changes, the built-up area changes, the...",
+    "metaTitle": "Embassy Riverine: 4 vs 4.5 vs 5 BHK Villa Compared",
+    "metaDescription": "Comparing 4, 4.5 and 5 BHK villas at Embassy Riverine North Bangalore? See plot sizes, built-up areas, indicative prices and which format suits your family.",
+    "keywords": [
+      "embassy riverine north bangalore",
+      "Embassy Riverine",
+      "villas in North Bangalore",
+      "4 BHK villa Bangalore",
+      "5 BHK villa Bangalore",
+      "Embassy Origins",
+      "luxury villas near Bangalore airport"
+    ],
+    "canonical": "https://embassyriverinevilla.in/blogs/embassy-riverine-4-bhk-vs-4-5-bhk-vs-5-bhk-villa",
+    "image": "/og-image.webp",
+    "altText": "4 BHK vs 4.5 BHK vs 5 BHK Villa at Embassy Riverine: Which Format Is Right for You?",
+    "date": "2026-11-28",
+    "updatedAt": "2026-11-28",
+    "author": "Admin",
+    "category": "Buyer Guides",
+    "readTime": "11 min read",
+    "tags": [
+      "embassy riverine",
+      "villas in north bangalore",
+      "4 bhk villa bangalore",
+      "5 bhk villa bangalore",
+      "embassy origins",
+      "luxury villas near bangalore airport"
+    ],
+    "featured": false,
+    "schemaMarkup": {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "4 BHK vs 4.5 BHK vs 5 BHK Villa at Embassy Riverine: Which Format Is Right for You?",
+      "author": {
+        "@type": "Person",
+        "name": "Admin"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Prestige Sector 150 Noida"
+      }
+    },
+    "faqSchema": {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What villa sizes are available at Embassy Riverine North Bangalore?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "There are three formats: a 4 BHK on a 2,400 sq ft plot with 4,200 sq ft built-up, a 4.5 BHK on 3,500 sq ft with 5,200 sq ft built-up, and a 5 BHK on 5,400 sq ft with 6,800 sq ft built-up. The split is 48, 137 and 32 villas."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the price of a villa at Embassy Riverine North Bangalore?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The project website shows indicative prices of Rs 14.10 – 14.97 Cr for the 4 BHK and Rs 17.43 – 19.87 Cr for the 4.5 BHK, with the 5 BHK on request. Portals show slightly different ranges, so ask for a current cost sheet."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Are people actually shifting towards the airport side for living?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It's a real debate on Reddit. Some buyers think the area mainly suits frequent flyers and long-term holders, while others point to the schools and the space. Visit on a weekday and judge the commute and daily conveniences for yourself."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is buying a villa near the airport worth the risk?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "That depends on how long you plan to hold and whether you'll live there. The common concerns are aircraft noise, pricing that already reflects future growth, and long construction timelines. All three are worth checking in person and on RERA."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Are these really waterfront villas?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Not quite. The project website says a natural stream and a lake run through the site, and that this is \"a stream and a lake, not a waterfront\". Walk the stream edge before you pay a premium for the view."
+          }
+        }
+      ]
+    }
+  },
+  {
     id: "blog-1",
 
     /* SEO */
